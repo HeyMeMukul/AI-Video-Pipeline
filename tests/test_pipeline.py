@@ -320,6 +320,11 @@ class TestAgentsWithMockedLLM:
             "agents.qc.get_llm_for_agent": self._mock_llm(MOCK_QC_RESPONSE),
         }
 
+        # Hermetic Kaggle mock: reports unconfigured so the agent takes the
+        # mocked per-scene generate() path instead of pushing a real kernel.
+        kaggle_cls_mock = MagicMock(name="KaggleVideoClient")
+        kaggle_cls_mock.return_value.is_configured.return_value = False
+
         with (
             patch("agents.director.get_llm_for_agent", return_value=responses["agents.director.get_llm_for_agent"]),
             patch("agents.story_breakdown.get_llm_for_agent", return_value=responses["agents.story_breakdown.get_llm_for_agent"]),
@@ -329,6 +334,9 @@ class TestAgentsWithMockedLLM:
             patch("agents.prompt_builder.get_llm_for_agent", return_value=responses["agents.prompt_builder.get_llm_for_agent"]),
             patch("agents.qc.get_llm_for_agent", return_value=responses["agents.qc.get_llm_for_agent"]),
             patch("core.video_client.VideoClient.generate", return_value="/tmp/mock_clip.mp4"),
+            # Hermetic Kaggle: never push real kernels from the suite,
+            # even when KAGGLE_USERNAME/KAGGLE_KEY are set in .env
+            patch("core.kaggle_client.KaggleVideoClient", new=kaggle_cls_mock),
         ):
             state = pipeline.run()
 
