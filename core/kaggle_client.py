@@ -199,8 +199,11 @@ class KaggleVideoClient:
     def _generate_kernel_script(self, scenes: List[Dict[str, Any]]) -> str:
         """
         Generate self-contained Python script to run on Kaggle's 16GB GPU.
-        Phase 1: Local SDXL-Lightning 4-step 8K Keyframe Plates
-        Phase 2: LTX-Video (2B DiT) Image-to-Video Animation
+        Phase 1: Local SDXL-Lightning 4-step Keyframe Plates
+        Phase 2: Wan VACE 1.3B image-to-video (plate = first frame),
+                 fallback Wan T2V 1.3B, fallback LTX-Video 2B
+        Phase 2C: Real-ESRGAN x2 neural upscale (optional, guarded)
+        Phase 2B: Motion interpolation to 30 FPS + Lanczos 1080p mastering
         Phase 3: AudioLDM2 AI Foley & Sound Design
         """
         scenes_json = json.dumps(scenes, indent=2)
@@ -303,30 +306,76 @@ except Exception as e:
     print(f"Phase 1 notice ({{e}}). Continuing to video generation...", flush=True)
 
 # ==============================================================================
-# PHASE 2: Wan 2.1 (1.3B) Cinematic Flow-Matching Diffusion Transformer
+# PHASE 2: Cinematic diffusion (VACE-I2V first, then T2V, then LTX fallback)
 # ==============================================================================
-print("=== Phase 2: Cinema-Grade Video Generation (Wan 2.1) ===", flush=True)
+print("=== Phase 2: Cinema-Grade Video Generation ===", flush=True)
 from diffusers.utils import export_to_video
 
-video_engine = "wan"
+video_engine = None
 pipe = None
 
-try:
-    print("Loading Wan 2.1 (1.3B) Diffusion Transformer in BF16...", flush=True)
-    from diffusers import WanPipeline
-    pipe = WanPipeline.from_pretrained(
-        "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
-        torch_dtype=torch.bfloat16,
-    )
-    if torch.cuda.is_available():
+# Plates from Phase 1 double as I2V first frames — no upload needed
+plate_paths = {{}}
+for _sc in scenes:
+    _pp = os.path.join(out_dir, f"scene_{{_sc['scene_id']:02d}}_frame.png")
+    if os.path.exists(_pp) and os.path.getsize(_pp) > 1000:
+        plate_paths[_sc["scene_id"]] = _pp
+print(f"Keyframe plates available for I2V: {{sorted(plate_paths)}}", flush=True)
+
+# --- Attempt 1: Wan VACE 1.3B image-to-video (best quality on T4) ---
+if len(plate_paths) == len(scenes) and scenes:
+    try:
         try:
-            pipe.enable_model_cpu_offload()
-        except Exception:
-            pipe.to(device)
-    video_engine = "wan"
-    print("✅ Wan 2.1 Video Pipeline loaded successfully!", flush=True)
-except Exception as wan_err:
-    print(f"Notice: Wan 2.1 init ({{wan_err}}). Falling back to high-res LTX-Video engine...", flush=True)
+            from diffusers import WanVACEPipeline, AutoencoderKLWan
+        except ImportError:
+            print("WanVACEPipeline not in installed diffusers — installing diffusers from GitHub main...", flush=True)
+            subprocess.run([sys.executable, "-m", "pip", "install", "-q", "git+https://github.com/huggingface/diffusers"], check=True)
+            from diffusers import WanVACEPipeline, AutoencoderKLWan
+        from diffusers.schedulers.scheduling_unipc_multistep import UniPCMultistepScheduler
+
+        print("Loading Wan VACE 1.3B (I2V) + fp32 VAE...", flush=True)
+        _vae = AutoencoderKLWan.from_pretrained(
+            "Wan-AI/Wan2.1-VACE-1.3B-diffusers", subfolder="vae", torch_dtype=torch.float32
+        )
+        pipe = WanVACEPipeline.from_pretrained(
+            "Wan-AI/Wan2.1-VACE-1.3B-diffusers", vae=_vae, torch_dtype=torch.bfloat16,
+        )
+        pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config, flow_shift=3.0)
+        if torch.cuda.is_available():
+            try:
+                pipe.enable_model_cpu_offload()
+            except Exception:
+                pipe.to(device)
+        video_engine = "vace"
+        print("✅ Wan VACE 1.3B I2V pipeline loaded successfully!", flush=True)
+    except Exception as vace_err:
+        print(f"Notice: VACE-I2V unavailable ({{vace_err}}). Trying T2V 1.3B...", flush=True)
+        pipe = None
+else:
+    print("Skipping VACE-I2V (plates missing) — using T2V path...", flush=True)
+
+# --- Attempt 2: Wan T2V 1.3B ---
+if pipe is None:
+    try:
+        print("Loading Wan 2.1 (1.3B) Diffusion Transformer in BF16...", flush=True)
+        from diffusers import WanPipeline
+        pipe = WanPipeline.from_pretrained(
+            "Wan-AI/Wan2.1-T2V-1.3B-Diffusers",
+            torch_dtype=torch.bfloat16,
+        )
+        if torch.cuda.is_available():
+            try:
+                pipe.enable_model_cpu_offload()
+            except Exception:
+                pipe.to(device)
+        video_engine = "wan"
+        print("✅ Wan 2.1 Video Pipeline loaded successfully!", flush=True)
+    except Exception as wan_err:
+        print(f"Notice: Wan 2.1 init ({{wan_err}}). Falling back to high-res LTX-Video engine...", flush=True)
+        pipe = None
+
+# --- Attempt 3: LTX-Video 2B ---
+if pipe is None:
     try:
         from diffusers import LTXPipeline
         pipe = LTXPipeline.from_pretrained(
@@ -396,7 +445,25 @@ for sc in scenes:
     print(f"   Prompt: {{prompt[:140]}}...", flush=True)
 
     with torch.inference_mode():
-        if video_engine == "wan":
+        if video_engine == "vace":
+            # Reference-to-video: SDXL plate = first frame, model dreams the rest
+            _first = Image.open(plate_paths[sc_id]).convert("RGB").resize((gen_w, gen_h))
+            _blank = Image.new("RGB", (gen_w, gen_h), (128, 128, 128))
+            _keep = Image.new("L", (gen_w, gen_h), 0)
+            _fill = Image.new("L", (gen_w, gen_h), 255)
+            video = pipe(
+                video=[_first] + [_blank] * (num_frames - 1),
+                mask=[_keep] + [_fill] * (num_frames - 1),
+                prompt=prompt,
+                negative_prompt=neg,
+                height=gen_h,
+                width=gen_w,
+                num_frames=num_frames,
+                num_inference_steps=30,
+                guidance_scale=5.0,
+            ).frames[0]
+            del _first, _blank, _keep, _fill
+        elif video_engine == "wan":
             video = pipe(
                 prompt=prompt,
                 negative_prompt=neg,
@@ -415,6 +482,49 @@ for sc in scenes:
                 num_inference_steps=32,
                 guidance_scale=4.0,
             ).frames[0]
+
+    # ==============================================================================
+    # PHASE 2C: Real-ESRGAN x2 neural upscale (guarded — falls back to raw frames)
+    # ==============================================================================
+    try:
+        import urllib.request as _urlreq
+        import numpy as _np
+        _esr_weights = os.path.join(out_dir, "RealESRGAN_x2plus.pth")
+        if not os.path.exists(_esr_weights):
+            print("Downloading Real-ESRGAN x2 weights (~64MB)...", flush=True)
+            _urlreq.urlretrieve(
+                "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x2plus.pth",
+                _esr_weights,
+            )
+        try:
+            from realesrgan import RealESRGANer
+        except ImportError:
+            print("Installing realesrgan...", flush=True)
+            subprocess.run([sys.executable, "-m", "pip", "install", "-q", "realesrgan"], check=True)
+            from realesrgan import RealESRGANer
+        from basicsr.archs.rrdbnet_arch import RRDBNet
+
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        _rrdb = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=2)
+        _upsampler = RealESRGANer(
+            scale=2, model_path=_esr_weights, model=_rrdb,
+            tile=256, tile_pad=10, pre_pad=0, half=True, device=device,
+        )
+        print(f"✨ Real-ESRGAN x2 upscaling {{len(video)}} frames...", flush=True)
+        _hd_frames = []
+        with torch.inference_mode():
+            for _fr in video:
+                _sr, _ = _upsampler.enhance(_np.array(_fr), outscale=2)
+                _hd_frames.append(Image.fromarray(_sr))
+        video = _hd_frames
+        del _upsampler, _rrdb, _hd_frames
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        print(f"✅ Neural upscale complete: {{video[0].size}} per frame", flush=True)
+    except Exception as esr_err:
+        print(f"Notice: Real-ESRGAN skipped ({{esr_err}}). Using diffusion-native frames...", flush=True)
 
     raw_file = os.path.join(out_dir, f"scene_{{sc_id:02d}}_raw.mp4")
     out_file = os.path.join(out_dir, f"scene_{{sc_id:02d}}.mp4")
