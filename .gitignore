@@ -1,0 +1,72 @@
+# ── Secrets & credentials (NEVER commit) ──
+.env
+.creds.sh
+*.key
+*.pem
+kaggle.json
+~/.kaggle/
+.git-credentials
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.venv*/
+.env*/
+pip-wheel-metadata/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ── Generated media (reproducible via pipeline — keep repo lean) ──
+*.mp4
+*.wav
+*.mp3
+*.log
+*.part
+*.tmp
+
+# Keep project metadata, ignore large per-scene binaries is handled above.
+# Uncomment to also ignore rendered frames/reference caches:
+# projects/*/clips/*
+# projects/*/output/*
+# !projects/*/project.json
+# !projects/*/story.txt
+
+# ── Top-level legacy output dirs (pipeline writes under projects/) ──
+/clips/*
+!/clips/.gitkeep
+/audio/*
+!/audio/.gitkeep
+/output/*
+!/output/.gitkeep
+/storyboards/*
+!/storyboards/.gitkeep
+
+# ── Node / Studio UI ──
+studio-ui/node_modules/
+studio-ui/dist/
+studio-ui/.vite/
+*.local
+
+# ── Web ──
+web/static/uploads/
+web/__pycache__/
+
+# ── OS / Editor ──
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+
+# ── Misc ──
+scratch/
+*.bak

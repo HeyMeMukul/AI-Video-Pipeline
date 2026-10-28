@@ -1,0 +1,196 @@
+# AI Film Production Pipeline — Configuration
+# ─────────────────────────────────────────────────────────────────────────────
+# Provider Priority (auto-detected from env vars):
+#   OmniRoute → OpenRouter → Anthropic → Gemini → NVIDIA NIM →
+#   DeepSeek → Qwen → OpenAI → HuggingFace (always available, free)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ─────────────────────────────────────────────
+# LLM Settings — Zero-Cost / Student Discount Focus
+# ─────────────────────────────────────────────
+llm:
+  # Primary provider: Gemini Pro (free/student discount) or OmniRoute (using free/cheap models)
+  provider: gemini                     # gemini | omniroute | openrouter | deepseek | qwen | nvidia_nim | huggingface
+  model: gemini-2.5-flash-lite         # Gemini 2.5 Flash Lite — high speed & available quota
+  temperature: 0.7
+  max_tokens: 4096
+
+  # ── Per-Agent Model Routing ───────────────────────────────
+  # Each agent gets the best model for its complexity level.
+  # Leave empty to use auto-routing (recommended).
+  # Format: "provider/model" or just "model" if provider is default.
+  routing:
+    # HEAVY tier — best reasoning (Director, Character Bible)
+    heavy:
+      omniroute:   "google/gemini-2.0-flash"
+      openrouter:  "google/gemini-2.0-flash-exp:free"
+      gemini:      "gemini-2.0-flash-thinking-exp"
+      deepseek:    "deepseek-reasoner"
+      nvidia_nim:  "nvidia/llama-3.1-nemotron-70b-instruct"
+
+    # MEDIUM tier — balanced (Story Breakdown, Environment, Cinematography, Audio)
+    medium:
+      omniroute:   "google/gemini-2.0-flash"
+      openrouter:  "google/gemini-2.0-flash-exp:free"
+      gemini:      "gemini-2.0-flash"
+      deepseek:    "deepseek-chat"
+      qwen:        "qwen-plus"
+      nvidia_nim:  "meta/llama-3.3-70b-instruct"
+      huggingface: "mistralai/Mistral-7B-Instruct-v0.3"
+
+    # FAST tier — cheap + fast (Prompt Builder, QC, Editor, Video Generator)
+    fast:
+      omniroute:   "deepseek/deepseek-chat"
+      openrouter:  "deepseek/deepseek-chat-v3-0324:free"
+      deepseek:    "deepseek-chat"
+      qwen:        "qwen-turbo"
+      gemini:      "gemini-2.0-flash"
+      nvidia_nim:  "meta/llama-3.1-8b-instruct"
+      huggingface: "mistralai/Mistral-7B-Instruct-v0.3"
+
+    # ULTRA-FAST tier — smallest free model (simple JSON transforms)
+    ultra_fast:
+      omniroute:   "qwen/qwen3-8b"
+      openrouter:  "qwen/qwen3-8b:free"
+      qwen:        "qwen-turbo"
+      gemini:      "gemini-1.5-flash-8b"
+      huggingface: "mistralai/Mistral-7B-Instruct-v0.3"
+
+# ─────────────────────────────────────────────
+# Video Generation
+# ─────────────────────────────────────────────
+video:
+  # Provider priority: kaggle | kling | krea | huggingface | veo | fal | replicate
+  provider: kaggle                      # kaggle | kling | krea | huggingface | veo | fal | replicate
+  model: "Wan-AI/Wan2.1-T2V-1.3B-Diffusers" # Wan 2.1 (1.3B) Flow-Matching DiT
+  default_duration_seconds: 5
+  default_aspect_ratio: "9:16"
+  fps: 30
+  max_retries: 3
+
+  # ── Model Router — picks cheapest that meets quality bar ──
+  # Each scene type routes to a different model
+  model_router:
+    establishing:    "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
+    character_wide:  "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
+    character_close: "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
+    i2v_available:   "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
+    free_first:      "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
+
+  # ── Fallback chain ──────────────────────────────────────
+  fallback_order:
+    - kaggle      # Kaggle Cloud GPU (Wan 2.1 + Optical Flow + Lanczos 1080p)
+    - kling       # Kling AI API (2-account auto-rotation)
+    - krea        # Krea AI API
+    - huggingface # HuggingFace Spaces (SVD/CogVideoX)
+    - veo         # Google Veo
+    - fal         # fal.ai
+    - replicate   # replicate.com
+
+# ─────────────────────────────────────────────
+# Image Generation (reference frames)
+# ─────────────────────────────────────────────
+image:
+  provider: fal                       # fal | replicate | imagen | stability | dalle | huggingface
+  model: fal-ai/flux/schnell          # FLUX Schnell — fast, cheap, professional quality
+  style: "cinematic, photorealistic"
+
+  # Free alternative
+  free_model: "black-forest-labs/FLUX.1-schnell"   # Free on HuggingFace
+
+# ─────────────────────────────────────────────
+# Audio
+# ─────────────────────────────────────────────
+audio:
+  tts_provider: elevenlabs            # elevenlabs | google_tts | openai_tts | edge_tts
+  music_provider: suno                # suno | udio | mubert | manual
+  default_voice: "calm male"
+  output_format: mp3
+  loudness_lufs: -14
+
+  # Free TTS fallback (no API key needed)
+  free_tts: edge_tts                  # Microsoft Edge TTS — completely free, good quality
+
+# ─────────────────────────────────────────────
+# Output
+# ─────────────────────────────────────────────
+output:
+  resolution: "1080x1920"
+  fps: 30
+  format: mp4
+  codec: libx264
+  audio_codec: aac
+  audio_bitrate: "192k"
+  crf: 18                             # Quality: lower = better (18 is near-lossless)
+
+  # Post-processing
+  upscale: false                      # Set to true to run Real-ESRGAN after generation
+  upscale_factor: 2                   # 2x = 540p→1080p, 4x = 540p→2160p
+
+# ─────────────────────────────────────────────
+# QC Thresholds
+# ─────────────────────────────────────────────
+qc:
+  min_pass_score: 70
+  max_retries: 3
+  auto_retry: true
+
+# ─────────────────────────────────────────────
+# API Keys
+# Prefer setting these in .env file — DO NOT commit keys here
+# ─────────────────────────────────────────────
+api_keys:
+  # ── OmniRoute (primary — routes everything) ─────────────
+  omniroute_api_key: ""               # OMNIROUTE_API_KEY env var
+
+  # ── OpenRouter (great free tier selection) ───────────────
+  openrouter_api_key: ""              # OPENROUTER_API_KEY env var
+
+  # ── Direct providers ─────────────────────────────────────
+  google_api_key: ""                  # GOOGLE_API_KEY — Gemini Pro
+  openai_api_key: ""                  # OPENAI_API_KEY
+  anthropic_api_key: ""              # ANTHROPIC_API_KEY — OpenCode Go
+  deepseek_api_key: ""               # DEEPSEEK_API_KEY
+  qwen_api_key: ""                   # QWEN_API_KEY / DASHSCOPE_API_KEY
+  nvidia_api_key: ""                 # NVIDIA_API_KEY — NIM free tier
+  huggingface_api_key: ""            # HF_TOKEN (optional — most models free without)
+
+  # ── Video & Image APIs ───────────────────────────────────
+  fal_api_key: ""                    # FAL_KEY — fal.ai video/image
+  replicate_api_key: ""              # REPLICATE_API_TOKEN
+
+  # ── Audio APIs ───────────────────────────────────────────
+  elevenlabs_api_key: ""             # ELEVENLABS_API_KEY (10k chars/month free)
+  stability_api_key: ""             # STABILITY_API_KEY
+
+# ─────────────────────────────────────────────
+# Platform Presets
+# ─────────────────────────────────────────────
+platforms:
+  instagram_reel:
+    resolution: "1080x1920"
+    aspect_ratio: "9:16"
+    fps: 30
+    max_duration: 90
+    target_lufs: -14
+
+  youtube_shorts:
+    resolution: "1080x1920"
+    aspect_ratio: "9:16"
+    fps: 30
+    max_duration: 60
+    target_lufs: -14
+
+  tiktok:
+    resolution: "1080x1920"
+    aspect_ratio: "9:16"
+    fps: 30
+    max_duration: 60
+    target_lufs: -14
+
+  cinematic:
+    resolution: "1920x1080"
+    aspect_ratio: "16:9"
+    fps: 24
+    max_duration: 600
+    target_lufs: -14

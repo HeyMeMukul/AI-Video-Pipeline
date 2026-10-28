@@ -1,0 +1,36 @@
+{
+  "project": "the_interview",
+  "output_reel": "/home/cyb3rfy/AI-Video/projects/the_interview/output/final_reel.mp4",
+  "platform": "instagram_reel",
+  "target_duration": 30,
+  "scenes": [
+    {
+      "scene_id": 1,
+      "clip": "/home/cyb3rfy/AI-Video/projects/the_interview/clips/scene_01.mp4",
+      "duration_seconds": 7,
+      "story_beat": "Ms. Vance slowly clicks her metallic pen under cold overhead fluorescent lights across the sleek glass desk with sharp corporate scrutiny.",
+      "camera_movement": "slow push-in"
+    },
+    {
+      "scene_id": 2,
+      "clip": "/home/cyb3rfy/AI-Video/projects/the_interview/clips/scene_02.mp4",
+      "duration_seconds": 8,
+      "story_beat": "Leo leans back into an oversized leather armchair through deep slate-blue shadows of the high-end office with unearned deadpan confidence.",
+      "camera_movement": "static"
+    },
+    {
+      "scene_id": 3,
+      "clip": "/home/cyb3rfy/AI-Video/projects/the_interview/clips/scene_03.mp4",
+      "duration_seconds": 7,
+      "story_beat": "Ms. Vance slaps a heavy manila folder closed over the reflective desk surface under muted amber highlights with sudden authoritative finality.",
+      "camera_movement": "slow push-in"
+    },
+    {
+      "scene_id": 4,
+      "clip": "/home/cyb3rfy/AI-Video/projects/the_interview/clips/scene_04.mp4",
+      "duration_seconds": 8,
+      "story_beat": "Ms. Vance slowly lowers her designer spectacles through subtle volumetric room haze across the polished glass tabletop with a subtle cynical smirk.",
+      "camera_movement": "slow push-in"
+    }
+  ]
+}

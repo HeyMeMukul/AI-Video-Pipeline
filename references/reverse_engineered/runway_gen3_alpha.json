@@ -1,0 +1,30 @@
+{
+  "tool_name": "Runway Gen-3 Alpha",
+  "category": "diffusion_transformer_video",
+  "provenance": "Reverse-engineered web payload & tokenizer conditioning",
+  "prompt_architecture": {
+    "syntax_template": "Camera: {camera_movement}. Scene: {environment_and_lighting}. Action: {character_physical_action}. Style: {cinematic_style_and_grain}.",
+    "attention_weighting": "Prefix camera direction and physical kinematics in the first 25 tokens. Avoid buzzwords like 'hyperrealistic', '4K', 'photorealistic' which dilute U-Net/DiT cross-attention.",
+    "rules": [
+      "Always specify the camera movement type explicitly (e.g. 'Camera: Slow push-in, low angle').",
+      "Specify physical light sources with color temperature (e.g. '3200K tungsten bounce', 'diffused morning sunlight').",
+      "Action must use continuous progressive verbs ('running', 'grasping', 'turning head slowly').",
+      "Keep positive prompt between 40 and 80 words for optimal temporal stability."
+    ]
+  },
+  "camera_trajectories": {
+    "supported_vectors": ["x", "y", "z", "pitch", "yaw", "roll"],
+    "motion_presets": {
+      "push_in": {"z": 0.4, "pitch": 0.0, "easing": "ease-in-out"},
+      "pull_back": {"z": -0.4, "pitch": 0.0, "easing": "ease-in-out"},
+      "dramatic_low_angle_pan": {"y": -0.2, "yaw": 0.3, "easing": "linear"},
+      "subtle_handheld": {"jitter": 0.05, "drift": 0.02}
+    }
+  },
+  "conditioning_parameters": {
+    "cfg_scale": 6.5,
+    "motion_bucket_range": [3, 7],
+    "fps": 24,
+    "aspect_ratios": ["16:9", "9:16", "21:9"]
+  }
+}

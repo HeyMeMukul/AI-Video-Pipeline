@@ -1,0 +1,285 @@
+{
+  "project_id": "7d409d78",
+  "project_name": "shivas_ascent",
+  "created_at": "2026-10-01T05:24:03.190604+00:00",
+  "updated_at": "2026-10-01T05:28:06.762427+00:00",
+  "story": "Title: SHIVA'S ASCENT\n\nHook:\nAt the base of an impossible mile-high celestial waterfall, a bronze-skinned demigod heaves a glowing granite Shiva Lingam onto his back, defying nature itself in an explosive vertical ascent into the clouds.\n\nScene 1:\nExtreme low-angle view of Shivudu, a bronze-skinned demigod with corded muscles drenched in roaring water, carrying a massive ancient black basalt Shiva Lingam on his bare shoulder under crashing torrents.\nAction: Shivudu steps into the rushing white river rapids beneath the waterfall, water beading off his flexed muscles and sacred white ash marks in slow motion.\n\nScene 2:\nShivudu slams the gargantuan stone Lingam onto a submerged river pedestal beneath the waterfall, erupting a towering hundred-foot plume of water spray that crowns the sacred monolith.\nAction: The colossal stone locks into place under the waterfall's perpetual holy bath, hydraulic shockwaves rippling across the water surface in high-speed macro detail.\n\nScene 3:\nHalfway up a sheer 90-degree wet basalt cliff face, Shivudu scales the vertical mountain alongside the thundering waterfall, his fingers gripping razor-thin cracks as water cascades down around him.\nAction: Shivudu lunges upward with superhuman agility against the slick dark rock, bare feet finding purchase above a dizzying bottomless misty abyss.\n\nScene 4:\nThrough the airborne rainbow spray, an ethereal glowing celestial warrior maiden dances upward along the vertical torrent, leaving bioluminescent azure trails that guide Shivudu's ascent.\nAction: Medium shot of Shivudu looking upward with fierce ecstatic determination as the glowing phantom muse leads him higher into the storm.\n\nScene 5:\nShivudu launches his entire body backward over a three-thousand-foot abyss, swings on an ancient iron chain through the heart of the waterfall curtain, and catapults through the cloud canopy into blinding golden sunrise light where the colossal golden spires of the celestial mountain kingdom emerge.\nAction: Explosive vertical leap breaching the cloud ceiling, water droplets catching blinding golden anamorphic flares as the mountain summit opens into heavenly vistas.\n\nTagline:\nHe did not climb to escape the earth. He climbed to conquer the sky.\n",
+  "target_duration_seconds": 30,
+  "platform": "instagram_reel",
+  "aspect_ratio": "9:16",
+  "style": "mythic epic cinematic",
+  "tone": "heroic, awe-inspiring, hyper-energetic",
+  "director_notes": {
+    "visual_style": "Mythic Indian fantasy epic grade rendered with hyper-detailed physical textures, deep obsidian contrast, and rich desaturated cool teals contrasted against radiant golden highlights. Crisp 70mm digital cinema sensor feel with subtle anamorphic horizontal flare and crystalline slow-motion liquid dynamics.",
+    "camera_style": "9:16 vertical composition maintaining all primary subject focus within the vertical center 60% safe zone. Sweeping low-angle tilt-ups, deliberate locked tracking shots, and slow-motion push-ins utilizing 35mm wide lenses for scale and 85mm shallow-depth lenses for heroic muscle and face close-ups.",
+    "lighting": "High-contrast motivated rim lighting with 6000K cool daylight filtering through dense cascading water, shifting to 2800K golden sunrise light at the summit. Volumetric misty haze, heavy airborne spray, light-refracting rainbow prisms, and deep shadow depth.",
+    "editing": "High-impact epic cadence with 5-6 second scene holds, crisp match-cuts on peak physical exertion, micro slow-motion holds on splash impact, and explosive fluid cross-transitions.",
+    "music": "128 BPM, Heroic and Awe-Inspiring, Ancient war horns combined with thunderous dhol drums and intense chanted vocals, Dense layered orchestral texture, Monumental crescendo escalating to a blinding summit reveal.",
+    "style_lock": "Mythic epic cinematic fantasy, deep teal-grey and golden amber palette at 5600K transitioning to 2800K, backlit rim lighting with volumetric wet mist and prismatic spray, 35mm anamorphic wet lens textures, photorealistic high-contrast detail.",
+    "avoid": [
+      "fast chaotic motion or shaky cam",
+      "rapid whip pans or disorienting zooms",
+      "unwanted extra human limbs or distorted anatomy",
+      "morphing stone or changing skin tones",
+      "text, subtitles, logos, or watermarks inside frame",
+      "saturated cartoon or anime aesthetics",
+      "clipped blown-out highlights or noisy flat shadows",
+      "sudden jarring background pop-in or color flickering"
+    ]
+  },
+  "characters": {
+    "shivudu": {
+      "character_id": "shivudu",
+      "name": "Shivudu",
+      "type": "muscular bronze-skinned ancient Indian demigod hero",
+      "body": "Hyper-defined corded muscular frame, broad chest, wet bronze skin drenched in roaring water, sculpted abdominal wall, visible veins along biceps and shoulders",
+      "height": "tall imposing athletic build (6ft 2in visual scale)",
+      "face": "Sharp chiseled jawline, fierce dark brown eyes with intense gaze, three horizontal white mineral ash vibhuti marks across broad forehead, wet dark wavy hair tied back",
+      "clothing_or_accessories": "Weathered crimson-red woven cotton dhoti wrap tied at waist with a thick dark leather belt, multi-strand carved dark brown rudraksha bead necklace and biceps armlets, leather wrist wraps",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "bronze demigod Shivudu",
+        "crimson dhoti wrap",
+        "rudraksha bead armlets",
+        "forehead vibhuti ash",
+        "wet corded muscles"
+      ],
+      "negative_constraints": [
+        "no modern clothing or zippers",
+        "no clean dry skin",
+        "no fair Western facial features",
+        "no extra arms or sci-fi elements",
+        "no glowing futuristic armor",
+        "no changing appearance of Shivudu",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same muscular bronze-skinned ancient Indian demigod hero named Shivudu, tall imposing athletic frame with hyper-defined corded muscles, sharp chiseled jaw with fierce dark brown eyes and three horizontal white mineral ash vibhuti marks across forehead, coarse crimson-red dhoti waist wrap with thick carved rudraksha bead armlets and wrist straps, wet glistening bronze skin with subsurface scattering and weathered brown leather belt, grounded explosive powerful posture, photorealistic cinematic mythic detail."
+    }
+  },
+  "locations": {
+    "celestial_cloud_summit": {
+      "location_id": "celestial_cloud_summit",
+      "name": "Celestial Cloud Summit",
+      "time_of_day": "golden hour sunrise",
+      "weather": "crisp high-altitude winds, glowing cloud ocean, light-refracting rainbow mist",
+      "lighting": "Radiant 2800K warm golden sunrise backlighting piercing through cloud tops, bright prismatic specular highlights",
+      "color_palette": "radiant golden amber, deep bronze, rich turquoise cloud shadows, blinding white sunlight",
+      "key_elements": [
+        "ancient sacred peak platform made of polished gold-veined white granite",
+        "endless ocean of rolling white cloud canopy below the mountain peak",
+        "towering mythic celestial mountain spires piercing the golden horizon",
+        "carved ancient stone altar wrapped in glowing golden light"
+      ],
+      "style_keywords": [
+        "mythic summit climax",
+        "2800K golden sunrise light",
+        "prismatic water droplets",
+        "volumetric cloud ocean",
+        "epic cinematic scope"
+      ],
+      "prompt_block": "Sacred mountain summit emerging above a dense rolling cloud sea, golden hour sunrise with crisp mountain breeze and drifting prismatic vapor, brilliant 2800K golden backlighting piercing through cloud gaps with intense rim light, polished gold-veined granite peak and distant celestial mountain spires, floating rainbow micro-droplets and warm amber atmospheric haze."
+    },
+    "celestial_waterfall_base": {
+      "location_id": "celestial_waterfall_base",
+      "name": "Base of the Celestial Waterfall",
+      "time_of_day": "early morning pre-dawn",
+      "weather": "torrential airborne water spray and churning volumetric cool mist",
+      "lighting": "High-contrast 6000K cool daylight rim light filtering through dense cascading water clouds, deep obsidian shadow depth",
+      "color_palette": "desaturated cool teal, deep obsidian grey, glowing cyan, frothy white",
+      "key_elements": [
+        "colossal towering vertical cliff walls of polished black basalt rock",
+        "furious white-water rapids rushing over smoothed river stones",
+        "monolithic ancient stone carved steps partially swallowed by surging torrents",
+        "massive cascading water curtain plunging from unseen heights into a misty abyss"
+      ],
+      "style_keywords": [
+        "mythic Indian fantasy",
+        "epic cinematic render",
+        "cool 6000K backlit mist",
+        "anamorphic horizontal flare",
+        "hyper-detailed liquid dynamics"
+      ],
+      "prompt_block": "Base of a colossal celestial waterfall surrounded by massive black basalt cliffs, early morning pre-dawn with torrential water spray and heavy volumetric cool mist, high-contrast backlit 6000K cool rim light piercing dense cascading liquid, furious white-water rapids and ancient wet carved stone steps, airborne water particulates and deep obsidian shadow contrast with cool teal reflections."
+    },
+    "submerged_river_pedestal": {
+      "location_id": "submerged_river_pedestal",
+      "name": "Submerged River Pedestal at Waterfall Basin",
+      "time_of_day": "early morning dawn",
+      "weather": "heavy atmospheric spray and floating river vapor with light refraction",
+      "lighting": "Strong backlit 5600K daylight rim light causing horizontal blue anamorphic flares, deep shadowed river bed",
+      "color_palette": "deep slate blue, emerald cyan, obsidian black, shimmering gold accents",
+      "key_elements": [
+        "ancient submerged lotus-carved stone pedestal beneath clear churning river water",
+        "shallow rocky riverbed strewn with smooth sacred obsidian river stones",
+        "towering jagged basalt rock pillars framing the river basin",
+        "churning white foam swirl patterns around submerged stone foundations"
+      ],
+      "style_keywords": [
+        "mythic epic cinema",
+        "5600K backlit rim lighting",
+        "anamorphic lens flare",
+        "crystalline slow-motion water",
+        "deep obsidian contrast"
+      ],
+      "prompt_block": "Shallow riverbed basin beneath a celestial waterfall with a submerged ancient lotus-carved stone pedestal, early morning dawn mist and airborne spray, strong 5600K backlit daylight rim lighting with horizontal anamorphic lens flares, smooth black obsidian river rocks and swirling white foam plumes, floating micro-droplets refract light across deep teal submerged stone textures."
+    },
+    "wet_basalt_cliff": {
+      "location_id": "wet_basalt_cliff",
+      "name": "Sheer Wet Basalt Cliff Face",
+      "time_of_day": "transitioning morning",
+      "weather": "torrential upward updrafts, dense misty abyss rain, airborne spray clouds",
+      "lighting": "Low-angle 5500K side rim light highlighting wet sheen, with subtle glowing bioluminescent 6500K azure light trails",
+      "color_palette": "wet obsidian black, deep cobalt teal, glowing azure blue, silver light highlights",
+      "key_elements": [
+        "sheer vertical wall of glinting wet black hexagonal basalt columns",
+        "slippery moss-covered handholds and ancient carved runes etched in rock",
+        "bottomless misty abyss dropping off into dense ocean clouds below",
+        "cascading micro-waterfalls streaming down the vertical rock face"
+      ],
+      "style_keywords": [
+        "vertical epic climb",
+        "hyper-detailed wet texture",
+        "bioluminescent azure accents",
+        "35mm wet lens anamorphic",
+        "high-contrast shadow depth"
+      ],
+      "prompt_block": "Sheer vertical black basalt cliff face above a misty abyss, transitioning morning with torrential updraft spray and heavy airborne cloud mist, low-angle 5500K side rim light illuminating slick reflective wet stone, wet hexagonal rock columns and trickling water micro-streams, glowing bioluminescent azure mist trails drifting across high-contrast obsidian shadows."
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "duration_seconds": 7,
+      "story_beat": "Shivudu steps into churning white river rapids carrying a massive basalt Lingam under cool backlit volumetric mist and torrential sprays at the base of a celestial waterfall with resolute determination.",
+      "emotion": "determined",
+      "location_id": "celestial_waterfall_base",
+      "character_ids": [
+        "shivudu"
+      ],
+      "camera": {
+        "scene_id": 1,
+        "shot_type": "wide shot",
+        "camera_angle": "low angle",
+        "camera_movement": "slow push-in",
+        "lens": "35mm cinema prime",
+        "lighting": "Motivated 6000K cool daylight rim lighting filtering through dense cascading water clouds with deep shadow depth and volumetric mist",
+        "composition": "Shivudu carrying the massive basalt Lingam centered vertically within the central 60% safe zone, flanked by churning whitewater",
+        "focus": "Sharp focal lock on Shivudu's muscular frame and wet stone surface, background waterfall softly diffused in mist",
+        "motion_intensity": "medium"
+      },
+      "video_prompt": "wide shot, slow push-in. Shivudu steps into churning white river rapids carrying a massive basalt Lingam under cool backlit volumetric mist and torrential sprays at the base of a celestial waterfall with resolute determination. Shivudu (muscular bronze-skinned ancient Indian demigod hero) wearing Weathered crimson-red woven cotton dhoti wrap tied at. Setting: Base of the Celestial Waterfall. Lighting: Motivated 6000K cool daylight rim lighting filtering through dense cascading water clouds with deep shadow depth and volumetric mist. 35mm cinema prime, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/shivas_ascent/storyboards/scene_01_frame.png",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 2,
+      "duration_seconds": 7,
+      "story_beat": "Shivudu slams the gargantuan stone Lingam onto a submerged pedestal amid explosive hundred-foot water plumes and horizontal anamorphic flares at the shallow riverbed beneath the waterfall with fierce authority.",
+      "emotion": "heroic",
+      "location_id": "submerged_river_pedestal",
+      "character_ids": [
+        "shivudu"
+      ],
+      "camera": {
+        "scene_id": 2,
+        "shot_type": "medium shot",
+        "camera_angle": "low angle",
+        "camera_movement": "slow push-in",
+        "lens": "35mm cinema prime",
+        "lighting": "Motivated 5600K daylight backlighting creating horizontal blue anamorphic flares through explosive hundred-foot water plumes",
+        "composition": "Shivudu and the stone pedestal locked in the central 60% vertical safe zone, framed by upward-bursting water spray",
+        "focus": "Crisp focus on the impact area between Lingam and pedestal, background water plumes glowing with backlit flares",
+        "motion_intensity": "medium"
+      },
+      "video_prompt": "medium shot, slow push-in. Shivudu slams the gargantuan stone Lingam onto a submerged pedestal amid explosive hundred-foot water plumes and horizontal anamorphic flares at the shallow riverbed beneath the waterfall with fierce authority. Shivudu (muscular bronze-skinned ancient Indian demigod hero) wearing Weathered crimson-red woven cotton dhoti wrap tied at. Setting: Submerged River Pedestal at Waterfall Basin. Lighting: Motivated 5600K daylight backlighting creating horizontal blue anamorphic flares through explosive hundred-foot water plumes. 35mm cinema prime, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/shivas_ascent/storyboards/scene_02_frame.png",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 3,
+      "duration_seconds": 8,
+      "story_beat": "Shivudu lunges upward along slick wet basalt rock through torrential airborne water spray and bioluminescent azure light trails on a sheer vertical cliff face above a misty abyss with ecstatic focus.",
+      "emotion": "tense",
+      "location_id": "wet_basalt_cliff",
+      "character_ids": [
+        "shivudu"
+      ],
+      "camera": {
+        "scene_id": 3,
+        "shot_type": "medium close-up",
+        "camera_angle": "low angle",
+        "camera_movement": "handheld gentle",
+        "lens": "85mm portrait prime",
+        "lighting": "Motivated 5500K side rim light highlighting slick wet rock sheen, accented by glowing 6500K azure bioluminescent light trails",
+        "composition": "Shivudu's face and straining upper torso maintained strictly in central 60% vertical safe zone against vertical basalt texture",
+        "focus": "Sharp focus on Shivudu's determined face and glistening skin, shallow depth of field softly blurring airborne water drops",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "medium close-up, handheld gentle. Shivudu lunges upward along slick wet basalt rock through torrential airborne water spray and bioluminescent azure light trails on a sheer vertical cliff face above a misty abyss with ecstatic focus. Shivudu (muscular bronze-skinned ancient Indian demigod hero) wearing Weathered crimson-red woven cotton dhoti wrap tied at. Setting: Sheer Wet Basalt Cliff Face. Lighting: Motivated 5500K side rim light highlighting slick wet rock sheen, accented by glowing 6500K azure bioluminescent light trails. 85mm portrait prime, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/shivas_ascent/storyboards/scene_03_frame.png",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 4,
+      "duration_seconds": 8,
+      "story_beat": "Shivudu leaps through the thick cloud canopy into brilliant golden sunrise backlighting and floating prismatic droplets at the summit above the cloud layer facing celestial mountain spires with triumphant awe.",
+      "emotion": "awe",
+      "location_id": "celestial_cloud_summit",
+      "character_ids": [
+        "shivudu"
+      ],
+      "camera": {
+        "scene_id": 4,
+        "shot_type": "wide shot",
+        "camera_angle": "low angle",
+        "camera_movement": "slow pull-back",
+        "lens": "24mm wide angle",
+        "lighting": "Motivated 2800K golden sunrise backlighting piercing cloud tops with intense prismatic specular highlights in airborne mist",
+        "composition": "Shivudu emerging above cloud layer framed in central 60% vertical safe zone, flanked by vast celestial mountain peaks",
+        "focus": "Sharp focus on subject silhouette and foreground floating water droplets, distant spires softly glowing in sunrise haze",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "wide shot, slow pull-back. Shivudu leaps through the thick cloud canopy into brilliant golden sunrise backlighting and floating prismatic droplets at the summit above the cloud layer facing celestial mountain spires with triumphant awe. Shivudu (muscular bronze-skinned ancient Indian demigod hero) wearing Weathered crimson-red woven cotton dhoti wrap tied at. Setting: Celestial Cloud Summit. Lighting: Motivated 2800K golden sunrise backlighting piercing cloud tops with intense prismatic specular highlights in airborne mist. 24mm wide angle, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/shivas_ascent/storyboards/scene_04_frame.png",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    }
+  ],
+  "audio_plan": null,
+  "project_dir": "/home/cyb3rfy/AI-Video/projects/shivas_ascent",
+  "references_dir": "/home/cyb3rfy/AI-Video/projects/shivas_ascent/references",
+  "storyboards_dir": "/home/cyb3rfy/AI-Video/projects/shivas_ascent/storyboards",
+  "clips_dir": "/home/cyb3rfy/AI-Video/projects/shivas_ascent/clips",
+  "audio_dir": "/home/cyb3rfy/AI-Video/projects/shivas_ascent/audio",
+  "output_dir": "/home/cyb3rfy/AI-Video/projects/shivas_ascent/output",
+  "final_reel_path": "",
+  "agents": {
+    "director": true,
+    "story_breakdown": true,
+    "character_bible": true,
+    "environment_bible": true,
+    "reference_images": true,
+    "cinematography": true,
+    "prompt_builder": true,
+    "video_generation": false,
+    "qc": false,
+    "audio": false,
+    "editor": false
+  }
+}

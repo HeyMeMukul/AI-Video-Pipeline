@@ -1,0 +1,29 @@
+{
+  "project": "aura_noir",
+  "output_reel": "/home/cyb3rfy/AI-Video/projects/aura_noir/output/final_reel.mp4",
+  "platform": "instagram_reel",
+  "target_duration": 20,
+  "scenes": [
+    {
+      "scene_id": 1,
+      "clip": "/home/cyb3rfy/AI-Video/projects/aura_noir/clips/scene_01.mp4",
+      "duration_seconds": 6,
+      "story_beat": "A monolithic obsidian glass perfume bottle floats weightlessly as molten rose-gold mercury swirls around its facets through drifting amber volumetric vapor in a dark void with enigmatic poise.",
+      "camera_movement": "slow push-in"
+    },
+    {
+      "scene_id": 2,
+      "clip": "/home/cyb3rfy/AI-Video/projects/aura_noir/clips/scene_02.mp4",
+      "duration_seconds": 7,
+      "story_beat": "Microscopic fragrance vapor droplets burst outward from the chrome atomizer nozzle through dark volumetric mist under intense backlit anamorphic violet laser light with tactile intensity.",
+      "camera_movement": "static"
+    },
+    {
+      "scene_id": 3,
+      "clip": "/home/cyb3rfy/AI-Video/projects/aura_noir/clips/scene_03.mp4",
+      "duration_seconds": 7,
+      "story_beat": "A heavy diamond-cut magnetic cap snaps decisively down onto the obsidian bottle neck while golden specular highlights illuminate the glowing typography within a pristine studio void with premium authority.",
+      "camera_movement": "slow push-in"
+    }
+  ]
+}

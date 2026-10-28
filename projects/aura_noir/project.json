@@ -1,0 +1,271 @@
+{
+  "project_id": "3a6803ab",
+  "project_name": "aura_noir",
+  "created_at": "2026-09-12T19:53:43.299852+00:00",
+  "updated_at": "2026-09-12T20:43:07.938171+00:00",
+  "story": "Title: AURA NOIR\n\nHook:\nA monolithic obsidian glass perfume bottle floats in zero-gravity, enveloped in liquid rose-gold chrome and pressurized violet mist.\n\nScene 1:\nA monolithic obsidian black glass perfume bottle floats suspended in anti-gravity, adorned with glistening amber condensation beads under sharp golden studio rim-lighting.\nAction: Extreme macro slow push-in as light glints across the polished obsidian glass facet and glistening condensation micro-droplets.\n\nScene 2:\nMolten liquid rose-gold mercury swirls dynamically around the obsidian glass flacon in zero-gravity.\nAction: Viscous metallic chrome fluid flows gracefully around the black bottle curves with smooth fluid dynamics and radiant reflections.\n\nScene 3:\nA high-velocity pressurized mist plume bursts from the chrome atomizer nozzle in ultra slow-motion.\nAction: Microscopic fragrance vapor explodes outward into the air, backlit by intense anamorphic violet laser lighting.\n\nScene 4:\nA heavy diamond-cut magnetic cap snaps down onto the obsidian glass bottle neck with authoritative mechanical precision.\nAction: The magnetic cap locks into place with a crisp snap, revealing the glowing minimalist gold typography AURA NOIR.\n\nTagline:\nAura Noir. Beyond matter.\n",
+  "target_duration_seconds": 20,
+  "platform": "instagram_reel",
+  "aspect_ratio": "9:16",
+  "style": "ultra-luxury cyberpunk product commercial",
+  "tone": "enigmatic, tactile, premium, cinematic",
+  "director_notes": {
+    "visual_style": "Ultra-luxury dark cyberpunk commercial aesthetic rendered with pristine high-contrast macro clarity. Dominant deep obsidian blacks paired with molten metallic rose-gold and electric violet reflections, featuring subtle anamorphic highlight halation and polished glass refractive textures with velvety deep shadows.",
+    "camera_style": "Slow deliberate micro-movements locked to a 9:16 vertical center-safe composition using 85mm and 100mm macro prime lenses. Strictly limited to linear micro push-ins, subtle vertical tilts, and slow rotational orbits with zero handheld shake, fast pans, or erratic zooms.",
+    "lighting": "High-fashion dark field commercial studio illumination featuring sharp 3200K amber/rose-gold rim lighting, 6500K anamorphic violet laser edge-lighting, and high-contrast specular reflections cutting through delicate volumetric aerosol mist.",
+    "editing": "Hypnotic commercial pacing with exact 5.0-second scene durations, cutting precisely on mechanical action cues with ultra-slow-motion ramped physics and seamless match-on-action transitions.",
+    "music": "85 BPM, enigmatic and opulent mood, deep analog sub-bass with tactile crystalline synth plucks, dense granular atmospheric textures, dynamic sub-drop build releasing into a sharp mechanical impact.",
+    "style_lock": "Ultra-luxury cyberpunk commercial, obsidian black and molten rose-gold palette with 3200K warm amber and violet accents, precision studio rim-lighting with backlit volumetric vapor, 100mm macro anamorphic lens with specular halation, photorealistic 8k tactile material physics.",
+    "avoid": [
+      "rapid chaotic camera whipping",
+      "blurry or low-resolution fluid physics",
+      "warping geometry or morphing bottle contours",
+      "cartoonish or hyper-saturated flat neon lighting",
+      "unwanted human hands or figures in frame",
+      "harsh blown-out specular highlights with digital noise",
+      "unmotivated camera shake and unstable focal breathing",
+      "text overlays or watermarks inside generation area",
+      "fast chaotic motion or erratic camera whipping",
+      "sudden jarring background pop-in or color flickering"
+    ]
+  },
+  "characters": {
+    "aura_noir_bottle": {
+      "character_id": "aura_noir_bottle",
+      "name": "Aura Noir Flacon",
+      "type": "monolithic luxury perfume bottle",
+      "body": "Heavy geometric obsidian glass flacon with razor-sharp bevelled facets, broad rectangular shoulders, tapering to a solid weighted rectangular base, featuring a fitted metallic neck ring",
+      "height": "medium tabletop (compact luxury product size)",
+      "face": "Minimalist illuminated 3200K warm-gold typography reading AURA NOIR precisely etched into the front glass face, surrounded by deep black refractive glass facets with hyper-sharp specular highlights",
+      "clothing_or_accessories": "Heavy diamond-cut faceted obsidian magnetic cap with a rose-gold metallic rim accent, high-precision polished chrome spray nozzle atomizer, surrounded by floating ribbons of viscous molten rose-gold fluid",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "monolithic obsidian glass perfume bottle Aura Noir Flacon",
+        "diamond-cut magnetic cap",
+        "glowing gold AURA NOIR typography",
+        "molten rose-gold fluid chrome",
+        "amber condensation micro-droplets"
+      ],
+      "negative_constraints": [
+        "no organic human face or body parts",
+        "no cheap plastic textures or mold seams",
+        "no paper labels or adhesive stickers",
+        "no standard clear transparent glass",
+        "no bright daylight studio background",
+        "no changing appearance of Aura Noir Flacon",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same monolithic luxury perfume bottle named Aura Noir Flacon, medium tabletop scale, heavy geometric obsidian black glass frame with razor-sharp bevelled facets and broad shoulders, etched minimalist glowing warm-gold typography reading AURA NOIR on the front face, topped with a heavy diamond-cut magnetic cap with rose-gold metallic rim accent and mirror-finish chrome atomizer, polished black glass with glistening amber condensation micro-droplets, weightless anti-gravity floating stance, photorealistic ultra-luxury dark commercial material physics."
+    }
+  },
+  "locations": {
+    "obsidian_void_studio": {
+      "location_id": "obsidian_void_studio",
+      "name": "Obsidian Void Studio",
+      "time_of_day": "timeless dark field studio",
+      "weather": "delicate volumetric aerosol mist and static climate-controlled atmosphere",
+      "lighting": "High-fashion dark field studio illumination featuring sharp 3200K rose-gold rim lighting, 6500K anamorphic electric violet laser edge-light, and intense high-contrast specular highlights",
+      "color_palette": "deep obsidian black, molten rose-gold, electric violet",
+      "key_elements": [
+        "monolithic zero-reflection obsidian glass studio platform base",
+        "floating suspended droplets of molten metallic rose-gold liquid",
+        "recessed back-lit linear laser channels casting crisp edge light",
+        "delicate micro-fine aerosol mist suspended against endless velvet black void"
+      ],
+      "style_keywords": [
+        "ultra-luxury dark cyberpunk commercial",
+        "obsidian black and molten rose-gold",
+        "3200K amber and violet accents",
+        "backlit volumetric vapor",
+        "100mm macro anamorphic lens",
+        "photorealistic 8k tactile textures"
+      ],
+      "prompt_block": "Ultra-luxury dark field commercial studio void, timeless dark void atmosphere with delicate volumetric aerosol mist, sharp 3200K warm rose-gold rim lighting paired with 6500K anamorphic electric violet laser edge-lights, monolithic polished obsidian glass surface, floating micro-droplets of molten liquid rose-gold, recessed laser edge channels, high-contrast specular reflections and back-lit volumetric vapor in a pristine enigmatic environment."
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "duration_seconds": 6,
+      "story_beat": "A monolithic obsidian glass perfume bottle floats weightlessly as molten rose-gold mercury swirls around its facets through drifting amber volumetric vapor in a dark void with enigmatic poise.",
+      "emotion": "enigmatic",
+      "location_id": "obsidian_void_studio",
+      "character_ids": [
+        "aura_noir_bottle"
+      ],
+      "camera": {
+        "scene_id": 1,
+        "shot_type": "medium close-up",
+        "camera_angle": "eye-level",
+        "camera_movement": "slow push-in",
+        "lens": "85mm portrait prime",
+        "lighting": "Dark field studio lighting with sharp 3200K rose-gold rim illumination, 6500K electric violet edge-light, and backlit amber volumetric vapor",
+        "composition": "Monolithic obsidian bottle positioned precisely within central 60% vertical safe zone, surrounded by dark negative space and swirling molten mercury",
+        "focus": "Razor-sharp focus on central obsidian bottle facets, amber volumetric vapor softly diffused in background void",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "medium close-up, slow push-in. A monolithic obsidian glass perfume bottle floats weightlessly as molten rose-gold mercury swirls around its facets through drifting amber volumetric vapor in a dark void with enigmatic poise. Aura Noir Flacon (monolithic luxury perfume bottle) wearing Heavy diamond-cut faceted obsidian magnetic cap with a. Setting: Obsidian Void Studio. Lighting: Dark field studio lighting with sharp 3200K rose-gold rim illumination, 6500K electric violet edge-light, and backlit amber volumetric vapor. 85mm portrait prime, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/aura_noir/storyboards/scene_01_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/aura_noir/clips/scene_01.mp4",
+      "qc_passed": true,
+      "qc_score": 93,
+      "qc_issues": [],
+      "regeneration_count": 1
+    },
+    {
+      "scene_id": 2,
+      "duration_seconds": 7,
+      "story_beat": "Microscopic fragrance vapor droplets burst outward from the chrome atomizer nozzle through dark volumetric mist under intense backlit anamorphic violet laser light with tactile intensity.",
+      "emotion": "tactile",
+      "location_id": "obsidian_void_studio",
+      "character_ids": [
+        "aura_noir_bottle"
+      ],
+      "camera": {
+        "scene_id": 2,
+        "shot_type": "insert shot",
+        "camera_angle": "slightly high angle",
+        "camera_movement": "static",
+        "lens": "100mm macro",
+        "lighting": "Intense 6500K anamorphic electric violet laser edge-lighting cutting through dark volumetric mist with specular halation on metallic accents",
+        "composition": "Atomizer nozzle framed tightly within middle 60% vertical zone for 9:16 safe area, aerosol droplet burst fanning symmetrically across frame",
+        "focus": "Tactile macro focus on chrome atomizer nozzle micro-aperture and individual backlit atomized liquid droplets",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "insert shot, static. Microscopic fragrance vapor droplets burst outward from the chrome atomizer nozzle through dark volumetric mist under intense backlit anamorphic violet laser light with tactile intensity. Aura Noir Flacon (monolithic luxury perfume bottle) wearing Heavy diamond-cut faceted obsidian magnetic cap with a. Setting: Obsidian Void Studio. Lighting: Intense 6500K anamorphic electric violet laser edge-lighting cutting through dark volumetric mist with specular halation on metallic accents. 100mm macro, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/aura_noir/storyboards/scene_02_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/aura_noir/clips/scene_02.mp4",
+      "qc_passed": true,
+      "qc_score": 93,
+      "qc_issues": [
+        "Minor: Style lock string is summarized slightly rather than verbatim in prompt construction"
+      ],
+      "regeneration_count": 1
+    },
+    {
+      "scene_id": 3,
+      "duration_seconds": 7,
+      "story_beat": "A heavy diamond-cut magnetic cap snaps decisively down onto the obsidian bottle neck while golden specular highlights illuminate the glowing typography within a pristine studio void with premium authority.",
+      "emotion": "premium",
+      "location_id": "obsidian_void_studio",
+      "character_ids": [
+        "aura_noir_bottle"
+      ],
+      "camera": {
+        "scene_id": 3,
+        "shot_type": "close-up",
+        "camera_angle": "low angle",
+        "camera_movement": "slow push-in",
+        "lens": "85mm portrait prime",
+        "lighting": "Warm 3200K amber rim-lighting with brilliant molten rose-gold specular highlights catching diamond-cut edges and illuminated typography",
+        "composition": "Bottle neck and magnetic cap aligned centrally within 60% vertical safe zone, strong vertical symmetry emphasizing premium weight",
+        "focus": "Pin-sharp focus on magnetic cap contact point and glowing brand typography, shallow bokeh falloff into obsidian blackness",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "close-up, slow push-in. A heavy diamond-cut magnetic cap snaps decisively down onto the obsidian bottle neck while golden specular highlights illuminate the glowing typography within a pristine studio void with premium authority. Aura Noir Flacon (monolithic luxury perfume bottle) wearing Heavy diamond-cut faceted obsidian magnetic cap with a. Setting: Obsidian Void Studio. Lighting: Warm 3200K amber rim-lighting with brilliant molten rose-gold specular highlights catching diamond-cut edges and illuminated typography. 85mm portrait prime, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/aura_noir/storyboards/scene_03_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/aura_noir/clips/scene_03.mp4",
+      "qc_passed": true,
+      "qc_score": 92,
+      "qc_issues": [
+        "Minor: Lens focal length specification in prompt (85mm) slightly diverges from bible standard (100mm macro anamorphic), though well within aesthetic tolerance."
+      ],
+      "regeneration_count": 1
+    }
+  ],
+  "audio_plan": {
+    "music_style": "Dark ultra-luxury cinematic synth-ambient with deep sub-bass and crystalline plucks",
+    "music_bpm": 85,
+    "music_mood": "enigmatic, opulent, tactile, authoritative",
+    "voiceover_lines": [
+      {
+        "scene_id": 1,
+        "start_second": 0.5,
+        "end_second": 4.8,
+        "text": "Where darkness meets pure luminescence.",
+        "voice_direction": "Sensual, deep, intimate close-mic whisper, slow opulent delivery"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 6.5,
+        "end_second": 11.5,
+        "text": "An unspoken power suspended in time.",
+        "voice_direction": "Breathy, enigmatic, cinematic composure with low resonance"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 13.5,
+        "end_second": 18.5,
+        "text": "Aura Noir. Beyond matter.",
+        "voice_direction": "Authoritative, velvet-toned, commanding, echoing resolve"
+      }
+    ],
+    "sound_effects": [
+      {
+        "scene_id": 1,
+        "start_second": 0.0,
+        "end_second": 6.0,
+        "type": "Continuous atmospheric bed: deep resonant studio void hum with subtle liquid mercury shimmers and low bass drone",
+        "volume": "subtle background (-22dB)"
+      },
+      {
+        "scene_id": 1,
+        "start_second": 1.5,
+        "end_second": 4.5,
+        "type": "Spot Foley: soft weightless liquid swirl with metallic rose-gold sheen chimes",
+        "volume": "medium foreground (-16dB)"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 6.0,
+        "end_second": 13.0,
+        "type": "Continuous atmospheric bed: pressurized air hiss layer with shimmering high-frequency crystal resonance",
+        "volume": "subtle background (-20dB)"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 6.2,
+        "end_second": 9.0,
+        "type": "Spot Foley: high-velocity acoustic mist burst with tactile granular laser-sizzle textures",
+        "volume": "clear foreground (-12dB)"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 13.0,
+        "end_second": 20.0,
+        "type": "Continuous atmospheric bed: deep sub-bass hum decaying into a silent luxury acoustic void",
+        "volume": "subtle background (-24dB)"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 13.0,
+        "end_second": 15.0,
+        "type": "Spot Foley: heavy diamond-cut magnetic latch snap impact followed by a deep sub-drop and crystalline shimmer release",
+        "volume": "prominent foreground (-8dB)"
+      }
+    ],
+    "music_path": "",
+    "voiceover_path": "/home/cyb3rfy/AI-Video/projects/aura_noir/audio/voiceover.mp3"
+  },
+  "project_dir": "/home/cyb3rfy/AI-Video/projects/aura_noir",
+  "references_dir": "/home/cyb3rfy/AI-Video/projects/aura_noir/references",
+  "storyboards_dir": "/home/cyb3rfy/AI-Video/projects/aura_noir/storyboards",
+  "clips_dir": "/home/cyb3rfy/AI-Video/projects/aura_noir/clips",
+  "audio_dir": "/home/cyb3rfy/AI-Video/projects/aura_noir/audio",
+  "output_dir": "/home/cyb3rfy/AI-Video/projects/aura_noir/output",
+  "final_reel_path": "",
+  "agents": {
+    "director": true,
+    "story_breakdown": true,
+    "character_bible": true,
+    "environment_bible": true,
+    "reference_images": true,
+    "cinematography": true,
+    "prompt_builder": true,
+    "video_generation": true,
+    "qc": true,
+    "audio": true,
+    "editor": false
+  }
+}

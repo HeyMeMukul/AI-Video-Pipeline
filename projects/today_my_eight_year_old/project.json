@@ -1,0 +1,354 @@
+{
+  "project_id": "8b20542d",
+  "project_name": "today_my_eight_year_old",
+  "created_at": "2026-10-20T12:53:21.339450+00:00",
+  "updated_at": "2026-10-20T13:38:52.842592+00:00",
+  "story": "Today, my eight-year-old son hugged me and said, «You are the best mom in the whole entire world!» I smiled and sarcastically replied, «How do you know that? You haven’t met every mom in the whole entire world.» My son squeezed me tighter and said, «Yes I have. You are my world.»\n",
+  "target_duration_seconds": 30,
+  "platform": "cinematic",
+  "aspect_ratio": "16:9",
+  "style": "Cinematic Realism, Atmospheric Lighting, Handheld Intimacy",
+  "tone": "dramatic, emotional, cinematic",
+  "director_notes": {
+    "visual_style": "Cinematic realism with a slightly desaturated, muted color palette. Dominant tones of warm, soft amber and dusty rose, with subtle cool grey undertones. Moderate contrast with lifted shadows to enhance atmospheric depth and a gentle, diffused glow on skin tones. Subtle 35mm film grain for tactile texture.",
+    "camera_style": "A 'Quiet Observer' philosophy. Primarily eye-level framing. Slow, deliberate push-ins and static holds. Occasional, very slow, gentle orbiting movement around the subjects. Preference for 50mm and 85mm lenses to achieve intimate portraits with shallow depth of field, blurring backgrounds to focus on emotional connection.",
+    "lighting": "Motivated by a warm, soft window light (approx. 3200K tungsten warmth, diffused). Side-lighting and slight back-lighting to create gentle rim light on hair and shoulders, emphasizing form and intimacy. Volumetric atmosphere of subtle dust motes catching the light. Soft, diffused shadows that avoid deep crushing.",
+    "editing": "Contemplative and emotional pacing. Scene durations of 4-6 seconds for key emotional beats. Very slow, smooth 0.5-second cross-dissolve transitions between shots to maintain a seamless emotional flow. Lingering pauses after significant dialogue.",
+    "music": "Tempo BPM: 65. Emotional mood pair: Melancholy tenderness. Primary acoustic/synth instruments: Solo piano, subtle cello. Texture density: Sparse and resonant. Dynamic build: Gradual crescendo to a gentle, sustained peak, then a soft fade.",
+    "style_lock": "Emotional drama, muted amber-rose palette, 3200K diffused window light with soft shadows, 35mm film grain, photorealistic intimate portraiture.",
+    "avoid": [
+      "fast chaotic motion",
+      "rapid camera whip pans",
+      "unwanted additional characters in frame",
+      "morphing objects or shifting clothing colors",
+      "burned highlights or crushed noisy blacks",
+      "text overlays, logos, or watermarks inside video frame",
+      "extra fingers or distorted anatomy",
+      "overly saturated colors",
+      "stark, harsh lighting",
+      "aggressive camera zooms",
+      "sudden jarring background pop-in or color flickering",
+      "blown-out unnatural digital highlights and pixel noise"
+    ]
+  },
+  "characters": {
+    "mother": {
+      "character_id": "mother",
+      "name": "Claire",
+      "type": "warm maternal woman in her mid-thirties",
+      "body": "Slender natural build with relaxed shoulders, graceful neck, comforting and grounded maternal presence",
+      "height": "average adult height (seated at eye-level with child)",
+      "face": "Expressive almond-shaped warm-brown eyes with gentle crinkling at the corners, warm fair skin with soft peach undertones, relaxed natural eyebrows, wavy chestnut-brown hair loosely gathered into a textured low chignon with soft escaped wisps framing her face",
+      "clothing_or_accessories": "Chunky dusty-rose ribbed cashmere open-front cardigan, muted cream slub-cotton scoop-neck t-shirt, delicate thin gold chain necklace with a small flat circular pendant, charcoal-grey washed linen pants",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "mid-thirties mother Claire",
+        "dusty-rose cashmere cardigan",
+        "loose chestnut chignon",
+        "warm-brown almond eyes",
+        "tender maternal posture"
+      ],
+      "negative_constraints": [
+        "no heavy glamorous makeup or glossy lipstick",
+        "no stiff formal business attire",
+        "no harsh or sharp facial angles",
+        "no blonde or vivid artificial hair colors",
+        "no detached or rigid body language",
+        "no changing appearance of Claire",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same warm maternal woman named Claire, slender mid-thirties frame with relaxed shoulders, deep almond-shaped warm-brown eyes with gentle laugh lines, peach skin undertones, loose wavy chestnut-brown hair in a soft low chignon with escaped wisps, wearing an open dusty-rose chunky cashmere cardigan over a cream cotton t-shirt and thin gold pendant necklace, fuzzy knit fibers catching 3200K window light, kneeling in a tender enveloping embrace, photorealistic intimate portraiture."
+    },
+    "young_boy": {
+      "character_id": "young_boy",
+      "name": "Leo",
+      "type": "expressive eight-year-old boy",
+      "body": "Slender childhood frame with narrow shoulders, slightly lanky arms wrapped around his mother's waist, compact torso proportioned for earnest physical embrace",
+      "height": "child-sized (waist-to-mid-torso relative to mother, approx 4'1\" / 125 cm)",
+      "face": "Round youthful face with soft apple cheeks flushed with warm pink, wide and expressive dark-amber brown eyes with long dark eyelashes, faint sun-kissed freckles, messy tousled warm-brown hair with a soft uncombed front fringe falling near the eyebrows",
+      "clothing_or_accessories": "Long-sleeved heathered mustard-amber waffle-knit thermal henley shirt with two small unbuttoned wooden buttons at the collar, relaxed-fit washed dark-navy denim trousers with soft worn knees",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "eight-year-old boy Leo",
+        "mustard waffle-knit henley",
+        "tousled warm-brown hair fringe",
+        "wide dark-amber eyes",
+        "tight waist hug silhouette"
+      ],
+      "negative_constraints": [
+        "no teenage or toddler proportions, strictly eight years old",
+        "no graphic logos, cartoon prints, or synthetic activewear",
+        "no gelled, styled, or modern fade haircut",
+        "no detached or stiff body language, must cling with genuine warmth",
+        "no changing shirt color from heathered mustard amber",
+        "no changing appearance of Leo",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same expressive eight-year-old boy named Leo, child-sized frame reaching mother's mid-torso with narrow shoulders and slender hugging arms, round youthful face with flushed apple cheeks, wide dark-amber brown eyes, and messy tousled warm-brown hair with a soft fringe, wearing a long-sleeved heathered mustard-amber waffle-knit thermal henley shirt with wooden collar buttons and washed dark-navy denim jeans, tactile waffle cotton texture and natural dewy skin catching golden light, earnest hugging posture leaning tightly into embrace, photorealistic 35mm film texture."
+    },
+    "eight_year_old_son": {
+      "character_id": "eight_year_old_son",
+      "name": "Leo",
+      "type": "gentle eight-year-old schoolboy",
+      "body": "Slender lightweight child frame, narrow shoulders, soft posture, articulated small limbs built for leaning and embracing",
+      "height": "child-sized (chest-height relative to adult)",
+      "face": "Warm hazel-brown eyes with bright amber catchlights, soft rounded cheeks with a delicate rosy flush, faint dusting of freckles across the nose bridge, naturally tousled wavy sandy-brown hair with a soft cowlick at the crown",
+      "clothing_or_accessories": "Oversized heather-mustard ribbed knit wool crewneck sweater with slightly folded cuffs, soft washed-denim trousers, thin braided brown leather cord bracelet on left wrist",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "eight-year-old boy Leo",
+        "mustard ribbed knit sweater",
+        "tousled sandy-brown hair",
+        "freckled warm cheeks",
+        "earnest tight hug posture"
+      ],
+      "negative_constraints": [
+        "no teenage or adult proportions",
+        "no modern synthetic sportswear or graphic tees",
+        "no slicked or rigid gelled hair",
+        "no missing braided leather bracelet",
+        "no detached or distant facial expressions",
+        "no changing appearance of Leo",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same gentle eight-year-old schoolboy named Leo, slender child-sized frame with narrow shoulders, warm hazel-brown eyes with amber catchlights, rounded cheeks with faint freckles, tousled sandy-brown wavy hair, wearing an oversized heather-mustard ribbed knit sweater with folded cuffs and a braided leather wrist cord, textured wool catching diffused amber light, translucent soft skin, leaning in for an earnest tight embrace, photorealistic 35mm film texture."
+    }
+  },
+  "locations": {
+    "sunlit_living_room": {
+      "location_id": "sunlit_living_room",
+      "name": "Sunlit Domestic Living Room",
+      "time_of_day": "late afternoon golden hour",
+      "weather": "clear sky with calm interior air stillness",
+      "lighting": "Motivated soft directional sunlight streaming through sheer white curtains at a warm 3400K golden register, balanced by a subtle 5200K cool ambient shadow fill, soft volumetric key light wrap-around with gradual cinematic falloff",
+      "color_palette": "warm amber, muted slate grey, natural oat cream",
+      "key_elements": [
+        "floor-to-ceiling wooden window frame draped with translucent sheer white linen curtains",
+        "weathered rustic oak dining table with subtle natural wood grain textures",
+        "plush neutral-toned upholstered couch adorned with soft woven throw blankets",
+        "matte finished hardwood floor softly catching low-angle warm window highlights"
+      ],
+      "style_keywords": [
+        "prestige drama cinema",
+        "warm amber 3400K key light",
+        "35mm film grain texture",
+        "diffused atmospheric haze",
+        "photorealistic naturalistic interior"
+      ],
+      "prompt_block": "Cozy domestic living room interior, late afternoon golden hour with still interior air, soft motivated directional 3400K golden sunlight streaming through sheer white curtains balanced by 5200K cool ambient shadows, tall wooden framed window, rustic oak dining table, plush beige upholstered couch, matte hardwood flooring, golden volumetric dust motes suspended in sunlight beams with gentle highlight halation and intimate cinematic mood."
+    },
+    "warm_living_room": {
+      "location_id": "warm_living_room",
+      "name": "Warm Living Room",
+      "time_of_day": "late afternoon",
+      "weather": "soft, diffused golden hour light",
+      "lighting": "Warm 3200K diffused window light creating soft side-lighting and gentle rim light, lifted shadows",
+      "color_palette": "muted amber, dusty rose, warm cream, subtle cool grey undertones",
+      "key_elements": [
+        "well-worn, comfortable armchair with a knitted throw blanket",
+        "bookshelves filled with a mix of classic novels and children's books",
+        "a slightly cluttered coffee table with family photos and a half-finished puzzle",
+        "a large window with sheer curtains diffusing the afternoon light"
+      ],
+      "style_keywords": [
+        "cinematic realism",
+        "intimate domestic drama",
+        "muted color palette",
+        "warm diffused lighting",
+        "35mm film grain",
+        "photorealistic textures"
+      ],
+      "prompt_block": "Warm, slightly cluttered living room, late afternoon soft diffused amber light, warm 3200K window light with gentle side-lighting and lifted shadows, well-worn armchair with knitted throw, bookshelves with family photos, subtle dust motes catching the golden light, intimate and loving atmosphere."
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "duration_seconds": 7,
+      "story_beat": "A mother (Subject) embraces her eight-year-old son (Verb) in a soft, diffused amber light (Atmosphere) within a warm, slightly cluttered living room (Location) with gentle affection (Emotion).",
+      "emotion": "affectionate",
+      "location_id": "warm_living_room",
+      "character_ids": [
+        "mother",
+        "eight_year_old_son"
+      ],
+      "camera": {
+        "scene_id": 1,
+        "shot_type": "medium shot",
+        "camera_angle": "eye-level",
+        "camera_movement": "static",
+        "lens": "50mm standard prime lens",
+        "lighting": "Warm 3200K diffused window light, soft side-lighting creating gentle rim light on shoulders, lifted shadows, volumetric atmosphere with dust motes",
+        "composition": "Mother and son embraced, filling the central frame, maintaining rule of thirds with slight emphasis on their connection, maintaining 16:9 cinematic framing",
+        "focus": "Sharp focus on the subjects' faces and the embrace, background living room elements softly diffused",
+        "motion_intensity": "low",
+        "motion_score": 0.3,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium shot, static. A mother (Subject) embraces her eight-year-old son (Verb) in a soft, diffused amber light (Atmosphere) within a warm, slightly cluttered living room (Location) with gentle affection (Emotion). Claire (warm maternal woman in her mid-thirties) wearing Chunky dusty-rose ribbed cashmere open-front cardigan, muted cream; Leo (gentle eight-year-old schoolboy) wearing Oversized heather-mustard ribbed knit wool crewneck sweater with. Setting: Warm Living Room. Lighting: Warm 3200K diffused window light, soft side-lighting creating gentle rim light on shoulders, lifted shadows, volumetric atmosphere with dust motes. 50mm standard prime lens, shallow depth of field, 16:9 widescreen cinematic composition, Emotional drama, muted amber-rose palette, 3200K diffused window light with soft shadows, 35mm film grain, photorealistic intimate portraiture.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 2,
+      "duration_seconds": 8,
+      "story_beat": "The mother (Subject) offers a soft, knowing smile (Verb) under muted rose-tinted daylight (Atmosphere) at eye-level with her son (Location) with quiet understanding (Emotion).",
+      "emotion": "understanding",
+      "location_id": "warm_living_room",
+      "character_ids": [
+        "mother",
+        "eight_year_old_son"
+      ],
+      "camera": {
+        "scene_id": 2,
+        "shot_type": "medium close-up",
+        "camera_angle": "eye-level",
+        "camera_movement": "slow push-in",
+        "lens": "85mm portrait prime lens",
+        "lighting": "Muted rose-tinted daylight, soft diffused light, subtle rim illumination on character edges",
+        "composition": "Mother's face slightly off-center, son's head gently resting near her shoulder, focus on their shared gaze and subtle smile, maintaining 16:9 cinematic framing",
+        "focus": "Sharp focus on the mother's eyes and smile, son's form softly out of focus in the foreground",
+        "motion_intensity": "low",
+        "motion_score": 0.45,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.35,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium close-up, slow push-in. The mother (Subject) offers a soft, knowing smile (Verb) under muted rose-tinted daylight (Atmosphere) at eye-level with her son (Location) with quiet understanding (Emotion). Claire (warm maternal woman in her mid-thirties) wearing Chunky dusty-rose ribbed cashmere open-front cardigan, muted cream; Leo (gentle eight-year-old schoolboy) wearing Oversized heather-mustard ribbed knit wool crewneck sweater with. Setting: Warm Living Room. Lighting: Muted rose-tinted daylight, soft diffused light, subtle rim illumination on character edges. 85mm portrait prime lens, shallow depth of field, 16:9 widescreen cinematic composition, Emotional drama, muted amber-rose palette, 3200K diffused window light with soft shadows, 35mm film grain, photorealistic intimate portraiture.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 3,
+      "duration_seconds": 7,
+      "story_beat": "The eight-year-old son (Subject) tightens his hug (Verb) bathed in a gentle, diffused glow (Atmosphere) against his mother's shoulder (Location) with earnest devotion (Emotion).",
+      "emotion": "devoted",
+      "location_id": "warm_living_room",
+      "character_ids": [
+        "eight_year_old_son",
+        "mother"
+      ],
+      "camera": {
+        "scene_id": 3,
+        "shot_type": "close-up",
+        "camera_angle": "slightly high angle",
+        "camera_movement": "static",
+        "lens": "85mm portrait prime lens",
+        "lighting": "Gentle diffused glow, warm 3200K light, soft shadows emphasizing the hug's tightness",
+        "composition": "Focus on the son's embrace around his mother's neck, capturing the earnestness of the gesture, maintaining 16:9 cinematic framing",
+        "focus": "Sharp focus on the son's hands and the texture of his clothing against his mother's shoulder, mother's face softly blurred",
+        "motion_intensity": "low",
+        "motion_score": 0.3,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "close-up, static. The eight-year-old son (Subject) tightens his hug (Verb) bathed in a gentle, diffused glow (Atmosphere) against his mother's shoulder (Location) with earnest devotion (Emotion). Leo (gentle eight-year-old schoolboy) wearing Oversized heather-mustard ribbed knit wool crewneck sweater with; Claire (warm maternal woman in her mid-thirties) wearing Chunky dusty-rose ribbed cashmere open-front cardigan, muted cream. Setting: Warm Living Room. Lighting: Gentle diffused glow, warm 3200K light, soft shadows emphasizing the hug's tightness. 85mm portrait prime lens, shallow depth of field, 16:9 widescreen cinematic composition, Emotional drama, muted amber-rose palette, 3200K diffused window light with soft shadows, 35mm film grain, photorealistic intimate portraiture.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 4,
+      "duration_seconds": 8,
+      "story_beat": "The mother (Subject) gently rests her cheek against her son's head (Verb) in the lingering warm amber light (Atmosphere) in their shared embrace (Location) with profound love (Emotion).",
+      "emotion": "loved",
+      "location_id": "warm_living_room",
+      "character_ids": [
+        "mother",
+        "eight_year_old_son"
+      ],
+      "camera": {
+        "scene_id": 4,
+        "shot_type": "medium shot",
+        "camera_angle": "eye-level",
+        "camera_movement": "gentle orbit",
+        "lens": "50mm standard prime lens",
+        "lighting": "Lingering warm amber light, 3200K diffused window light, soft volumetric key light wrap-around",
+        "composition": "Mother and son in a gentle embrace, slight orbital movement emphasizes their shared space and love, maintaining 16:9 cinematic framing",
+        "focus": "Sharp focus on both subjects' faces and their resting positions, background living room elements softly diffused",
+        "motion_intensity": "low",
+        "motion_score": 0.5,
+        "camera_vector": {
+          "x": 0.25,
+          "y": 0.0,
+          "z": 0.1,
+          "pitch": 0.0,
+          "yaw": 0.3,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium shot, gentle orbit. The mother (Subject) gently rests her cheek against her son's head (Verb) in the lingering warm amber light (Atmosphere) in their shared embrace (Location) with profound love (Emotion). Claire (warm maternal woman in her mid-thirties) wearing Chunky dusty-rose ribbed cashmere open-front cardigan, muted cream; Leo (gentle eight-year-old schoolboy) wearing Oversized heather-mustard ribbed knit wool crewneck sweater with. Setting: Warm Living Room. Lighting: Lingering warm amber light, 3200K diffused window light, soft volumetric key light wrap-around. 50mm standard prime lens, shallow depth of field, 16:9 widescreen cinematic composition, Emotional drama, muted amber-rose palette, 3200K diffused window light with soft shadows, 35mm film grain, photorealistic intimate portraiture.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    }
+  ],
+  "audio_plan": null,
+  "project_dir": "/home/cyb3rfy/AI-Video/projects/today_my_eight_year_old",
+  "references_dir": "/home/cyb3rfy/AI-Video/projects/today_my_eight_year_old/references",
+  "storyboards_dir": "/home/cyb3rfy/AI-Video/projects/today_my_eight_year_old/storyboards",
+  "clips_dir": "/home/cyb3rfy/AI-Video/projects/today_my_eight_year_old/clips",
+  "audio_dir": "/home/cyb3rfy/AI-Video/projects/today_my_eight_year_old/audio",
+  "output_dir": "/home/cyb3rfy/AI-Video/projects/today_my_eight_year_old/output",
+  "final_reel_path": "",
+  "agents": {
+    "director": true,
+    "story_breakdown": true,
+    "character_bible": true,
+    "environment_bible": true,
+    "reference_images": false,
+    "cinematography": true,
+    "prompt_builder": true,
+    "video_generation": false,
+    "qc": false,
+    "audio": false,
+    "editor": false
+  }
+}

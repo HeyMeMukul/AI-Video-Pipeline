@@ -1,0 +1,4 @@
+file '/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/audio/scene_01_sfx.wav'
+file '/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/audio/scene_02_sfx.wav'
+file '/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/audio/scene_03_sfx.wav'
+file '/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/audio/scene_04_sfx.wav'

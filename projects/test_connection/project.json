@@ -1,0 +1,291 @@
+{
+  "project_id": "a7588c2b",
+  "project_name": "test_connection",
+  "created_at": "2026-10-20T12:51:33.227559+00:00",
+  "updated_at": "2026-10-20T12:56:50.633056+00:00",
+  "story": "A short test story",
+  "target_duration_seconds": 30,
+  "platform": "cinematic",
+  "aspect_ratio": "16:9",
+  "style": "Cinematic",
+  "tone": "dramatic, emotional, cinematic",
+  "director_notes": {
+    "visual_style": "Shot on 35mm stock with fine organic grain and delicate highlight halation. The palette centers on muted slate-grey tones accented by warm 3200K amber practical highlights, maintaining lifted filmic shadows and a restrained, desaturated dramatic register.",
+    "camera_style": "Deliberate eye-level framing with locked static holds and imperceptible linear push-ins only. Utilizes 35mm anamorphic lenses for balanced wide shots and 85mm prime lenses with shallow depth-of-field for intimate subject focus, strictly prohibiting rapid whipping or handheld camera jitter.",
+    "lighting": "Motivated directional side-lighting clashing with cool 5600K ambient daylight falloff. Subdued volumetric haze captures subtle light shafts, producing rich mid-tone contrast and soft, deep shadow gradients without digital noise.",
+    "editing": "Contemplative pacing structured into 5-to-6 second scene holds across the 30-second duration. Hard cuts executed on subtle subject micro-actions, allowing visual and emotional tension to linger without abrupt transitions.",
+    "music": "62 BPM, somber and yearning mood, solo bowed cello paired with warm felt piano and low analog synth drones, sparse minimalist texture building into a restrained, resonant climax.",
+    "style_lock": "Cinematic prestige drama, muted slate-grey and amber 3200K palette, directional motivated side-light with soft volumetric haze, 35mm anamorphic grain with subtle halation, photorealistic tactile textures.",
+    "avoid": [
+      "fast chaotic motion or rapid whip pans",
+      "morphing facial features or shifting anatomical proportions",
+      "extra fingers, deformed limbs, or distorted anatomy",
+      "sudden changes in wardrobe style or clothing color between frames",
+      "bright saturated cartoon or hyper-vivid neon colors",
+      "blown-out overexposed highlights and noisy crushed blacks",
+      "on-screen text, watermarks, subtitles, or ui logos inside the video frame",
+      "unstable handheld camera shake and rapid digital zooms",
+      "unwanted additional characters appearing in frame"
+    ]
+  },
+  "characters": {
+    "lone_operator": {
+      "character_id": "lone_operator",
+      "name": "The Operator",
+      "type": "weathered solitary communications technician",
+      "body": "Slender, angular frame with broad yet slightly hunched shoulders, long limbs, and deliberate measured movement suited for maintaining analog industrial hardware",
+      "height": "tall lean build (approx. 6 feet)",
+      "face": "Gaunt, weathered facial structure with prominent cheekbones, deep-set tired hazel-grey eyes catching amber practical light, rough dark stubble across a sharp jawline, and faint fatigue creases around the eyelids",
+      "clothing_or_accessories": "Heavy slate-grey waxed canvas utility jacket with reinforced oiled-leather elbow patches, high ribbed-knit collar, dark charcoal fingerless work gloves, and a permanent heavy vintage oxidized-brass communications headset resting around the neck",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "tall gaunt operator",
+        "slate-grey waxed jacket",
+        "brass neck headset",
+        "charcoal work gloves",
+        "deep-set hazel eyes",
+        "patinated tactile fabrics"
+      ],
+      "negative_constraints": [
+        "no futuristic glowing neon or cybernetic implants",
+        "no clean pristine or brightly colored clothing",
+        "no full helmet or obscured face",
+        "no bare unadorned neck without brass headset",
+        "no youthful unweathered facial features",
+        "no changing appearance of The Operator",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same weathered solitary communications technician named The Operator, tall lean frame with hunched broad shoulders, gaunt angular face with deep-set hazel-grey eyes and hollow stubbled jaw, wearing a heavy slate-grey waxed canvas jacket with oiled leather elbow patches and a permanent neck-slung oxidized-brass intercom headset with charcoal fingerless gloves, distressed waxed cotton and patinated matte brass, contemplative stoic stance, photorealistic tactile 35mm film textures."
+    }
+  },
+  "locations": {
+    "dim_control_room": {
+      "location_id": "dim_control_room",
+      "name": "Dim Control Room Terminal",
+      "time_of_day": "dim interior morning twilight",
+      "weather": "stagnant interior air with heavy micro-dust haze",
+      "lighting": "Motivated side-lighting from 3200K warm tungsten desk practicals contrasting against cool 5600K ambient daylight falloff from high slit windows, casting soft shadow gradients",
+      "color_palette": "muted slate grey, warm 3200K amber, deep charcoal, oxidized copper",
+      "key_elements": [
+        "banks of flickering green-tinted CRT monitors embedded in muted slate-grey consoles",
+        "weathered operator desk featuring an array of oxidized brass switches and Bakelite knobs",
+        "heavy reinforced steel door with faded yellow hazard striping",
+        "tangled bundles of heavy industrial black cables coiled along the concrete floor"
+      ],
+      "style_keywords": [
+        "Cinematic prestige drama",
+        "muted slate-grey and amber 3200K palette",
+        "directional motivated side-light with soft volumetric haze",
+        "35mm anamorphic grain with subtle halation",
+        "photorealistic tactile textures"
+      ],
+      "prompt_block": "Dim retro-industrial control room interior, dark morning twilight with stagnant suspended air dust, motivated 3200K warm tungsten side-lighting from desk practical lamps clashing with soft 5600K cool ambient window falloff, flickering green CRT monitors embedded in slate-grey operator terminals, oxidized brass toggle switches, heavy steel door, floating micro-dust motes in soft volumetric haze, 35mm film grain with subtle highlight halation."
+    },
+    "relay_tower_balcony": {
+      "location_id": "relay_tower_balcony",
+      "name": "Relay Tower Industrial Catwalk Balcony",
+      "time_of_day": "early morning dawn",
+      "weather": "drifting slate-grey morning mist and damp air",
+      "lighting": "Cool 5600K ambient morning daylight diffused through fog, pierced by strong directional 3200K amber light shafts from an overhead signal beacon",
+      "color_palette": "muted slate grey, warm amber, weathered industrial steel, iron rust",
+      "key_elements": [
+        "wet industrial steel grate catwalk walkway with heavily rusted iron safety railings",
+        "towering lattice steel relay superstructure extending upward into dense low clouds",
+        "weathered outdoor junction terminal box with exposed oxidized copper wiring",
+        "glowing amber 3200K industrial signal beacon housing mounted to vertical truss structure"
+      ],
+      "style_keywords": [
+        "Cinematic prestige drama",
+        "muted slate-grey and amber 3200K palette",
+        "directional motivated side-light with soft volumetric haze",
+        "35mm anamorphic grain with subtle halation",
+        "photorealistic tactile textures"
+      ],
+      "prompt_block": "Industrial relay tower steel catwalk balcony, early morning drifting slate-grey fog, cool 5600K ambient morning sky diffuse light cut by intense 3200K warm amber directional beacon beam, wet metal grate walkway with oxidized rust on steel railings, lattice structural frame vanishing into upper mist, airborne moisture droplets shimmering in volumetric haze shafts, photorealistic tactile steel textures, cinematic 35mm grain."
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "duration_seconds": 7,
+      "story_beat": "The lone operator sits motionlessly before flickering CRT monitors in the soft volumetric haze of warm amber desk lights with lingering melancholy.",
+      "emotion": "melancholic",
+      "location_id": "dim_control_room",
+      "character_ids": [
+        "lone_operator"
+      ],
+      "camera": {
+        "scene_id": 1,
+        "shot_type": "medium shot",
+        "camera_angle": "eye-level",
+        "camera_movement": "static",
+        "lens": "35mm cinema prime",
+        "lighting": "Motivated side-lighting from 3200K warm tungsten desk practicals contrasting against cool 5600K ambient daylight falloff, capturing volumetric haze",
+        "composition": "Character seated off-center on lower right third facing glowing CRT monitors, framed with deep negative space in dim control room",
+        "focus": "Sharp focus on the operator's reflective gaze and CRT console details, background wall falloff softly blurred in atmosphere",
+        "motion_intensity": "low",
+        "motion_score": 0.3,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium shot, static. The lone operator sits motionlessly before flickering CRT monitors in the soft volumetric haze of warm amber desk lights with lingering melancholy. The Operator (weathered solitary communications technician) wearing Heavy slate-grey waxed canvas utility jacket with reinforced. Setting: Dim Control Room Terminal. Lighting: Motivated side-lighting from 3200K warm tungsten desk practicals contrasting against cool 5600K ambient daylight falloff, capturing volumetric haze. 35mm cinema prime, shallow depth of field, 16:9 widescreen cinematic composition, Cinematic prestige drama, muted slate-grey and amber 3200K palette, directional motivated side-light with soft volumetric haze, 35mm anamorphic grain with subtle halation, photorealistic tactile textures.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 2,
+      "duration_seconds": 8,
+      "story_beat": "The lone operator slowly extends a worn gloved hand toward an oxidized brass switch across the muted slate-grey terminal with focused tension.",
+      "emotion": "tense",
+      "location_id": "dim_control_room",
+      "character_ids": [
+        "lone_operator"
+      ],
+      "camera": {
+        "scene_id": 2,
+        "shot_type": "close-up",
+        "camera_angle": "eye-level",
+        "camera_movement": "slow push-in",
+        "lens": "85mm portrait prime",
+        "lighting": "Directional 3200K side-light casting hard linear shadows across worn glove texture and oxidized brass switch face",
+        "composition": "Gloved hand reaching across lower horizontal plane toward oxidized brass terminal switch positioned on right focal point",
+        "focus": "Tactile razor-sharp focus on worn glove seams and oxidized brass switch surface, background control panels in heavy bokeh",
+        "motion_intensity": "low",
+        "motion_score": 0.45,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.35,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "close-up, slow push-in. The lone operator slowly extends a worn gloved hand toward an oxidized brass switch across the muted slate-grey terminal with focused tension. The Operator (weathered solitary communications technician) wearing Heavy slate-grey waxed canvas utility jacket with reinforced. Setting: Dim Control Room Terminal. Lighting: Directional 3200K side-light casting hard linear shadows across worn glove texture and oxidized brass switch face. 85mm portrait prime, shallow depth of field, 16:9 widescreen cinematic composition, Cinematic prestige drama, muted slate-grey and amber 3200K palette, directional motivated side-light with soft volumetric haze, 35mm anamorphic grain with subtle halation, photorealistic tactile textures.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 3,
+      "duration_seconds": 7,
+      "story_beat": "The lone operator walks onto the industrial steel catwalk through drifting slate-grey morning mist with cautious curiosity.",
+      "emotion": "mysterious",
+      "location_id": "relay_tower_balcony",
+      "character_ids": [
+        "lone_operator"
+      ],
+      "camera": {
+        "scene_id": 3,
+        "shot_type": "wide shot",
+        "camera_angle": "low angle",
+        "camera_movement": "slow push-in",
+        "lens": "35mm cinema prime",
+        "lighting": "Cool 5600K ambient morning daylight diffused through drifting slate-grey mist across industrial structural steel",
+        "composition": "Industrial catwalk railing creating leading lines from lower left to upper right, character centered in mist-filled central frame",
+        "focus": "Deep focal plane maintaining sharp detail on catwalk grating and operator silhouette through atmospheric morning fog",
+        "motion_intensity": "low",
+        "motion_score": 0.45,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.35,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "wide shot, slow push-in. The lone operator walks onto the industrial steel catwalk through drifting slate-grey morning mist with cautious curiosity. The Operator (weathered solitary communications technician) wearing Heavy slate-grey waxed canvas utility jacket with reinforced. Setting: Relay Tower Industrial Catwalk Balcony. Lighting: Cool 5600K ambient morning daylight diffused through drifting slate-grey mist across industrial structural steel. 35mm cinema prime, shallow depth of field, 16:9 widescreen cinematic composition, Cinematic prestige drama, muted slate-grey and amber 3200K palette, directional motivated side-light with soft volumetric haze, 35mm anamorphic grain with subtle halation, photorealistic tactile textures.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 4,
+      "duration_seconds": 8,
+      "story_beat": "The lone operator pauses beside the rusted railing as a distant signal beacon illuminates the fog in glowing amber 3200K light with quiet hope.",
+      "emotion": "hopeful",
+      "location_id": "relay_tower_balcony",
+      "character_ids": [
+        "lone_operator"
+      ],
+      "camera": {
+        "scene_id": 4,
+        "shot_type": "medium close-up",
+        "camera_angle": "low angle",
+        "camera_movement": "slow pull-back",
+        "lens": "50mm standard prime",
+        "lighting": "Strong directional 3200K amber light shafts piercing cool 5600K fog, creating warm halo rim illumination on operator silhouette",
+        "composition": "Operator profile framed on right third facing left toward distant glowing amber signal light piercing background haze",
+        "focus": "Crisp focus on operator face and rusted steel railing, amber signal light diffused through thick volumetric mist",
+        "motion_intensity": "low",
+        "motion_score": 0.45,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -0.35,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium close-up, slow pull-back. The lone operator pauses beside the rusted railing as a distant signal beacon illuminates the fog in glowing amber 3200K light with quiet hope. The Operator (weathered solitary communications technician) wearing Heavy slate-grey waxed canvas utility jacket with reinforced. Setting: Relay Tower Industrial Catwalk Balcony. Lighting: Strong directional 3200K amber light shafts piercing cool 5600K fog, creating warm halo rim illumination on operator silhouette. 50mm standard prime, shallow depth of field, 16:9 widescreen cinematic composition, Cinematic prestige drama, muted slate-grey and amber 3200K palette, directional motivated side-light with soft volumetric haze, 35mm anamorphic grain with subtle halation, photorealistic tactile textures.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    }
+  ],
+  "audio_plan": null,
+  "project_dir": "/home/cyb3rfy/AI-Video/projects/test_connection",
+  "references_dir": "/home/cyb3rfy/AI-Video/projects/test_connection/references",
+  "storyboards_dir": "/home/cyb3rfy/AI-Video/projects/test_connection/storyboards",
+  "clips_dir": "/home/cyb3rfy/AI-Video/projects/test_connection/clips",
+  "audio_dir": "/home/cyb3rfy/AI-Video/projects/test_connection/audio",
+  "output_dir": "/home/cyb3rfy/AI-Video/projects/test_connection/output",
+  "final_reel_path": "",
+  "agents": {
+    "director": true,
+    "story_breakdown": true,
+    "character_bible": true,
+    "environment_bible": true,
+    "reference_images": false,
+    "cinematography": true,
+    "prompt_builder": true,
+    "video_generation": false,
+    "qc": false,
+    "audio": false,
+    "editor": false
+  }
+}

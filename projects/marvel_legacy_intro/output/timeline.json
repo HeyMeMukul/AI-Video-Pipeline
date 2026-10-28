@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "editor_engine": "CineStorm AI Studio / Timeline Studio",
+  "project": "marvel_legacy_intro",
+  "output_reel": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/output/final_reel.mp4",
+  "platform": "cinematic",
+  "aspect_ratio": "16:9",
+  "target_duration": 30,
+  "actual_duration": 30.0,
+  "tracks": {
+    "video": [
+      {
+        "id": "v_clip_1",
+        "source": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_01.mp4",
+        "start": 0.0,
+        "end": 7.0
+      },
+      {
+        "id": "v_clip_2",
+        "source": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_02.mp4",
+        "start": 7.0,
+        "end": 15.0
+      },
+      {
+        "id": "v_clip_3",
+        "source": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_03.mp4",
+        "start": 15.0,
+        "end": 22.0
+      },
+      {
+        "id": "v_clip_4",
+        "source": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_04.mp4",
+        "start": 22.0,
+        "end": 30.0
+      }
+    ],
+    "subtitles": []
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "clip": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_01.mp4",
+      "start_time": 0.0,
+      "end_time": 7.0,
+      "duration_seconds": 7.0,
+      "story_beat": "The golden-armored superhero violently bursts forward through furiously flipping vintage comic pages illuminated by deep crimson light in a shattered comic dimension with triumphant power.",
+      "dialogue": "",
+      "camera_movement": "slow push-in",
+      "lens": "35mm cinema prime",
+      "qc_score": 93
+    },
+    {
+      "scene_id": 2,
+      "clip": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_02.mp4",
+      "start_time": 7.0,
+      "end_time": 15.0,
+      "duration_seconds": 8.0,
+      "story_beat": "An electric-violet speedster sprints vertically down a glass skyscraper amidst torrential rain, cyan neon reflections, and holographic lightning trails in a cyberpunk metropolis with ferocious determination.",
+      "dialogue": "",
+      "camera_movement": "slow push-in",
+      "lens": "24mm wide angle",
+      "qc_score": 92
+    },
+    {
+      "scene_id": 3,
+      "clip": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_03.mp4",
+      "start_time": 15.0,
+      "end_time": 22.0,
+      "duration_seconds": 7.0,
+      "story_beat": "The unified hero team leaps into a synchronized mid-air bullet-time pose under ultraviolet sky fractures and spinning golden energy mandalas in a shattered sky arena with awe-inspiring unity.",
+      "dialogue": "",
+      "camera_movement": "gentle orbit",
+      "lens": "24mm wide angle",
+      "qc_score": 92
+    },
+    {
+      "scene_id": 4,
+      "clip": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_04.mp4",
+      "start_time": 22.0,
+      "end_time": 30.0,
+      "duration_seconds": 8.0,
+      "story_beat": "A massive metallic 3D emblem slams downward into the frame amidst exploding golden sparks, volumetric smoke, and blinding anamorphic lens flares against a dark high-contrast backdrop with legendary weight.",
+      "dialogue": "",
+      "camera_movement": "slow pull-back",
+      "lens": "85mm portrait prime",
+      "qc_score": 92
+    }
+  ]
+}

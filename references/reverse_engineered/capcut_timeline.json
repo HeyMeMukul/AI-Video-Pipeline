@@ -1,0 +1,37 @@
+{
+  "tool_name": "CapCut Desktop Timeline Engine",
+  "category": "timeline_and_subtitles",
+  "provenance": "Reverse-engineered Electron / WASM timeline & auto-caption parser",
+  "subtitle_heuristics": {
+    "max_words_per_card": 3,
+    "max_chars_per_line": 18,
+    "target_reading_speed_wpm": 150,
+    "safe_zones": {
+      "bottom_margin_percent": 22,
+      "top_margin_percent": 15,
+      "left_margin_percent": 10,
+      "right_margin_percent": 10
+    },
+    "animation_curve": "cubic-bezier(0.25, 0.1, 0.25, 1.0)",
+    "font_presets": [
+      {
+        "name": "Bangers / Comic Bold",
+        "stroke_width": 3,
+        "stroke_color": "#000000",
+        "fill_color": "#FFE600",
+        "shadow": true
+      },
+      {
+        "name": "Cinematic Montserrat",
+        "stroke_width": 1.5,
+        "stroke_color": "#111111",
+        "fill_color": "#FFFFFF",
+        "shadow": true
+      }
+    ]
+  },
+  "pacing_rules": {
+    "short_form_target_cut_duration_sec": [1.5, 3.2],
+    "audio_ducking_level_db": -14.0
+  }
+}

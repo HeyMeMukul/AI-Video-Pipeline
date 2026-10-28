@@ -1,0 +1,72 @@
+{
+  "music_style": "Dark ultra-luxury cinematic synth-ambient with deep sub-bass and crystalline plucks",
+  "music_bpm": 85,
+  "music_mood": "enigmatic, opulent, tactile, authoritative",
+  "voiceover_lines": [
+    {
+      "scene_id": 1,
+      "start_second": 0.5,
+      "end_second": 4.8,
+      "text": "Where darkness meets pure luminescence.",
+      "voice_direction": "Sensual, deep, intimate close-mic whisper, slow opulent delivery"
+    },
+    {
+      "scene_id": 2,
+      "start_second": 6.5,
+      "end_second": 11.5,
+      "text": "An unspoken power suspended in time.",
+      "voice_direction": "Breathy, enigmatic, cinematic composure with low resonance"
+    },
+    {
+      "scene_id": 3,
+      "start_second": 13.5,
+      "end_second": 18.5,
+      "text": "Aura Noir. Beyond matter.",
+      "voice_direction": "Authoritative, velvet-toned, commanding, echoing resolve"
+    }
+  ],
+  "sound_effects": [
+    {
+      "scene_id": 1,
+      "start_second": 0.0,
+      "end_second": 6.0,
+      "type": "Continuous atmospheric bed: deep resonant studio void hum with subtle liquid mercury shimmers and low bass drone",
+      "volume": "subtle background (-22dB)"
+    },
+    {
+      "scene_id": 1,
+      "start_second": 1.5,
+      "end_second": 4.5,
+      "type": "Spot Foley: soft weightless liquid swirl with metallic rose-gold sheen chimes",
+      "volume": "medium foreground (-16dB)"
+    },
+    {
+      "scene_id": 2,
+      "start_second": 6.0,
+      "end_second": 13.0,
+      "type": "Continuous atmospheric bed: pressurized air hiss layer with shimmering high-frequency crystal resonance",
+      "volume": "subtle background (-20dB)"
+    },
+    {
+      "scene_id": 2,
+      "start_second": 6.2,
+      "end_second": 9.0,
+      "type": "Spot Foley: high-velocity acoustic mist burst with tactile granular laser-sizzle textures",
+      "volume": "clear foreground (-12dB)"
+    },
+    {
+      "scene_id": 3,
+      "start_second": 13.0,
+      "end_second": 20.0,
+      "type": "Continuous atmospheric bed: deep sub-bass hum decaying into a silent luxury acoustic void",
+      "volume": "subtle background (-24dB)"
+    },
+    {
+      "scene_id": 3,
+      "start_second": 13.0,
+      "end_second": 15.0,
+      "type": "Spot Foley: heavy diamond-cut magnetic latch snap impact followed by a deep sub-drop and crystalline shimmer release",
+      "volume": "prominent foreground (-8dB)"
+    }
+  ]
+}

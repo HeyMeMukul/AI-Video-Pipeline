@@ -1,0 +1,522 @@
+{
+  "project_id": "b0684180",
+  "project_name": "marvel_legacy_intro",
+  "created_at": "2026-10-01T03:57:03.520119+00:00",
+  "updated_at": "2026-10-20T06:25:05.231316+00:00",
+  "story": "In a multiverse of shattered dimensions, vintage comic book pages flip furiously across the screen in deep crimson light, inked sketches vibrating with cosmic energy. A golden-armored superhero smashes through the two-dimensional paper, sending glowing comic book fragments flying across the widescreen frame. Across a neon-drenched rainy cyberpunk metropolis, an electric-violet speedster races down skyscrapers, trailing holographic lightning, while an arcane mystic conjures spinning golden mandala energy shields in mid-air. Suddenly, the sky fractures as a colossal mechanized cosmic conqueror descends, causing the earth to buckle. The hero team launches into a synchronized mid-air tandem strike in a dramatic bullet-time orbit. Blinding lens flares erupt as a massive metallic 3D emblem slams down onto the screen amidst exploding sparks and smoke, locking into the legendary Marvel-style comic trailer crescendo.",
+  "target_duration_seconds": 30,
+  "platform": "cinematic",
+  "aspect_ratio": "16:9",
+  "style": "Marvel-inspired stylized comic animation, dynamic 3D cel-shaded action, halftone textures, anamorphic lens flares",
+  "tone": "epic, heroic, high-velocity",
+  "director_notes": {
+    "visual_style": "High-end 3D cel-shaded comic animation blended with cinematic photorealism, featuring subtle Ben-Day halftone screen print textures, rich ink line-weights, and horizontal streak flares. Dominant color harmony pairs deep comic crimson and radiant metallic gold against electrifying ultraviolet cyan and neon violet. High-contrast dynamic range with pristine ink blacks, lifted specular rim highlights, and intensely saturated heroic energy bursts.",
+    "camera_style": "Controlled cinematic movements prioritizing steady low-angle heroic tracking, slow fluid push-ins, and locked-axis 360-degree bullet-time orbital arcs to prevent AI generation artifacts. Framed on virtual 35mm wide-angle lenses for environmental breadth and 85mm anamorphic primes with shallow depth-of-field and creamy background bokeh. Zero erratic handheld shaking or uncontrolled whipping; all speed is framed through stable parallax and motivated subject motion.",
+    "lighting": "Motivated high-contrast kinetic lighting cast by glowing golden mandalas (3000K warm tungsten glow) and electric-violet lightning arcs (6500K cool ultraviolet), set against deep atmospheric shadows. Volumetric haze filled with suspended comic paper fragments, rain reflections, and glowing energy embers, accentuated by crisp directional edge lighting and sharp horizontal anamorphic flares.",
+    "editing": "Escalating rhythmic pacing structured across 6 concise shots averaging 4 to 5 seconds per scene, strictly locked to the 30-second duration. Hard kinetic cuts on visual impact points and musical transients, utilizing seamless match-on-action framing and flash-frame dimensional transitions.",
+    "music": "135 BPM driving hybrid cinematic trailer score; Epic-Heroic mood; Powerful brass fanfare, staccato orchestral strings, aggressive sub-bass pulses, and layered modular synth sweeps; Dense multi-layered symphonic texture; Accelerating dynamic build culminating in a thunderous metallic percussion crescendo and deep sub-bass drop.",
+    "style_lock": "Cinematic Marvel-style 3D cel-shaded animation, crimson and ultraviolet cyan palette at 6000K, motivated golden rim lighting with volumetric cosmic dust, halftone paper textures and 35mm anamorphic flares, hyper-detailed heroic rendering.",
+    "avoid": [
+      "rapid chaotic whip pans and erratic camera jitter",
+      "morphing limbs, shifting faces, or extra fingers",
+      "unwanted text overlays, publisher logos, or subtitles in frame",
+      "muddy flat lighting and desaturated washed-out colors",
+      "inconsistent character costume colors across cuts",
+      "blown-out overexposed energy effects lacking detail",
+      "photorealistic live-action human faces blending into cartoon styles",
+      "fast chaotic motion or erratic camera whipping",
+      "sudden jarring background pop-in or color flickering"
+    ]
+  },
+  "characters": {
+    "arcane_mystic": {
+      "character_id": "arcane_mystic",
+      "name": "Arcane Mystic",
+      "type": "cosmic sorcerer in ornate celestial vestments",
+      "body": "Slender yet commanding athletic build with broad poised shoulders, draped in multilayered metaphysical robes accented by floating kinetic glyph rings orbiting each forearm",
+      "height": "tall athletic (6'2\")",
+      "face": "Sculpted sharp jawline with luminescent cyan geometric eye tattoos, glowing solid amber-gold irises emitting soft light flares, no facial hair, calm resolute expression",
+      "clothing_or_accessories": "Deep cosmic crimson high-collared mantle over midnight-navy battle tunic with woven gold filigree trim, twin ornate brass bracers etched with glowing runic channels, hovering golden mandala rings around wrists",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "cosmic sorcerer Arcane Mystic",
+        "crimson velvet gold filigree",
+        "spinning golden mandala rings",
+        "glowing amber-gold eyes",
+        "levitating heroic posture"
+      ],
+      "negative_constraints": [
+        "no modern tactical guns or military tech",
+        "no standard wizard wooden staff or floppy hat",
+        "no plain flat untextured robes",
+        "no red or green energy spells, strictly amber-gold mandalas",
+        "no weak or slouching posture",
+        "no changing appearance of Arcane Mystic",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same cosmic sorcerer in ornate celestial vestments named Arcane Mystic, tall athletic frame, sculpted sharp jawline with glowing solid amber-gold eyes and cyan geometric tattoos, wearing a deep cosmic crimson high-collared mantle and midnight-navy tunic with gold filigree and brass runic bracers, rich heavyweight cel-shaded velvet and polished antique brass materials with translucent golden plasma energy rings, elevated levitating posture, hyper-detailed heroic rendering with comic ink line-weights."
+    },
+    "golden_superhero": {
+      "character_id": "golden_superhero",
+      "name": "Golden Superhero",
+      "type": "powerhouse champion in sculpted golden cosmic armor",
+      "body": "Massive hyper-muscular V-taper physique with broad heavy shoulders, reinforced segmented chest plating, and powerful armored greaves built for explosive physical impact",
+      "height": "imposing towering (6'5\")",
+      "face": "Chiseled stoic heroic visage framed by an open-faced golden aerodynamic cowl, piercing electric-white glowing eyes with faint horizontal streak flares, firm determined jaw",
+      "clothing_or_accessories": "Gleaming multi-layered golden auric chestplate with deep crimson power conduits running along ribs, sweeping dark crimson cape with gold-trimmed edges billowing behind, heavy gold-plated gauntlets with impact knuckles",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "golden-armored superhero",
+        "radiant auric chestplate",
+        "billowing crimson cape",
+        "electric-white glowing eyes",
+        "explosive power stance"
+      ],
+      "negative_constraints": [
+        "no full-face closed helmet, open-face cowl only",
+        "no rusted or weathered dull bronze, must be radiant gold",
+        "no slim or scrawny body proportions",
+        "no blue or green armor plates",
+        "no drooping or stationary cape during motion",
+        "no changing appearance of Golden Superhero",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same powerhouse champion in sculpted golden cosmic armor named Golden Superhero, imposing towering muscular V-taper build, chiseled stoic face with glowing electric-white eyes in an open-faced golden cowl, wearing a multi-layered radiant golden auric chestplate and a sweeping gold-trimmed crimson cape with heavy impact gauntlets, polished auric metal with Ben-Day halftone textures and battle scuffs, dominant forward-leaning power stance, cinematic 3D cel-shaded comic rendering with vibrant gold highlights."
+    },
+    "legacy_emblem": {
+      "character_id": "legacy_emblem",
+      "name": "Legacy Emblem",
+      "type": "massive monolithic 3D metallic comic title crest",
+      "body": "Beveled multi-tiered sculptural block-letter monolithic crest with sharp angular facets, heavy deep-extrusion bevels, and reinforced industrial metallic backing plates",
+      "height": "colossal screen-dominating entity",
+      "face": "High-contrast diamond-cut frontal typography faceplate with radiant brushed gold beveling, deep crimson glossy enamel core inlay, and pulsing internal ultraviolet backlighting",
+      "clothing_or_accessories": "Framed by explosive secondary kinetic elements including flying golden energy shrapnel, volumetric particle sparks, and twin horizontal anamorphic lens streak flares",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "monolithic 3D Legacy Emblem",
+        "radiant gold bevels crimson core",
+        "diamond-cut typography crest",
+        "exploding sparks and flares",
+        "colossal cinematic impact weight"
+      ],
+      "negative_constraints": [
+        "no flat 2D sticker appearance, strictly heavy 3D extrusion",
+        "no rounded cartoonish bubbly fonts",
+        "no faded washed-out pastel tones",
+        "no organic flesh or character limbs",
+        "no off-center skewed final lockup",
+        "no changing appearance of Legacy Emblem",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same massive monolithic 3D metallic comic title crest named Legacy Emblem, colossal block-letter typography structure with deep angular extrusions, diamond-cut faceplate with polished auric gold bevels and deep glossy crimson enamel core inlay, framed by exploding golden kinetic sparks and volumetric ultraviolet smoke plumes, chiseled cast titanium and mirror-polished gold materials with crisp comic ink-line borders, slamming downward with catastrophic weight into dead-center alignment, hyper-detailed heroic trailer crescendo rendering."
+    },
+    "violet_speedster": {
+      "character_id": "violet_speedster",
+      "name": "Violet Speedster",
+      "type": "high-velocity kinetic runner in aerodynamic carbon-fiber suit",
+      "body": "Sleek aerodynamic runner build with dense fast-twitch musculature, articulated lightweight kinetic joints, and streamlined low-drag calf thrusters",
+      "height": "compact athletic (5'10\")",
+      "face": "Sleek ultraviolet angular full-face kinetic visor with dual pulsing neon-magenta optical eye strips, smooth carbon-mesh chin guard, streamlined ear fins that sweep back",
+      "clothing_or_accessories": "Form-fitting matte-black and deep electric-violet kinetic friction suit, luminescent ultraviolet speed lines running down flanks and spine, reinforced kinetic-dispersion running boots with cyan neon soles",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "electric-violet speedster",
+        "ultraviolet angular visor",
+        "matte carbon-fiber speedsuit",
+        "holographic violet lightning trails",
+        "low-slung sprinter stance"
+      ],
+      "negative_constraints": [
+        "no bulky heavy plate armor or heavy capes",
+        "no exposed human skin or visible open eyes",
+        "no red or yellow lightning effects, strictly violet and cyan",
+        "no upright static or sluggish posture",
+        "no loose flapping fabric",
+        "no changing appearance of Violet Speedster",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same high-velocity kinetic runner in aerodynamic carbon-fiber suit named Violet Speedster, compact athletic runner frame, sleek ultraviolet angular visor with pulsing neon-magenta optical strips, wearing a form-fitting electric-violet and matte-black friction suit with cyan-soled running boots and trailing holographic violet lightning, matte carbon fiber and rain-slicked rubber materials with cel-shaded halftone textures, low-slung forward-tilted sprint posture, cinematic comic animation rendering with high-speed motion streaks."
+    }
+  },
+  "locations": {
+    "cyberpunk_metropolis": {
+      "location_id": "cyberpunk_metropolis",
+      "name": "Cyberpunk Metropolis Skyscraper Canyon",
+      "time_of_day": "midnight storm",
+      "weather": "torrential downpour and electric-cyan mist",
+      "lighting": "High-angle 6500K ultraviolet lightning arcs and electrifying 6000K cyan neon reflections with sharp specular highlights",
+      "color_palette": "electrifying cyan, neon violet, pitch ink black",
+      "key_elements": [
+        "colossal vertical glass-and-steel mega-skyscraper facades",
+        "giant holographic comic billboard ads flickering in driving rain",
+        "rain-slicked dark architectural channels with metallic conduits",
+        "glowing speedway energy channels mounted along high-rise edges"
+      ],
+      "style_keywords": [
+        "cyberpunk cel-shaded metropolis",
+        "ultraviolet cyan lighting",
+        "rain-slicked glass reflections",
+        "high-velocity kinetic animation",
+        "35mm anamorphic horizontal flares"
+      ],
+      "prompt_block": "Futuristic cyberpunk mega-city glass skyscraper canyon, midnight storm with torrential downpour and electrifying mist, high-angle dynamic 6500K ultraviolet lightning and 6000K cyan neon reflection light, rain-slick slick glass facades, glowing holographic billboard ads, suspended dynamic rain drops reflecting cyan light and misty volumetric urban haze."
+    },
+    "shattered_comic_dimension": {
+      "location_id": "shattered_comic_dimension",
+      "name": "Shattered Comic Dimension Void",
+      "time_of_day": "timeless comic void",
+      "weather": "dynamic paper debris vortex and planar static mist",
+      "lighting": "3000K dynamic warm golden rim light opposing 6500K deep crimson backlight with high-contrast ink shadows",
+      "color_palette": "deep comic crimson, radiant metallic gold, pitch ink black",
+      "key_elements": [
+        "colossal floating vintage comic book pages frozen in dynamic fracture points",
+        "floating dynamic Ben-Day halftone screen print grid panels",
+        "shattered planar paper glass shards drifting in zero gravity",
+        "etched dimensional rift lines leaking golden luminescence"
+      ],
+      "style_keywords": [
+        "cinematic Marvel 3D cel-shaded animation",
+        "crimson comic dimension",
+        "halftone paper textures",
+        "35mm anamorphic streak flares",
+        "high-contrast ink line-weights"
+      ],
+      "prompt_block": "Shattered comic book dimension rift, timeless void with dynamic paper debris vortex, dynamic 3000K golden tungsten rim light opposing 6500K crimson ambient backlight, colossal floating vintage comic book pages, Ben-Day halftone screen print panels, floating paper glass shards, suspended golden energy embers and paper particulates in volumetric haze."
+    },
+    "shattered_sky_arena": {
+      "location_id": "shattered_sky_arena",
+      "name": "Shattered Sky Arena",
+      "time_of_day": "twilight cosmic fracture",
+      "weather": "dimensional rift wind with swirling atmospheric embers",
+      "lighting": "Radiant 3000K warm tungsten golden mandala light counterbalanced by 6500K cool ultraviolet sky fracture light",
+      "color_palette": "radiant metallic gold, ultraviolet cyan, cosmic violet",
+      "key_elements": [
+        "spinning golden geometric energy mandalas floating in mid-air",
+        "shattered atmospheric sky fissures exposing crystalline deep-space",
+        "floating ruined architectural stone monoliths suspended in zero-g",
+        "crackling perimeter energy arcs forming dynamic combat boundaries"
+      ],
+      "style_keywords": [
+        "cel-shaded epic sky arena",
+        "ultraviolet sky fractures",
+        "golden energy mandalas",
+        "3D comic hero scale",
+        "volumetric cosmic dust"
+      ],
+      "prompt_block": "Shattered sky arena floating in cosmic space, twilight rift with atmospheric cosmic embers and solar wind, dynamic 3000K golden mandala top-light and 6500K cool ultraviolet horizon fracture light, spinning golden energy mandalas, floating ruined monolith platforms, crackling perimeter energy arcs, swirling cosmic dust particulates with horizontal anamorphic flares."
+    },
+    "trailer_crescendo_stage": {
+      "location_id": "trailer_crescendo_stage",
+      "name": "Trailer Crescendo Impact Stage",
+      "time_of_day": "absolute cinematic void dark",
+      "weather": "explosive volumetric smoke and dynamic spark emissions",
+      "lighting": "Blinding low-angle 3200K golden spark bursts opposing 6500K violet backlight with deep ink shadow contrast",
+      "color_palette": "radiant metallic gold, pitch ink black, electric violet",
+      "key_elements": [
+        "massive cracked dark obsidian impact floor tiles",
+        "geometric dark metallic backdrop panels framing violent energy bursts",
+        "heavy dynamic particle emission grates pouring golden smoke",
+        "floating industrial metal debris shards scattered by kinetic blast"
+      ],
+      "style_keywords": [
+        "cinematic title void stage",
+        "high-contrast comic style",
+        "golden explosion sparks",
+        "hyper-detailed metallic rendering",
+        "35mm anamorphic lens flares"
+      ],
+      "prompt_block": "Dark high-contrast impact void stage, cinematic dark with explosive volumetric smoke atmosphere, blinding low-angle 3200K golden spark burst and 6500K violet backlight with deep ink shadows, massive cracked obsidian floor tiles, geometric dark metallic backdrop panels, dynamic particulate smoke and floating molten gold sparks with anamorphic lens flares."
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "duration_seconds": 7,
+      "story_beat": "The golden-armored superhero violently bursts forward through furiously flipping vintage comic pages illuminated by deep crimson light in a shattered comic dimension with triumphant power.",
+      "emotion": "epic",
+      "location_id": "shattered_comic_dimension",
+      "character_ids": [
+        "golden_superhero"
+      ],
+      "camera": {
+        "scene_id": 1,
+        "shot_type": "medium shot",
+        "camera_angle": "low angle",
+        "camera_movement": "slow push-in",
+        "lens": "35mm cinema prime",
+        "lighting": "Motivated 3000K dynamic warm golden rim light opposing 6500K deep crimson backlight with high-contrast ink shadows and volumetric cosmic dust",
+        "composition": "Golden superhero positioned in center lower third, flanked by furiously flipping crimson comic pages framing the subject with horizontal leading lines",
+        "focus": "Tack-sharp focus on golden superhero chest armor and visor, foreground comic fragments softly blurred",
+        "motion_intensity": "medium",
+        "motion_score": 0.6,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.35,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium shot, slow push-in. The golden-armored superhero violently bursts forward through furiously flipping vintage comic pages illuminated by deep crimson light in a shattered comic dimension with triumphant power. Golden Superhero (powerhouse champion in sculpted golden cosmic armor) wearing Gleaming multi-layered golden auric chestplate with deep crimson. Setting: Shattered Comic Dimension Void. Lighting: Motivated 3000K dynamic warm golden rim light opposing 6500K deep crimson backlight with high-contrast ink shadows and volumetric cosmic dust. 35mm cinema prime, shallow depth of field, 16:9 widescreen cinematic composition, Cinematic Marvel-style 3D cel-shaded animation, crimson and ultraviolet cyan palette at 6000K, motivated golden rim lighting with volumetric cosmic dust, halftone paper textures and 35mm anamorphic flares, hyper-detailed heroic rendering.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/storyboards/scene_01_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_01.mp4",
+      "qc_passed": true,
+      "qc_score": 93,
+      "qc_issues": [
+        "Minor: Volumetric cosmic dust density is slightly lower than reference specification in foreground corners"
+      ],
+      "regeneration_count": 1
+    },
+    {
+      "scene_id": 2,
+      "duration_seconds": 8,
+      "story_beat": "An electric-violet speedster sprints vertically down a glass skyscraper amidst torrential rain, cyan neon reflections, and holographic lightning trails in a cyberpunk metropolis with ferocious determination.",
+      "emotion": "high-velocity",
+      "location_id": "cyberpunk_metropolis",
+      "character_ids": [
+        "violet_speedster"
+      ],
+      "camera": {
+        "scene_id": 2,
+        "shot_type": "wide shot",
+        "camera_angle": "high angle",
+        "camera_movement": "slow push-in",
+        "lens": "24mm wide angle",
+        "lighting": "High-angle 6500K ultraviolet lightning arcs and electrifying 6000K cyan neon reflections with sharp specular highlights along wet glass",
+        "composition": "Vertical axis of glass skyscraper cutting diagonally down frame center with deep environmental negative space on left and right thirds",
+        "focus": "Sharp focus on violet speedster's kinetic form and rain impact reflections, background skyscraper canyon diffused in torrential haze",
+        "motion_intensity": "medium",
+        "motion_score": 0.6,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.35,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "wide shot, slow push-in. An electric-violet speedster sprints vertically down a glass skyscraper amidst torrential rain, cyan neon reflections, and holographic lightning trails in a cyberpunk metropolis with ferocious determination. Violet Speedster (high-velocity kinetic runner in aerodynamic carbon-fiber suit) wearing Form-fitting matte-black and deep electric-violet kinetic friction suit,. Setting: Cyberpunk Metropolis Skyscraper Canyon. Lighting: High-angle 6500K ultraviolet lightning arcs and electrifying 6000K cyan neon reflections with sharp specular highlights along wet glass. 24mm wide angle, shallow depth of field, 16:9 widescreen cinematic composition, Cinematic Marvel-style 3D cel-shaded animation, crimson and ultraviolet cyan palette at 6000K, motivated golden rim lighting with volumetric cosmic dust, halftone paper textures and 35mm anamorphic flares, hyper-detailed heroic rendering.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/storyboards/scene_02_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_02.mp4",
+      "qc_passed": true,
+      "qc_score": 92,
+      "qc_issues": [
+        "Minor: Torrential rain density slightly reduces visibility of distant holographic billboards"
+      ],
+      "regeneration_count": 1
+    },
+    {
+      "scene_id": 3,
+      "duration_seconds": 7,
+      "story_beat": "The unified hero team leaps into a synchronized mid-air bullet-time pose under ultraviolet sky fractures and spinning golden energy mandalas in a shattered sky arena with awe-inspiring unity.",
+      "emotion": "heroic",
+      "location_id": "shattered_sky_arena",
+      "character_ids": [
+        "golden_superhero",
+        "violet_speedster",
+        "arcane_mystic"
+      ],
+      "camera": {
+        "scene_id": 3,
+        "shot_type": "wide shot",
+        "camera_angle": "low angle",
+        "camera_movement": "gentle orbit",
+        "lens": "24mm wide angle",
+        "lighting": "Radiant 3000K warm tungsten light from spinning golden mandalas counterbalanced by 6500K cool ultraviolet sky fracture fill",
+        "composition": "Heroic triad locked in balanced mid-air formation across middle horizontal third, surrounded by vast atmospheric cosmic sky negative space",
+        "focus": "Deep depth of field maintaining crisp focus on all three heroes, sky fractures generating sharp horizontal 35mm anamorphic flares",
+        "motion_intensity": "low",
+        "motion_score": 0.5,
+        "camera_vector": {
+          "x": 0.25,
+          "y": 0.0,
+          "z": 0.1,
+          "pitch": 0.0,
+          "yaw": 0.3,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "wide shot, gentle orbit. The unified hero team leaps into a synchronized mid-air bullet-time pose under ultraviolet sky fractures and spinning golden energy mandalas in a shattered sky arena with awe-inspiring unity. Golden Superhero (powerhouse champion in sculpted golden cosmic armor) wearing Gleaming multi-layered golden auric chestplate with deep crimson; Violet Speedster (high-velocity kinetic runner in aerodynamic carbon-fiber suit) wearing Form-fitting matte-black and deep electric-violet kinetic friction suit,; Arcane Mystic (cosmic sorcerer in ornate celestial vestments) wearing Deep cosmic crimson high-collared mantle over midnight-navy battle. Setting: Shattered Sky Arena. Lighting: Radiant 3000K warm tungsten light from spinning golden mandalas counterbalanced by 6500K cool ultraviolet sky fracture fill. 24mm wide angle, shallow depth of field, 16:9 widescreen cinematic composition, Cinematic Marvel-style 3D cel-shaded animation, crimson and ultraviolet cyan palette at 6000K, motivated golden rim lighting with volumetric cosmic dust, halftone paper textures and 35mm anamorphic flares, hyper-detailed heroic rendering.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/storyboards/scene_03_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_03.mp4",
+      "qc_passed": true,
+      "qc_score": 92,
+      "qc_issues": [
+        "Minor: Orbital camera movement speed is slightly faster than baseline motion score 0.5"
+      ],
+      "regeneration_count": 1
+    },
+    {
+      "scene_id": 4,
+      "duration_seconds": 8,
+      "story_beat": "A massive metallic 3D emblem slams downward into the frame amidst exploding golden sparks, volumetric smoke, and blinding anamorphic lens flares against a dark high-contrast backdrop with legendary weight.",
+      "emotion": "triumphant",
+      "location_id": "trailer_crescendo_stage",
+      "character_ids": [
+        "legacy_emblem"
+      ],
+      "camera": {
+        "scene_id": 4,
+        "shot_type": "medium shot",
+        "camera_angle": "eye-level",
+        "camera_movement": "slow pull-back",
+        "lens": "85mm portrait prime",
+        "lighting": "Blinding low-angle 3200K golden spark bursts casting sharp upward rim highlights against 6500K violet backlight and deep ink shadows",
+        "composition": "Massive 3D metallic emblem centered directly in frame occupying middle 60% with balanced volumetric dark negative space surrounding it",
+        "focus": "Razor-sharp focus on metallic emblem bevels and engraved surface texture, background spark embers melting into creamy bokeh",
+        "motion_intensity": "low",
+        "motion_score": 0.45,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -0.35,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium shot, slow pull-back. A massive metallic 3D emblem slams downward into the frame amidst exploding golden sparks, volumetric smoke, and blinding anamorphic lens flares against a dark high-contrast backdrop with legendary weight. Legacy Emblem (massive monolithic 3D metallic comic title crest) wearing Framed by explosive secondary kinetic elements including flying. Setting: Trailer Crescendo Impact Stage. Lighting: Blinding low-angle 3200K golden spark bursts casting sharp upward rim highlights against 6500K violet backlight and deep ink shadows. 85mm portrait prime, shallow depth of field, 16:9 widescreen cinematic composition, Cinematic Marvel-style 3D cel-shaded animation, crimson and ultraviolet cyan palette at 6000K, motivated golden rim lighting with volumetric cosmic dust, halftone paper textures and 35mm anamorphic flares, hyper-detailed heroic rendering.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/storyboards/scene_04_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips/scene_04.mp4",
+      "qc_passed": true,
+      "qc_score": 92,
+      "qc_issues": [
+        "Minor: Spark volumetric density slightly lower than maximum spec"
+      ],
+      "regeneration_count": 1
+    }
+  ],
+  "audio_plan": {
+    "music_style": "Driving hybrid cinematic trailer score with aggressive staccato brass, layered modular synthesizers, and massive symphonic percussion",
+    "music_bpm": 135,
+    "music_mood": "epic, high-velocity, heroically triumphant",
+    "voiceover_lines": [
+      {
+        "scene_id": 1,
+        "start_second": 0.5,
+        "end_second": 5.0,
+        "text": "When infinite worlds shatter across the multiverse...",
+        "voice_direction": "Deep cinematic trailer announcer, intense grit, resonant low-end, authoritative delivery"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 7.5,
+        "end_second": 13.0,
+        "text": "A new era of speed and power rises to conquer the darkness.",
+        "voice_direction": "Rapid building intensity, urgent dynamic pitch, razor-sharp focus"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 15.5,
+        "end_second": 20.5,
+        "text": "Bound by destiny, united as one unstoppable force...",
+        "voice_direction": "Soaring epic tone, powerful reverberant cadence, deliberate hero accent"
+      },
+      {
+        "scene_id": 4,
+        "start_second": 22.5,
+        "end_second": 27.5,
+        "text": "Witness the birth of a legendary legacy.",
+        "voice_direction": "Massive authoritative finale, thunderous resonant tail, commanding cadence"
+      }
+    ],
+    "sound_effects": [
+      {
+        "scene_id": 1,
+        "start_second": 0.0,
+        "end_second": 7.0,
+        "type": "Continuous ambient bed: low sub-bass rumble beneath rapid whipping paper rustles and crackling energy static",
+        "volume": "subtle background (-20dB)"
+      },
+      {
+        "scene_id": 1,
+        "start_second": 0.5,
+        "end_second": 2.5,
+        "type": "Spot Foley: explosive comic page tear smash followed by heavy armor servo clash and golden energy surge",
+        "volume": "clear foreground (-10dB)"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 7.0,
+        "end_second": 15.0,
+        "type": "Continuous ambient bed: torrential rain on glass mixed with high-voltage neon plasma hum and howling urban wind",
+        "volume": "subtle background (-18dB)"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 7.5,
+        "end_second": 11.5,
+        "type": "Spot Foley: rapid electric lightning discharge zip-whine with heavy wall-sprint footsteps and glass dynamic resonance",
+        "volume": "clear foreground (-12dB)"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 15.0,
+        "end_second": 22.0,
+        "type": "Continuous ambient bed: expansive atmospheric sky drone with low-frequency energy resonance and swirling wind",
+        "volume": "subtle background (-20dB)"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 15.2,
+        "end_second": 18.5,
+        "type": "Spot Foley: deep time-dilation bullet-time whoosh followed by resonant mystical energy mandala ring",
+        "volume": "clear foreground (-11dB)"
+      },
+      {
+        "scene_id": 4,
+        "start_second": 22.0,
+        "end_second": 30.0,
+        "type": "Continuous ambient bed: cavernous metallic reverberation bed with warm decaying sub-bass feedback",
+        "volume": "subtle background (-22dB)"
+      },
+      {
+        "scene_id": 4,
+        "start_second": 22.0,
+        "end_second": 24.5,
+        "type": "Spot Foley: massive anvil-like metallic emblem slam impact with explosive spark crackle and sub-bass shockwave",
+        "volume": "prominent foreground (-8dB)"
+      }
+    ],
+    "music_path": "",
+    "voiceover_path": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/audio/voiceover.mp3"
+  },
+  "project_dir": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro",
+  "references_dir": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/references",
+  "storyboards_dir": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/storyboards",
+  "clips_dir": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/clips",
+  "audio_dir": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/audio",
+  "output_dir": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/output",
+  "final_reel_path": "/home/cyb3rfy/AI-Video/projects/marvel_legacy_intro/output/final_reel.mp4",
+  "agents": {
+    "director": true,
+    "story_breakdown": true,
+    "character_bible": true,
+    "environment_bible": true,
+    "reference_images": false,
+    "cinematography": true,
+    "prompt_builder": true,
+    "video_generation": true,
+    "qc": true,
+    "audio": true,
+    "editor": true
+  }
+}

@@ -1,0 +1,344 @@
+{
+  "project_id": "e2dc4cd4",
+  "project_name": "procrastinator_requiem",
+  "created_at": "2026-09-12T16:35:26.559454+00:00",
+  "updated_at": "2026-09-12T17:54:41.336083+00:00",
+  "story": "POV: You finally decide to become productive.\n\nYesterday, at exactly 9 PM, I looked at myself in the mirror and said:\n\"Enough. From tomorrow, I'm changing my life.\"\n\nNo more procrastination.\nNo more wasting time.\nNo more scrolling Instagram for 4 hours.\n\nI felt powerful.\n\nSo naturally…\nI opened Instagram to watch ONE motivational reel.\nThe reel was 17 seconds long.\nI watched another.\nThen another.\nThen somehow Instagram showed me a video of a guy making a chair out of a watermelon.\nI don't even know why.\nBut I watched the entire thing.\n\nAt 2:47 AM, my phone asked:\n\"Are you still watching?\"\n\nBro… YOU'RE the one who brought me here. 😭\nI put my phone down and whispered:\n\"Tomorrow for sure.\"\n\nTomorrow came.\nI said the same thing.\nAt this point, my biggest achievement is consistently failing to start. 💀\n",
+  "target_duration_seconds": 30,
+  "platform": "instagram_reel",
+  "aspect_ratio": "9:16",
+  "style": "cinematic",
+  "tone": "",
+  "director_notes": {
+    "visual_style": "Hyper-realistic cinematic drama with a focus on tactile domestic textures, utilizing a desaturated palette of deep midnight blues and warm ambers. High dynamic range with soft roll-off in highlights and deep, clean shadows to emphasize the isolation of the subject.",
+    "camera_style": "The Quiet Observer: strictly 35mm and 50mm lenses, center-weighted 9:16 vertical compositions with 20% top/bottom safe zones. Movement is restricted to slow, motivated forward push-ins or static tripod holds with zero handheld jitter.",
+    "lighting": "Motivated low-key lighting from practical sources like smartphone screens and bedside lamps, 3200K tungsten warmth clashing with 6500K digital blue light, featuring subtle volumetric haze to visualize stagnant air.",
+    "editing": "Contemplative pacing with 5-7 second shot durations, utilizing slow 0.5s cross-dissolves to simulate the blurring of time, prioritizing the lingering weight of silence between narrative beats.",
+    "music": "65 BPM, Melancholic and Introspective, solo felt piano and low-pass filtered ambient synths, dusty lo-fi texture, gradual dynamic swell toward a quiet, unresolved finish.",
+    "style_lock": "Cinematic indie drama, midnight blue and amber palette with 3200K tungsten accents, low-key motivated screen glow with volumetric dust, 35mm film grain with anamorphic halation, photorealistic high-fidelity textures.",
+    "avoid": [
+      "fast chaotic motion",
+      "rapid camera whip pans",
+      "unwanted additional characters in frame",
+      "morphing objects or shifting clothing colors",
+      "burned highlights or crushed noisy blacks",
+      "text overlays, logos, or watermarks inside video frame",
+      "extra fingers or distorted anatomy",
+      "sudden lighting jumps between shots",
+      "bright saturated cartoon colors",
+      "blown-out unnatural digital highlights and pixel noise"
+    ]
+  },
+  "characters": {
+    "protagonist_man": {
+      "character_id": "protagonist_man",
+      "name": "Elias",
+      "type": "disheveled young adult male urbanite",
+      "body": "Lanky and lean frame, slightly hunched shoulders from chronic phone use, long slender fingers with pale skin, prominent collarbones visible through neckline",
+      "height": "tall athletic but slumped",
+      "face": "Sharp angular jawline, deep-set dark hazel eyes with faint purple exhaustion circles, messy dark-brown undercut hair with a single stray lock falling over the brow, light three-day stubble",
+      "clothing_or_accessories": "Permanent oversized heavy-knit charcoal-grey cotton hoodie with a deep hood and thick silver-tipped drawstrings, worn over a thin faded white crew-neck undershirt",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "disheveled young man Elias",
+        "charcoal-grey oversized hoodie",
+        "dark hazel eyes exhaustion",
+        "messy undercut hair",
+        "slumped urbanite silhouette"
+      ],
+      "negative_constraints": [
+        "no full beard, strictly light stubble",
+        "no bright or saturated clothing colors",
+        "no muscular or buff physique",
+        "no eyeglasses",
+        "no smiling or energetic expressions",
+        "no clean-cut or styled hair",
+        "no changing appearance of Elias",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same disheveled young adult male urbanite named Elias, tall athletic but slumped frame, sharp angular jawline with dark hazel eyes and heavy under-eye exhaustion circles, messy dark-brown undercut hair, wearing an oversized heavy-knit charcoal-grey cotton hoodie with thick silver-tipped drawstrings, matte fleece and oily skin textures with subtle sweat sheen, slumped C-curve posture, cinematic low-key lighting."
+    }
+  },
+  "locations": {
+    "dim_bathroom": {
+      "location_id": "dim_bathroom",
+      "name": "Dim Bathroom at Midnight",
+      "time_of_day": "midnight",
+      "weather": "stagnant humid indoor air",
+      "lighting": "Low-angle 3200K tungsten vanity glow clashing with 6500K cool blue ambient shadows, soft highlight roll-off",
+      "color_palette": "midnight blue, warm amber, porcelain white",
+      "key_elements": [
+        "frameless vanity mirror with subtle water spots",
+        "dark midnight blue accent wall",
+        "white porcelain sink with chrome fixtures",
+        "small glass medicine bottle on the counter"
+      ],
+      "style_keywords": [
+        "cinematic indie drama",
+        "3200K tungsten accents",
+        "low-key motivated lighting",
+        "35mm film grain",
+        "tactile domestic textures"
+      ],
+      "prompt_block": "Dim residential bathroom, midnight with stagnant indoor air, low-angle 3200K tungsten vanity light clashing with 6500K ambient blue shadows, frameless mirror with water spots on a midnight blue wall and a porcelain sink, subtle volumetric dust motes and soft highlights, melancholic and intimate atmosphere."
+    },
+    "midnight_bedroom": {
+      "location_id": "midnight_bedroom",
+      "name": "Dark Bedroom at Midnight",
+      "time_of_day": "deep midnight",
+      "weather": "still indoor atmosphere with floating dust",
+      "lighting": "Harsh 6500K digital blue screen glow clashing with soft 3200K tungsten bedside lamp light, deep clean shadows",
+      "color_palette": "deep midnight blue, warm amber, digital cyan",
+      "key_elements": [
+        "navy blue velvet headboard",
+        "dark oak wooden nightstand",
+        "rumpled linen pillows and messy sheets",
+        "glowing smartphone device"
+      ],
+      "style_keywords": [
+        "cinematic indie drama",
+        "anamorphic halation",
+        "volumetric dust",
+        "high-fidelity textures",
+        "midnight blue and amber palette"
+      ],
+      "prompt_block": "Dark domestic bedroom, deep midnight with still air, harsh 6500K digital blue screen light clashing with 3200K warm tungsten lamp spill, navy blue velvet headboard and dark wooden nightstand with rumpled pillows, floating micro-particulate dust and sharp screen reflections, heavy shadows and isolated cinematic mood."
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "duration_seconds": 7,
+      "story_beat": "The young man stares intensely at his own reflection in the warm amber glow of a bathroom vanity against a dark midnight blue wall with resolute determination.",
+      "emotion": "determined",
+      "location_id": "dim_bathroom",
+      "character_ids": [
+        "protagonist_man"
+      ],
+      "camera": {
+        "scene_id": 1,
+        "shot_type": "medium close-up",
+        "camera_angle": "eye-level",
+        "camera_movement": "slow push-in",
+        "lens": "50mm standard prime lens",
+        "lighting": "Motivated 3200K amber tungsten glow from bathroom vanity clashing with 6500K midnight blue ambient shadows, soft highlight roll-off",
+        "composition": "Character's reflection centered in 9:16 frame, face occupies the central 60% vertical zone, 20% top/bottom safe zones maintained",
+        "focus": "Sharp focus on character's eyes in the mirror reflection, subtle volumetric haze in the air",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "Cinematic indie drama, midnight blue and amber palette with 3200K tungsten accents, low-key motivated screen glow with volumetric dust, 35mm film grain with anamorphic halation, photorealistic high-fidelity textures. same disheveled young adult male urbanite named Elias, tall athletic but slumped frame, sharp angular jawline with dark hazel eyes and heavy under-eye exhaustion circles, messy dark-brown undercut hair, wearing an oversized heavy-knit charcoal-grey cotton hoodie with thick silver-tipped drawstrings, matte fleece and oily skin textures with subtle sweat sheen, slumped C-curve posture, cinematic low-key lighting. Dim residential bathroom, midnight with stagnant indoor air, low-angle 3200K tungsten vanity light clashing with 6500K ambient blue shadows, frameless mirror with water spots on a midnight blue wall and a porcelain sink, subtle volumetric dust motes and soft highlights, melancholic and intimate atmosphere. The man stares intensely at his own reflection in the mirror with resolute determination. medium close-up, eye-level, slow push-in, 50mm standard prime lens, Character's reflection centered in 9:16 frame, face occupies the central 60% vertical zone, 20% top/bottom safe zones maintained. Motivated 3200K amber tungsten glow from bathroom vanity clashing with 6500K midnight blue ambient shadows, soft highlight roll-off. Determined emotional mood. Negative: fast chaotic motion, rapid camera whip pans, unwanted additional characters in frame, morphing objects or shifting clothing colors, burned highlights or crushed noisy blacks, text overlays, logos, or watermarks inside video frame, extra fingers or distorted anatomy, sudden lighting jumps between shots, bright saturated cartoon colors, blown-out unnatural digital highlights and pixel noise, morphing, sudden scene transitions, blurry frames.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/storyboards/scene_01_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/clips/scene_01.mp4",
+      "qc_passed": true,
+      "qc_score": 98,
+      "qc_issues": [
+        "Pristine prompt architecture; monitor reflection for potential eye-line drift during the slow push-in"
+      ],
+      "regeneration_count": 1
+    },
+    {
+      "scene_id": 2,
+      "duration_seconds": 8,
+      "story_beat": "The man scrolls his thumb rapidly across a glowing smartphone screen in a dark bedroom illuminated by flickering blue light while slumped against a velvet headboard with vacant fixation.",
+      "emotion": "distracted",
+      "location_id": "midnight_bedroom",
+      "character_ids": [
+        "protagonist_man"
+      ],
+      "camera": {
+        "scene_id": 2,
+        "shot_type": "medium shot",
+        "camera_angle": "eye-level",
+        "camera_movement": "static",
+        "lens": "35mm cinema prime lens",
+        "lighting": "Flickering 6500K digital blue light from smartphone screen clashing with soft 3200K tungsten bedside lamp light, deep clean shadows",
+        "composition": "Character centered in frame slumped against velvet headboard, negative space in the upper 20% of the 9:16 vertical frame",
+        "focus": "Sharp focus on character's face and glowing smartphone screen, background bedroom textures softly diffused",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "Cinematic indie drama, midnight blue and amber palette with 3200K tungsten accents, low-key motivated screen glow with volumetric dust, 35mm film grain with anamorphic halation, photorealistic high-fidelity textures. same disheveled young adult male urbanite named Elias, tall athletic but slumped frame, sharp angular jawline with dark hazel eyes and heavy under-eye exhaustion circles, messy dark-brown undercut hair, wearing an oversized heavy-knit charcoal-grey cotton hoodie with thick silver-tipped drawstrings, matte fleece and oily skin textures with subtle sweat sheen, slumped C-curve posture, cinematic low-key lighting. Dark domestic bedroom, deep midnight with still air, harsh 6500K digital blue screen light clashing with 3200K warm tungsten lamp spill, navy blue velvet headboard and dark wooden nightstand with rumpled pillows, floating micro-particulate dust and sharp screen reflections, heavy shadows and isolated cinematic mood. The man scrolls his thumb rapidly across a glowing smartphone screen while slumped against a velvet headboard. medium shot, eye-level, static, 35mm cinema prime lens, Character centered in frame slumped against velvet headboard, negative space in the upper 20% of the 9:16 vertical frame. Flickering 6500K digital blue light from smartphone screen clashing with soft 3200K tungsten bedside lamp light, deep clean shadows. Distracted emotional mood. Negative: fast chaotic motion, rapid camera whip pans, unwanted additional characters in frame, morphing objects or shifting clothing colors, burned highlights or crushed noisy blacks, text overlays, logos, or watermarks inside video frame, extra fingers or distorted anatomy, sudden lighting jumps between shots, bright saturated cartoon colors, blown-out unnatural digital highlights and pixel noise, morphing, sudden scene transitions, blurry frames.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/storyboards/scene_02_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/clips/scene_02.mp4",
+      "qc_passed": true,
+      "qc_score": 97,
+      "qc_issues": [
+        "Risk: 'Rapid thumb scrolling' action is a high-probability trigger for digit morphing or temporal hand instability."
+      ],
+      "regeneration_count": 1
+    },
+    {
+      "scene_id": 3,
+      "duration_seconds": 7,
+      "story_beat": "A digital 'Still Watching?' notification illuminates the smartphone screen casting a harsh white glare onto the man's exhausted face on a messy pillow with stinging guilt.",
+      "emotion": "ashamed",
+      "location_id": "midnight_bedroom",
+      "character_ids": [
+        "protagonist_man"
+      ],
+      "camera": {
+        "scene_id": 3,
+        "shot_type": "close-up",
+        "camera_angle": "slightly high angle",
+        "camera_movement": "slow push-in",
+        "lens": "50mm standard prime lens",
+        "lighting": "Harsh 6500K digital white glare from smartphone screen illuminating exhausted face, high-contrast shadows on messy pillow",
+        "composition": "Face positioned in the central vertical 60% zone, eyes centered for 9:16 vertical safety, 20% bottom safe zone for UI elements",
+        "focus": "Tack sharp focus on character's eyes and skin texture under harsh digital glare, anamorphic halation on screen edges",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "Cinematic indie drama, midnight blue and amber palette with 3200K tungsten accents, low-key motivated screen glow with volumetric dust, 35mm film grain with anamorphic halation, photorealistic high-fidelity textures. same disheveled young adult male urbanite named Elias, tall athletic but slumped frame, sharp angular jawline with dark hazel eyes and heavy under-eye exhaustion circles, messy dark-brown undercut hair, wearing an oversized heavy-knit charcoal-grey cotton hoodie with thick silver-tipped drawstrings, matte fleece and oily skin textures with subtle sweat sheen, slumped C-curve posture, cinematic low-key lighting. Dark domestic bedroom, deep midnight with still air, harsh 6500K digital blue screen light clashing with 3200K warm tungsten lamp spill, navy blue velvet headboard and dark wooden nightstand with rumpled pillows, floating micro-particulate dust and sharp screen reflections, heavy shadows and isolated cinematic mood. A digital notification illuminates the smartphone screen casting a harsh white glare onto the man's face. close-up, slightly high angle, slow push-in, 50mm standard prime lens, Face positioned in the central vertical 60% zone, eyes centered for 9:16 vertical safety, 20% bottom safe zone for UI elements. Harsh 6500K digital white glare from smartphone screen illuminating exhausted face, high-contrast shadows on messy pillow. Ashamed emotional mood. Negative: fast chaotic motion, rapid camera whip pans, unwanted additional characters in frame, morphing objects or shifting clothing colors, burned highlights or crushed noisy blacks, text overlays, logos, or watermarks inside video frame, extra fingers or distorted anatomy, sudden lighting jumps between shots, bright saturated cartoon colors, blown-out unnatural digital highlights and pixel noise, morphing, sudden scene transitions, blurry frames.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/storyboards/scene_03_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/clips/scene_03.mp4",
+      "qc_passed": true,
+      "qc_score": 99,
+      "qc_issues": [
+        "Pristine: Prompt architecture demonstrates 1:1 alignment with character and environment bibles; 6500K/3200K Kelvin clash is correctly specified for DI grading."
+      ],
+      "regeneration_count": 1
+    },
+    {
+      "scene_id": 4,
+      "duration_seconds": 8,
+      "story_beat": "The man slowly places the glowing smartphone face-down on a wooden nightstand as amber tungsten light catches floating dust in the dark room with profound exhaustion.",
+      "emotion": "melancholic",
+      "location_id": "midnight_bedroom",
+      "character_ids": [
+        "protagonist_man"
+      ],
+      "camera": {
+        "scene_id": 4,
+        "shot_type": "insert shot",
+        "camera_angle": "low angle",
+        "camera_movement": "static",
+        "lens": "35mm cinema prime lens",
+        "lighting": "Warm 3200K tungsten side-lighting from practical lamp catching floating volumetric dust motes against dark 6500K blue background",
+        "composition": "Phone and hand centered on wooden nightstand, subject occupies lower 60% of 9:16 vertical frame, 20% top safe zone maintained",
+        "focus": "Sharp focus on the tactile texture of the wooden nightstand and the smartphone, floating dust motes illuminated in the light beam",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "Cinematic indie drama, midnight blue and amber palette with 3200K tungsten accents, low-key motivated screen glow with volumetric dust, 35mm film grain with anamorphic halation, photorealistic high-fidelity textures. same disheveled young adult male urbanite named Elias, tall athletic but slumped frame, sharp angular jawline with dark hazel eyes and heavy under-eye exhaustion circles, messy dark-brown undercut hair, wearing an oversized heavy-knit charcoal-grey cotton hoodie with thick silver-tipped drawstrings, matte fleece and oily skin textures with subtle sweat sheen, slumped C-curve posture, cinematic low-key lighting. Dark domestic bedroom, deep midnight with still air, harsh 6500K digital blue screen light clashing with 3200K warm tungsten lamp spill, navy blue velvet headboard and dark wooden nightstand with rumpled pillows, floating micro-particulate dust and sharp screen reflections, heavy shadows and isolated cinematic mood. The man slowly places the glowing smartphone face-down on a wooden nightstand. insert shot, low angle, static, 35mm cinema prime lens, Phone and hand centered on wooden nightstand, subject occupies lower 60% of 9:16 vertical frame, 20% top safe zone maintained. Warm 3200K tungsten side-lighting from practical lamp catching floating volumetric dust motes against dark 6500K blue background. Melancholic emotional mood. Negative: fast chaotic motion, rapid camera whip pans, unwanted additional characters in frame, morphing objects or shifting clothing colors, burned highlights or crushed noisy blacks, text overlays, logos, or watermarks inside video frame, extra fingers or distorted anatomy, sudden lighting jumps between shots, bright saturated cartoon colors, blown-out unnatural digital highlights and pixel noise, morphing, sudden scene transitions, blurry frames.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/storyboards/scene_04_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/clips/scene_04.mp4",
+      "qc_passed": true,
+      "qc_score": 75,
+      "qc_issues": [],
+      "regeneration_count": 1
+    }
+  ],
+  "audio_plan": {
+    "music_style": "Minimalist lo-fi cinematic drama score with felt upright piano, warm analog sub-textures, and intimate tape flutter",
+    "music_bpm": 65,
+    "music_mood": "melancholic, introspective, quiet regret",
+    "voiceover_lines": [
+      {
+        "scene_id": 1,
+        "start_second": 0.5,
+        "end_second": 5.5,
+        "text": "At nine p.m., I swore in the mirror: tomorrow, everything changes.",
+        "voice_direction": "Resolute, dry close-mic intimacy, quiet conviction fading into solemnity"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 7.5,
+        "end_second": 13.5,
+        "text": "So naturally, I watched one reel. Then ten. Then watermelon furniture at two a.m.",
+        "voice_direction": "Deadpan, self-effacing irony, slightly numb delivery"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 15.5,
+        "end_second": 20.5,
+        "text": "The phone asked if I was still watching. Like it wasn't the accomplice.",
+        "voice_direction": "Weary bitter chuckle, tired rasp, dropping pitch at the end"
+      },
+      {
+        "scene_id": 4,
+        "start_second": 22.5,
+        "end_second": 28.5,
+        "text": "I whispered: tomorrow for sure. Tomorrow came. Same story.",
+        "voice_direction": "Heavy defeated sigh, subdued whisper, trailing off into silence"
+      }
+    ],
+    "sound_effects": [
+      {
+        "scene_id": 1,
+        "start_second": 0.0,
+        "end_second": 7.0,
+        "type": "Continuous ambient bed: warm electrical hum of incandescent vanity bulbs and faint water pipe vibration",
+        "volume": "subtle background (-24dB)"
+      },
+      {
+        "scene_id": 1,
+        "start_second": 4.8,
+        "end_second": 6.2,
+        "type": "Spot Foley: single heavy intake of breath followed by dry lip smack",
+        "volume": "intimate foreground (-14dB)"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 7.0,
+        "end_second": 15.0,
+        "type": "Continuous ambient bed: muffled HVAC room tone and subtle digital radiation hum",
+        "volume": "subtle background (-26dB)"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 8.0,
+        "end_second": 14.5,
+        "type": "Spot Foley: repetitive rhythmic tactile thumb swipes across coated glass screen with soft fabric rustle",
+        "volume": "clear midground (-16dB)"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 15.0,
+        "end_second": 22.0,
+        "type": "Continuous ambient bed: high-frequency digital tinnitic whine emphasizing sensory isolation",
+        "volume": "creeping background (-20dB)"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 15.2,
+        "end_second": 16.8,
+        "type": "Spot Foley: hollow system dialogue ping and dull haptic motor buzz muffled against bedding",
+        "volume": "pronounced foreground (-10dB)"
+      },
+      {
+        "scene_id": 4,
+        "start_second": 22.0,
+        "end_second": 30.0,
+        "type": "Continuous ambient bed: dead-of-night room hush with slow, atmospheric tape decay",
+        "volume": "subtle background (-28dB)"
+      },
+      {
+        "scene_id": 4,
+        "start_second": 23.0,
+        "end_second": 24.5,
+        "type": "Spot Foley: tactile, hollow clatter of glass smartphone placed flat down onto wooden nightstand",
+        "volume": "clear foreground (-12dB)"
+      }
+    ],
+    "music_path": "",
+    "voiceover_path": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/audio/voiceover.mp3"
+  },
+  "project_dir": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem",
+  "references_dir": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/references",
+  "storyboards_dir": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/storyboards",
+  "clips_dir": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/clips",
+  "audio_dir": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/audio",
+  "output_dir": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/output",
+  "final_reel_path": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/output/final_reel.mp4",
+  "agents": {
+    "director": true,
+    "story_breakdown": true,
+    "character_bible": true,
+    "environment_bible": true,
+    "reference_images": true,
+    "cinematography": true,
+    "prompt_builder": true,
+    "video_generation": true,
+    "qc": true,
+    "audio": true,
+    "editor": true
+  }
+}

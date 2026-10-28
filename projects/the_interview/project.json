@@ -1,0 +1,351 @@
+{
+  "project_id": "f2af07c2",
+  "project_name": "the_interview",
+  "created_at": "2026-09-12T18:02:17.916650+00:00",
+  "updated_at": "2026-09-12T19:44:04.107808+00:00",
+  "story": "Title: THE INTERVIEW\n\nHook:\nI walked into an executive interview with absolutely zero preparation.\n\nScene 1:\nA broke, disheveled college student named Leo sits in an oversized leather chair across a sleek glass desk from Ms. Vance, a sharp senior corporate vice president. Ms. Vance peers over her designer glasses, clicks her pen, and asks:\n\"So, Leo... where do you see yourself in five years?\"\n\nScene 2:\nLeo leans back with completely unearned confidence, making unflinching deadpan eye contact. He replies:\n\"Honestly? In your position.\"\nMs. Vance arches an eyebrow, a faint cynical smirk breaking her poker face:\n\"Ambitious. And what exactly would you do if you got my position?\"\n\nScene 3:\nA pregnant awkward pause. Leo doesn't blink, deadpan delivery, completely flat and matter-of-fact:\n\"Hire someone to answer stupid questions.\"\nTotal deafening room silence. The fluorescent lights hum.\n\nScene 4:\nMs. Vance stares in dead silence, then slowly closes the heavy manila folder on her desk with an authoritative slap.\n\"You're hired.\"\nLeo's stoic posture instantly collapses into sheer bewilderment:\n\"Wait... seriously?\"\n\nScene 5:\nMs. Vance takes off her glasses, leans forward over the desk, dropping the corporate facade, and whispers:\n\"Yeah. We desperately need someone who can insult upper management without HR noticing.\"\n\nPunchline:\nTurns out... that was the qualification.\n",
+  "target_duration_seconds": 30,
+  "platform": "instagram_reel",
+  "aspect_ratio": "9:16",
+  "style": "cinematic",
+  "tone": "deadpan satire workplace comedy",
+  "director_notes": {
+    "visual_style": "Sterile high-end corporate aesthetic using a desaturated slate-blue and charcoal palette punctuated by muted amber wood tones. Mid-to-high contrast with deep clean shadows, subtle highlight halation on glass surfaces, and a crisp 35mm digital sensor finish. Low visual saturation creates a cold, clinical environment that heightens the deadpan comedic weight.",
+    "camera_style": "Static tripod framing and ultra-slow linear push-ins only, keeping eye lines locked within the center 60% vertical safe zone for 9:16 aspect ratio. Shallow depth-of-field utilizing 50mm human perspective and 85mm portrait lenses to isolate character reactions with buttery background bokeh. Zero camera shake, fast whip pans, or chaotic tracking shots.",
+    "lighting": "Motivated 4200K overhead diffused fluorescent fixture soft light balanced by cool 5600K daylight side-lighting through massive executive suite windows. Faint volumetric office haze with clean, controlled shadow depth and realistic table-top reflections on sleek glass.",
+    "editing": "Calculated, precise pacing averaging 4-6 second holds per shot to emphasize awkward silences and facial beats. Direct hard cuts timed strictly to deadpan audio cues, completely devoid of cross-dissolves or flashy transition effects.",
+    "music": "75 BPM, deadpan corporate satire mood, featuring muted pizzicato strings, faint rhythmic clock-ticking percussion, and low cello drone, sparse chamber texture with a sudden complete audio drop on the comedic pauses.",
+    "style_lock": "Cinematic corporate satire, sterile slate-blue and amber 4200K palette, motivated soft overhead fluorescent light with clean volumetric haze, crisp 35mm digital grain, photorealistic high-end office photography.",
+    "avoid": [
+      "fast chaotic camera motion",
+      "rapid camera whip pans or sudden zooms",
+      "morphing facial features or shifting clothing colors",
+      "extra fingers, extra limbs, or distorted anatomy",
+      "bright saturated cartoon colors",
+      "text overlays, subtitles, logos, or watermarks inside video frame",
+      "shaky handheld camera movement",
+      "unwanted additional characters entering the frame",
+      "blown-out unnatural digital highlights and pixel noise"
+    ]
+  },
+  "characters": {
+    "leo": {
+      "character_id": "leo",
+      "name": "Leo",
+      "type": "disheveled young adult male college student",
+      "body": "Slender lean frame with slightly stooped narrow shoulders, gangly limbs sinking casually into oversized corporate seating",
+      "height": "slender medium-tall",
+      "face": "Pale skin tone with prominent dark under-eye circles, unkempt dark-brown wavy hair sticking out in asymmetric strands, unblinking dark-brown eyes, faint stubble along jawline",
+      "clothing_or_accessories": "Ill-fitting oversized wrinkled charcoal-grey thrifted blazer over a faded slate-blue crewneck T-shirt, single loose silver key ring hanging permanently from belt loop",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "disheveled male student Leo",
+        "unkempt wavy dark hair",
+        "wrinkled charcoal oversized blazer",
+        "dark under-eye circles",
+        "stoic deadpan posture"
+      ],
+      "negative_constraints": [
+        "no sharp professional suit or necktie",
+        "no neat or well-groomed styled hair",
+        "no smiling or energetic facial expressions",
+        "no bright saturated clothing colors",
+        "no clean pristine polished shoes",
+        "no changing appearance of Leo",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same disheveled young adult male college student named Leo, slender medium-tall frame with narrow shoulders, pale skin with prominent dark under-eye circles, unkempt wavy dark-brown hair, unblinking dark brown eyes, wearing an ill-fitting wrinkled charcoal-grey thrifted blazer over a faded slate-blue crewneck t-shirt, matte wrinkled cotton textures and worn denim, relaxed slouched deadpan posture in oversized corporate seating."
+    },
+    "ms_vance": {
+      "character_id": "ms_vance",
+      "name": "Ms. Vance",
+      "type": "sharp senior female corporate executive",
+      "body": "Tall upright posture, sharp angular shoulder lines, athletic poised build with rigid symmetrical composure",
+      "height": "tall athletic and commanding",
+      "face": "High cheekbones, precise dark slate eyeliner, sharp cold grey eyes, sleek dark hair pulled back in a tight flawless bun with silver streaks, geometric tortoise-shell designer glasses perched on nose bridge",
+      "clothing_or_accessories": "Tailored sharp double-breasted slate-blue wool blazer with subtle dark lapels, crisp white high-collar shirt, heavy metallic executive ballpoint pen held in right hand",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "corporate executive Ms Vance",
+        "sleek silver-streaked bun hair",
+        "tortoise-shell designer glasses",
+        "tailored slate-blue wool blazer",
+        "rigid commanding posture"
+      ],
+      "negative_constraints": [
+        "no messy or loose hair strands",
+        "no casual or brightly colored attire",
+        "no soft rounded slouching silhouette",
+        "no overly warm or friendly facial expressions",
+        "no plastic cheap pen accessories",
+        "no changing appearance of Ms. Vance",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same sharp senior female corporate executive named Ms. Vance, tall commanding frame with rigid athletic posture, high cheekbones with cold grey eyes, sleek dark hair pulled into a tight bun with silver streaks, wearing geometric tortoise-shell designer glasses and a tailored double-breasted slate-blue wool blazer over a crisp white shirt, pristine worsted wool and polished acetate textures, formal poised corporate stance."
+    }
+  },
+  "locations": {
+    "executive_corner_office": {
+      "location_id": "executive_corner_office",
+      "name": "High-End Corporate Executive Corner Office",
+      "time_of_day": "mid-day overcast daylight",
+      "weather": "climate-controlled indoor atmosphere with faint volumetric office haze",
+      "lighting": "Motivated 4200K overhead diffused fluorescent fixture soft light balanced by cool 5600K daylight side-lighting through floor-to-ceiling executive windows, deep clean shadows",
+      "color_palette": "desaturated slate-blue, charcoal grey, muted amber teak wood",
+      "key_elements": [
+        "sleek reflective glass executive desk with minimal corporate desk accessories",
+        "oversized executive dark charcoal leather armchair",
+        "soaring floor-to-ceiling double-paned glass windows showing a hazy cityscape",
+        "matte charcoal acoustic wall paneling framed by warm muted amber wood accents"
+      ],
+      "style_keywords": [
+        "cinematic corporate satire",
+        "sterile slate-blue and amber 4200K palette",
+        "motivated soft overhead fluorescent light",
+        "clean volumetric haze",
+        "crisp 35mm digital grain",
+        "photorealistic high-end office photography"
+      ],
+      "prompt_block": "Sterile high-end executive corner office, mid-day overcast indoor climate with faint volumetric office haze, overhead 4200K diffused soft fluorescent light balanced by cool 5600K daylight side-lighting from floor-to-ceiling windows, sleek polished glass desk with metallic pen setup, oversized charcoal leather armchair, matte charcoal acoustic wall paneling with muted amber teak trim, realistic glass reflections and cold clinical atmosphere."
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "duration_seconds": 7,
+      "story_beat": "Ms. Vance slowly clicks her metallic pen under cold overhead fluorescent lights across the sleek glass desk with sharp corporate scrutiny.",
+      "emotion": "skeptical",
+      "location_id": "executive_corner_office",
+      "character_ids": [
+        "ms_vance"
+      ],
+      "camera": {
+        "scene_id": 1,
+        "shot_type": "medium close-up",
+        "camera_angle": "eye-level",
+        "camera_movement": "slow push-in",
+        "lens": "85mm portrait prime lens",
+        "lighting": "Motivated 4200K overhead diffused fluorescent fixture soft light balanced by cool 5600K daylight side-lighting, creating sharp desktop reflections on sleek glass",
+        "composition": "Ms. Vance framed precisely within the central 60% vertical safe zone for 9:16 aspect ratio across polished glass desk",
+        "focus": "Sharp focus on Ms. Vance's face and metallic pen, buttery smooth background bokeh isolation",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "medium close-up, slow push-in. Ms. Vance slowly clicks her metallic pen under cold overhead fluorescent lights across the sleek glass desk with sharp corporate scrutiny. Ms. Vance (sharp senior female corporate executive) wearing Tailored sharp double-breasted slate-blue wool blazer with subtle. Setting: High-End Corporate Executive Corner Office. Lighting: Motivated 4200K overhead diffused fluorescent fixture soft light balanced by cool 5600K daylight side-lighting, creating sharp desktop reflections on sleek glass. 85mm portrait prime lens, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/the_interview/storyboards/scene_01_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/the_interview/clips/scene_01.mp4",
+      "qc_passed": true,
+      "qc_score": 92,
+      "qc_issues": [
+        "Minor: Prompt text slightly truncates the blazer material detail at the end, but overall character features remain tightly locked."
+      ],
+      "regeneration_count": 2
+    },
+    {
+      "scene_id": 2,
+      "duration_seconds": 8,
+      "story_beat": "Leo leans back into an oversized leather armchair through deep slate-blue shadows of the high-end office with unearned deadpan confidence.",
+      "emotion": "deadpan",
+      "location_id": "executive_corner_office",
+      "character_ids": [
+        "leo"
+      ],
+      "camera": {
+        "scene_id": 2,
+        "shot_type": "medium shot",
+        "camera_angle": "slightly high angle",
+        "camera_movement": "static",
+        "lens": "50mm standard prime lens",
+        "lighting": "Deep slate-blue ambient shadows with soft 4200K overhead illumination and subtle cool 5600K window side-light",
+        "composition": "Leo seated in oversized leather armchair centered in middle 60% vertical safe zone, framed by slate-blue negative office space",
+        "focus": "Sharp focus on Leo's deadpan facial expression, executive office background softly diffused",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "medium shot, static. Leo leans back into an oversized leather armchair through deep slate-blue shadows of the high-end office with unearned deadpan confidence. Leo (disheveled young adult male college student) wearing Ill-fitting oversized wrinkled charcoal-grey thrifted blazer over a. Setting: High-End Corporate Executive Corner Office. Lighting: Deep slate-blue ambient shadows with soft 4200K overhead illumination and subtle cool 5600K window side-light. 50mm standard prime lens, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/the_interview/storyboards/scene_02_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/the_interview/clips/scene_02.mp4",
+      "qc_passed": true,
+      "qc_score": 92,
+      "qc_issues": [
+        "Minor: Prompt text ends abruptly mid-sentence ('over a.'), but generation output successfully captured intended elements."
+      ],
+      "regeneration_count": 2
+    },
+    {
+      "scene_id": 3,
+      "duration_seconds": 7,
+      "story_beat": "Ms. Vance slaps a heavy manila folder closed over the reflective desk surface under muted amber highlights with sudden authoritative finality.",
+      "emotion": "tense",
+      "location_id": "executive_corner_office",
+      "character_ids": [
+        "ms_vance"
+      ],
+      "camera": {
+        "scene_id": 3,
+        "shot_type": "medium close-up",
+        "camera_angle": "eye-level",
+        "camera_movement": "slow push-in",
+        "lens": "50mm standard prime lens",
+        "lighting": "Motivated overhead 4200K fluorescent lighting with muted amber highlights reflecting off the dark polished glass desk surface",
+        "composition": "Ms. Vance and heavy manila folder positioned strictly within central 60% vertical safe zone, desk surface filling lower frame",
+        "focus": "Sharp focus on the manila folder and hands on the reflective tabletop, background falloff",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "medium close-up, slow push-in. Ms. Vance slaps a heavy manila folder closed over the reflective desk surface under muted amber highlights with sudden authoritative finality. Ms. Vance (sharp senior female corporate executive) wearing Tailored sharp double-breasted slate-blue wool blazer with subtle. Setting: High-End Corporate Executive Corner Office. Lighting: Motivated overhead 4200K fluorescent lighting with muted amber highlights reflecting off the dark polished glass desk surface. 50mm standard prime lens, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/the_interview/storyboards/scene_03_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/the_interview/clips/scene_03.mp4",
+      "qc_passed": true,
+      "qc_score": 92,
+      "qc_issues": [
+        "Minor: The motion of slapping the folder closed may exhibit slight frame interpolation artifacts if not rendered cleanly."
+      ],
+      "regeneration_count": 2
+    },
+    {
+      "scene_id": 4,
+      "duration_seconds": 8,
+      "story_beat": "Ms. Vance slowly lowers her designer spectacles through subtle volumetric room haze across the polished glass tabletop with a subtle cynical smirk.",
+      "emotion": "cynical",
+      "location_id": "executive_corner_office",
+      "character_ids": [
+        "ms_vance"
+      ],
+      "camera": {
+        "scene_id": 4,
+        "shot_type": "close-up",
+        "camera_angle": "eye-level",
+        "camera_movement": "slow push-in",
+        "lens": "85mm portrait prime lens",
+        "lighting": "Cool 5600K daylight side-lighting through executive windows generating subtle volumetric room haze and soft rim light on spectacles",
+        "composition": "Ms. Vance centered in 60% vertical safe zone, intense character isolation with deep slate-blue blurred office background",
+        "focus": "Pin-sharp focus on designer spectacles and cynical facial expression, creamy soft bokeh behind",
+        "motion_intensity": "low"
+      },
+      "video_prompt": "close-up, slow push-in. Ms. Vance slowly lowers her designer spectacles through subtle volumetric room haze across the polished glass tabletop with a subtle cynical smirk. Ms. Vance (sharp senior female corporate executive) wearing Tailored sharp double-breasted slate-blue wool blazer with subtle. Setting: High-End Corporate Executive Corner Office. Lighting: Cool 5600K daylight side-lighting through executive windows generating subtle volumetric room haze and soft rim light on spectacles. 85mm portrait prime lens, 35mm film grain, shallow depth of field, 9:16 vertical composition, photorealistic 8k.",
+      "reference_image_path": "/home/cyb3rfy/AI-Video/projects/the_interview/storyboards/scene_04_frame.png",
+      "clip_path": "/home/cyb3rfy/AI-Video/projects/the_interview/clips/scene_04.mp4",
+      "qc_passed": true,
+      "qc_score": 92,
+      "qc_issues": [
+        "Minor: Prompt omits the exact '4200K' palette term from the style lock, relying on 5600K daylight side-lighting."
+      ],
+      "regeneration_count": 2
+    }
+  ],
+  "audio_plan": {
+    "music_style": "Sparse deadpan corporate satire chamber arrangement with sharp muted pizzicato and rhythmic clock ticking",
+    "music_bpm": 75,
+    "music_mood": "deadpan, corporate, tense, sardonically ironic",
+    "voiceover_lines": [
+      {
+        "scene_id": 1,
+        "start_second": 0.8,
+        "end_second": 5.5,
+        "text": "So, Leo... where do you see yourself in five years?",
+        "voice_direction": "Sharp, corporate, clinical, upper-executive tone, deliberate rhythmic cadence"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 7.5,
+        "end_second": 14.0,
+        "text": "Honestly? In your position. Ambitious... and what would you do if you got it?",
+        "voice_direction": "Leo delivers flat deadpan line; Ms. Vance transitions into cool cynical amusement"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 16.0,
+        "end_second": 20.5,
+        "text": "Hire someone to answer stupid questions.",
+        "voice_direction": "Unblinking deadpan, completely flat matter-of-fact delivery, zero vocal inflection"
+      },
+      {
+        "scene_id": 4,
+        "start_second": 23.0,
+        "end_second": 29.0,
+        "text": "You're hired. We desperately need someone who can insult management.",
+        "voice_direction": "Vance switches from strict executive to conspiratorial whisper-warmth, sarcastic relief"
+      }
+    ],
+    "sound_effects": [
+      {
+        "scene_id": 1,
+        "start_second": 0.0,
+        "end_second": 7.0,
+        "type": "Continuous ambient bed: low hum of sterile office HVAC unit, subtle fluorescent light flicker buzz",
+        "volume": "subtle background (-24dB)"
+      },
+      {
+        "scene_id": 1,
+        "start_second": 1.5,
+        "end_second": 2.5,
+        "type": "Spot Foley: tactile metallic pen click sound, sharp plastic snap against glass desk surface",
+        "volume": "clear foreground (-12dB)"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 7.0,
+        "end_second": 15.0,
+        "type": "Continuous ambient bed: low mechanical air conditioning rumble, subtle sterile room tone",
+        "volume": "subtle background (-24dB)"
+      },
+      {
+        "scene_id": 2,
+        "start_second": 8.0,
+        "end_second": 9.5,
+        "type": "Spot Foley: heavy leather armchair squeak and creak as body leans back",
+        "volume": "midground (-14dB)"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 15.0,
+        "end_second": 16.0,
+        "type": "Audio Effect: sudden hard mute cut of all room ambience and music for comedic silence drop",
+        "volume": "mute (-60dB)"
+      },
+      {
+        "scene_id": 3,
+        "start_second": 20.8,
+        "end_second": 21.8,
+        "type": "Spot Foley: heavy cardboard manila folder slapping hard against polished glass tabletop",
+        "volume": "sharp accent (-8dB)"
+      },
+      {
+        "scene_id": 4,
+        "start_second": 22.0,
+        "end_second": 30.0,
+        "type": "Continuous ambient bed: quiet atmospheric room tone with subtle distant high-rise city hum",
+        "volume": "subtle background (-22dB)"
+      },
+      {
+        "scene_id": 4,
+        "start_second": 22.5,
+        "end_second": 24.0,
+        "type": "Spot Foley: soft plastic tap and slide of designer spectacles being removed and placed on glass",
+        "volume": "clear foreground (-14dB)"
+      }
+    ],
+    "music_path": "",
+    "voiceover_path": "/home/cyb3rfy/AI-Video/projects/the_interview/audio/voiceover.mp3"
+  },
+  "project_dir": "/home/cyb3rfy/AI-Video/projects/the_interview",
+  "references_dir": "/home/cyb3rfy/AI-Video/projects/the_interview/references",
+  "storyboards_dir": "/home/cyb3rfy/AI-Video/projects/the_interview/storyboards",
+  "clips_dir": "/home/cyb3rfy/AI-Video/projects/the_interview/clips",
+  "audio_dir": "/home/cyb3rfy/AI-Video/projects/the_interview/audio",
+  "output_dir": "/home/cyb3rfy/AI-Video/projects/the_interview/output",
+  "final_reel_path": "/home/cyb3rfy/AI-Video/projects/the_interview/output/final_reel.mp4",
+  "agents": {
+    "director": true,
+    "story_breakdown": true,
+    "character_bible": true,
+    "environment_bible": true,
+    "reference_images": true,
+    "cinematography": true,
+    "prompt_builder": true,
+    "video_generation": true,
+    "qc": true,
+    "audio": true,
+    "editor": true
+  }
+}

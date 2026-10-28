@@ -1,0 +1,93 @@
+{
+  "music_style": "Driving hybrid cinematic trailer score with aggressive staccato brass, layered modular synthesizers, and massive symphonic percussion",
+  "music_bpm": 135,
+  "music_mood": "epic, high-velocity, heroically triumphant",
+  "voiceover_lines": [
+    {
+      "scene_id": 1,
+      "start_second": 0.5,
+      "end_second": 5.0,
+      "text": "When infinite worlds shatter across the multiverse...",
+      "voice_direction": "Deep cinematic trailer announcer, intense grit, resonant low-end, authoritative delivery"
+    },
+    {
+      "scene_id": 2,
+      "start_second": 7.5,
+      "end_second": 13.0,
+      "text": "A new era of speed and power rises to conquer the darkness.",
+      "voice_direction": "Rapid building intensity, urgent dynamic pitch, razor-sharp focus"
+    },
+    {
+      "scene_id": 3,
+      "start_second": 15.5,
+      "end_second": 20.5,
+      "text": "Bound by destiny, united as one unstoppable force...",
+      "voice_direction": "Soaring epic tone, powerful reverberant cadence, deliberate hero accent"
+    },
+    {
+      "scene_id": 4,
+      "start_second": 22.5,
+      "end_second": 27.5,
+      "text": "Witness the birth of a legendary legacy.",
+      "voice_direction": "Massive authoritative finale, thunderous resonant tail, commanding cadence"
+    }
+  ],
+  "sound_effects": [
+    {
+      "scene_id": 1,
+      "start_second": 0.0,
+      "end_second": 7.0,
+      "type": "Continuous ambient bed: low sub-bass rumble beneath rapid whipping paper rustles and crackling energy static",
+      "volume": "subtle background (-20dB)"
+    },
+    {
+      "scene_id": 1,
+      "start_second": 0.5,
+      "end_second": 2.5,
+      "type": "Spot Foley: explosive comic page tear smash followed by heavy armor servo clash and golden energy surge",
+      "volume": "clear foreground (-10dB)"
+    },
+    {
+      "scene_id": 2,
+      "start_second": 7.0,
+      "end_second": 15.0,
+      "type": "Continuous ambient bed: torrential rain on glass mixed with high-voltage neon plasma hum and howling urban wind",
+      "volume": "subtle background (-18dB)"
+    },
+    {
+      "scene_id": 2,
+      "start_second": 7.5,
+      "end_second": 11.5,
+      "type": "Spot Foley: rapid electric lightning discharge zip-whine with heavy wall-sprint footsteps and glass dynamic resonance",
+      "volume": "clear foreground (-12dB)"
+    },
+    {
+      "scene_id": 3,
+      "start_second": 15.0,
+      "end_second": 22.0,
+      "type": "Continuous ambient bed: expansive atmospheric sky drone with low-frequency energy resonance and swirling wind",
+      "volume": "subtle background (-20dB)"
+    },
+    {
+      "scene_id": 3,
+      "start_second": 15.2,
+      "end_second": 18.5,
+      "type": "Spot Foley: deep time-dilation bullet-time whoosh followed by resonant mystical energy mandala ring",
+      "volume": "clear foreground (-11dB)"
+    },
+    {
+      "scene_id": 4,
+      "start_second": 22.0,
+      "end_second": 30.0,
+      "type": "Continuous ambient bed: cavernous metallic reverberation bed with warm decaying sub-bass feedback",
+      "volume": "subtle background (-22dB)"
+    },
+    {
+      "scene_id": 4,
+      "start_second": 22.0,
+      "end_second": 24.5,
+      "type": "Spot Foley: massive anvil-like metallic emblem slam impact with explosive spark crackle and sub-bass shockwave",
+      "volume": "prominent foreground (-8dB)"
+    }
+  ]
+}

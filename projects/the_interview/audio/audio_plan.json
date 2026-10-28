@@ -1,0 +1,93 @@
+{
+  "music_style": "Sparse deadpan corporate satire chamber arrangement with sharp muted pizzicato and rhythmic clock ticking",
+  "music_bpm": 75,
+  "music_mood": "deadpan, corporate, tense, sardonically ironic",
+  "voiceover_lines": [
+    {
+      "scene_id": 1,
+      "start_second": 0.8,
+      "end_second": 5.5,
+      "text": "So, Leo... where do you see yourself in five years?",
+      "voice_direction": "Sharp, corporate, clinical, upper-executive tone, deliberate rhythmic cadence"
+    },
+    {
+      "scene_id": 2,
+      "start_second": 7.5,
+      "end_second": 14.0,
+      "text": "Honestly? In your position. Ambitious... and what would you do if you got it?",
+      "voice_direction": "Leo delivers flat deadpan line; Ms. Vance transitions into cool cynical amusement"
+    },
+    {
+      "scene_id": 3,
+      "start_second": 16.0,
+      "end_second": 20.5,
+      "text": "Hire someone to answer stupid questions.",
+      "voice_direction": "Unblinking deadpan, completely flat matter-of-fact delivery, zero vocal inflection"
+    },
+    {
+      "scene_id": 4,
+      "start_second": 23.0,
+      "end_second": 29.0,
+      "text": "You're hired. We desperately need someone who can insult management.",
+      "voice_direction": "Vance switches from strict executive to conspiratorial whisper-warmth, sarcastic relief"
+    }
+  ],
+  "sound_effects": [
+    {
+      "scene_id": 1,
+      "start_second": 0.0,
+      "end_second": 7.0,
+      "type": "Continuous ambient bed: low hum of sterile office HVAC unit, subtle fluorescent light flicker buzz",
+      "volume": "subtle background (-24dB)"
+    },
+    {
+      "scene_id": 1,
+      "start_second": 1.5,
+      "end_second": 2.5,
+      "type": "Spot Foley: tactile metallic pen click sound, sharp plastic snap against glass desk surface",
+      "volume": "clear foreground (-12dB)"
+    },
+    {
+      "scene_id": 2,
+      "start_second": 7.0,
+      "end_second": 15.0,
+      "type": "Continuous ambient bed: low mechanical air conditioning rumble, subtle sterile room tone",
+      "volume": "subtle background (-24dB)"
+    },
+    {
+      "scene_id": 2,
+      "start_second": 8.0,
+      "end_second": 9.5,
+      "type": "Spot Foley: heavy leather armchair squeak and creak as body leans back",
+      "volume": "midground (-14dB)"
+    },
+    {
+      "scene_id": 3,
+      "start_second": 15.0,
+      "end_second": 16.0,
+      "type": "Audio Effect: sudden hard mute cut of all room ambience and music for comedic silence drop",
+      "volume": "mute (-60dB)"
+    },
+    {
+      "scene_id": 3,
+      "start_second": 20.8,
+      "end_second": 21.8,
+      "type": "Spot Foley: heavy cardboard manila folder slapping hard against polished glass tabletop",
+      "volume": "sharp accent (-8dB)"
+    },
+    {
+      "scene_id": 4,
+      "start_second": 22.0,
+      "end_second": 30.0,
+      "type": "Continuous ambient bed: quiet atmospheric room tone with subtle distant high-rise city hum",
+      "volume": "subtle background (-22dB)"
+    },
+    {
+      "scene_id": 4,
+      "start_second": 22.5,
+      "end_second": 24.0,
+      "type": "Spot Foley: soft plastic tap and slide of designer spectacles being removed and placed on glass",
+      "volume": "clear foreground (-14dB)"
+    }
+  ]
+}

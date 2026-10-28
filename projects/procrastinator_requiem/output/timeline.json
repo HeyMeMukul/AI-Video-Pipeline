@@ -1,0 +1,36 @@
+{
+  "project": "procrastinator_requiem",
+  "output_reel": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/output/final_reel.mp4",
+  "platform": "instagram_reel",
+  "target_duration": 30,
+  "scenes": [
+    {
+      "scene_id": 1,
+      "clip": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/clips/scene_01.mp4",
+      "duration_seconds": 7,
+      "story_beat": "The young man stares intensely at his own reflection in the warm amber glow of a bathroom vanity against a dark midnight blue wall with resolute determination.",
+      "camera_movement": "slow push-in"
+    },
+    {
+      "scene_id": 2,
+      "clip": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/clips/scene_02.mp4",
+      "duration_seconds": 8,
+      "story_beat": "The man scrolls his thumb rapidly across a glowing smartphone screen in a dark bedroom illuminated by flickering blue light while slumped against a velvet headboard with vacant fixation.",
+      "camera_movement": "static"
+    },
+    {
+      "scene_id": 3,
+      "clip": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/clips/scene_03.mp4",
+      "duration_seconds": 7,
+      "story_beat": "A digital 'Still Watching?' notification illuminates the smartphone screen casting a harsh white glare onto the man's exhausted face on a messy pillow with stinging guilt.",
+      "camera_movement": "slow push-in"
+    },
+    {
+      "scene_id": 4,
+      "clip": "/home/cyb3rfy/AI-Video/projects/procrastinator_requiem/clips/scene_04.mp4",
+      "duration_seconds": 8,
+      "story_beat": "The man slowly places the glowing smartphone face-down on a wooden nightstand as amber tungsten light catches floating dust in the dark room with profound exhaustion.",
+      "camera_movement": "static"
+    }
+  ]
+}
