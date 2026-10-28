@@ -23,7 +23,7 @@ export const SlideInspector: React.FC = () => {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: '100%', opacity: 0 }}
           transition={{ type: 'spring', stiffness: 320, damping: 30 }}
-          className="absolute right-0 top-0 bottom-0 w-72 bg-[#0e1018]/98 border-l border-white/[0.08] z-40 flex flex-col shadow-2xl backdrop-blur-xl"
+          className="absolute right-0 top-0 bottom-0 w-72 bg-cinema-base/95 border-l border-white/[0.08] z-40 flex flex-col shadow-2xl backdrop-blur-xl"
         >
           {/* Header */}
           <div
@@ -32,12 +32,11 @@ export const SlideInspector: React.FC = () => {
           >
             <div className="flex items-center gap-3">
               <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 shrink-0"
+                className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold font-playfair border-2 shrink-0"
                 style={{
                   borderColor: persona.color,
                   backgroundColor: `${persona.color}15`,
                   color: persona.color,
-                  fontFamily: "'Playfair Display', serif",
                   boxShadow: `0 0 16px ${persona.color}30`,
                 }}
               >
@@ -45,17 +44,16 @@ export const SlideInspector: React.FC = () => {
               </div>
               <div className="min-w-0">
                 <h3
-                  className="text-[15px] font-bold text-white truncate"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
+                  className="text-[15px] font-bold font-playfair text-cinema-paper truncate"
                 >
                   {persona.name}
                 </h3>
-                <p className="text-[11px] text-white/40 truncate">{persona.role}</p>
+                <p className="text-[11px] text-cinema-faint truncate">{persona.role}</p>
               </div>
             </div>
             <button
               onClick={() => setSelectedAgent(null)}
-              className="p-1.5 rounded-lg text-white/30 hover:text-white/70 hover:bg-white/[0.06] transition-colors mt-0.5 shrink-0"
+              className="p-1.5 rounded-lg text-cinema-faint hover:text-cinema-paper hover:bg-white/[0.06] transition-colors mt-0.5 shrink-0"
             >
               <X className="w-4 h-4" />
             </button>
@@ -65,7 +63,7 @@ export const SlideInspector: React.FC = () => {
           <div className="flex-1 overflow-y-auto p-4 space-y-5" style={{ scrollbarWidth: 'thin' }}>
             {/* Status */}
             <div className="space-y-1.5">
-              <span className="text-[11px] text-white/30 uppercase tracking-widest">Current Status</span>
+              <span className="text-[11px] text-cinema-faint uppercase tracking-widest">Current Status</span>
               <div
                 className="flex items-center gap-2 px-3 py-2 rounded-lg border text-[13px] font-medium"
                 style={{
@@ -85,9 +83,9 @@ export const SlideInspector: React.FC = () => {
             {/* Live thought */}
             {thought && (
               <div className="space-y-1.5">
-                <span className="text-[11px] text-white/30 uppercase tracking-widest">Latest Thought</span>
+                <span className="text-[11px] text-cinema-faint uppercase tracking-widest">Latest Thought</span>
                 <div className="p-3 rounded-lg bg-black/40 border border-white/[0.06]">
-                  <p className="text-[13px] italic text-white/60 leading-relaxed">
+                  <p className="text-[13px] italic text-cinema-mist leading-relaxed">
                     "{thought}"
                   </p>
                 </div>
@@ -96,13 +94,13 @@ export const SlideInspector: React.FC = () => {
 
             {/* Persona description */}
             <div className="space-y-1.5">
-              <span className="text-[11px] text-white/30 uppercase tracking-widest">Role</span>
-              <p className="text-[13px] text-white/60 leading-relaxed">{persona.description}</p>
+              <span className="text-[11px] text-cinema-faint uppercase tracking-widest">Role</span>
+              <p className="text-[13px] text-cinema-mist leading-relaxed">{persona.description}</p>
             </div>
 
             {/* System constraints */}
             <div className="space-y-2">
-              <span className="text-[11px] text-white/30 uppercase tracking-widest flex items-center gap-1.5">
+              <span className="text-[11px] text-cinema-faint uppercase tracking-widest flex items-center gap-1.5">
                 <Shield className="w-3 h-3" />
                 System Constraints
               </span>
@@ -110,7 +108,7 @@ export const SlideInspector: React.FC = () => {
                 {persona.systemConstraints?.map((c, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-2 text-[12px] text-white/50 leading-relaxed"
+                    className="flex items-start gap-2 text-[12px] text-cinema-faint leading-relaxed"
                   >
                     <div
                       className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0"
@@ -124,7 +122,7 @@ export const SlideInspector: React.FC = () => {
 
             {/* Zone badge */}
             <div className="space-y-1.5">
-              <span className="text-[11px] text-white/30 uppercase tracking-widest">Production Zone</span>
+              <span className="text-[11px] text-cinema-faint uppercase tracking-widest">Production Zone</span>
               <span
                 className="inline-block text-[11px] px-2.5 py-1 rounded-full border font-medium"
                 style={{

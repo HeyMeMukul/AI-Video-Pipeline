@@ -38,7 +38,7 @@ export const LeftRail: React.FC = () => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
-    <nav className="w-14 shrink-0 bg-[#08090D] border-r border-white/[0.06] flex flex-col items-center py-4 gap-1 z-40">
+    <nav className="w-14 shrink-0 bg-cinema-bg border-r border-white/[0.06] flex flex-col items-center py-4 gap-1 z-40">
       {NAV_ITEMS.map((item) => {
         const isActive = activeView === item.view;
         const isHovered = hoveredItem === item.view;
@@ -56,8 +56,8 @@ export const LeftRail: React.FC = () => {
               }}
               className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
                 isActive
-                  ? 'bg-[#e5c07b]/15 text-[#e5c07b] shadow-[0_0_12px_rgba(229,192,123,0.2)]'
-                  : 'text-white/30 hover:text-white/70 hover:bg-white/[0.06]'
+                  ? 'bg-cinema-gold/15 text-cinema-gold shadow-glow-gold'
+                  : 'text-cinema-faint hover:text-cinema-paper hover:bg-white/[0.06]'
               }`}
             >
               {item.icon}
@@ -65,7 +65,7 @@ export const LeftRail: React.FC = () => {
 
             {/* Active indicator line */}
             {isActive && (
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-[#e5c07b] rounded-r-full -ml-[1px]" />
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-cinema-gold rounded-r-full -ml-[1px]" />
             )}
 
             {/* Tooltip on hover (hidden if active or on navigation) */}
@@ -74,14 +74,14 @@ export const LeftRail: React.FC = () => {
                 isHovered && !isActive ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <div className="flex items-center gap-2 bg-[#1A1E2C] border border-white/[0.1] rounded-lg px-3 py-2 shadow-2xl whitespace-nowrap">
-                <span className="text-sm text-white font-medium" style={{ fontFamily: 'Inter, sans-serif' }}>{item.label}</span>
-                <kbd className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.08] text-[#e5c07b] border border-white/[0.08]">
+              <div className="flex items-center gap-2 bg-cinema-raised border border-white/[0.1] rounded-lg px-3 py-2 shadow-2xl whitespace-nowrap">
+                <span className="text-sm text-cinema-paper font-medium">{item.label}</span>
+                <kbd className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.08] text-cinema-gold border border-white/[0.08]">
                   {item.shortcut}
                 </kbd>
               </div>
               {/* Arrow */}
-              <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-[#1A1E2C]" />
+              <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-cinema-raised" />
             </div>
           </div>
         );
@@ -100,8 +100,8 @@ export const LeftRail: React.FC = () => {
           }}
           className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
             consoleOpen
-              ? 'bg-[#e5c07b]/15 text-[#e5c07b]'
-              : 'text-white/30 hover:text-white/70 hover:bg-white/[0.06]'
+              ? 'bg-cinema-gold/15 text-cinema-gold'
+              : 'text-cinema-faint hover:text-cinema-paper hover:bg-white/[0.06]'
           }`}
         >
           <Terminal className="w-5 h-5" />
@@ -111,11 +111,11 @@ export const LeftRail: React.FC = () => {
             hoveredItem === 'console' ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <div className="flex items-center gap-2 bg-[#1A1E2C] border border-white/[0.1] rounded-lg px-3 py-2 shadow-2xl whitespace-nowrap">
-            <span className="text-sm text-white font-medium" style={{ fontFamily: 'Inter, sans-serif' }}>Event Log</span>
-            <kbd className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.08] text-[#e5c07b] border border-white/[0.08]">`</kbd>
+          <div className="flex items-center gap-2 bg-cinema-raised border border-white/[0.1] rounded-lg px-3 py-2 shadow-2xl whitespace-nowrap">
+            <span className="text-sm text-cinema-paper font-medium">Event Log</span>
+            <kbd className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/[0.08] text-cinema-gold border border-white/[0.08]">`</kbd>
           </div>
-          <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-[#1A1E2C]" />
+          <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-cinema-raised" />
         </div>
       </div>
     </nav>

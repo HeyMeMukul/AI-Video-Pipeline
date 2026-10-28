@@ -8,7 +8,7 @@ import { SlideInspector } from '../floor/SlideInspector';
 
 export const StudioFloor: React.FC = () => {
   return (
-    <div className="flex-1 flex flex-col overflow-hidden bg-[#08090d]" style={{ minHeight: 0 }}>
+    <div className="flex-1 flex flex-col overflow-hidden bg-cinema-bg" style={{ minHeight: 0 }}>
       {/* 2-Column Main Area */}
       <div className="flex-1 flex overflow-hidden" style={{ minHeight: 0 }}>
         {/* Column 1: THE STAGE (62%) */}

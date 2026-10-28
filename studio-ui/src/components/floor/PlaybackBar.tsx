@@ -30,23 +30,23 @@ export const PlaybackBar: React.FC = () => {
   const isAtEnd = currentStep === totalSteps - 1;
 
   return (
-    <div className="h-12 shrink-0 px-4 bg-[#0a0c13]/95 border-t border-white/[0.06] flex items-center gap-4 backdrop-blur-xl">
+    <div className="h-12 shrink-0 px-4 bg-cinema-input/95 border-t border-white/[0.06] flex items-center gap-4 backdrop-blur-xl">
       {/* Transport buttons */}
       <div className="flex items-center gap-1 shrink-0">
-        <button onClick={resetProduction} className="p-1.5 rounded text-white/30 hover:text-white/70 hover:bg-white/[0.06] transition-colors" title="Rewind">
+        <button onClick={resetProduction} className="p-1.5 rounded text-cinema-faint hover:text-cinema-paper hover:bg-white/[0.06] transition-colors" title="Rewind">
           <RotateCcw className="w-3.5 h-3.5" />
         </button>
         <button
           onClick={stepBackward}
           disabled={currentStep === 0}
-          className="p-1.5 rounded text-white/30 hover:text-white/70 hover:bg-white/[0.06] disabled:opacity-20 transition-colors"
+          className="p-1.5 rounded text-cinema-faint hover:text-cinema-paper hover:bg-white/[0.06] disabled:opacity-20 transition-colors"
           title="Step Back (J)"
         >
           <SkipBack className="w-3.5 h-3.5" />
         </button>
         <button
           onClick={togglePlay}
-          className="mx-1 p-2 rounded-lg bg-[#e5c07b] text-[#08090d] hover:brightness-110 active:scale-95 transition-all shadow-[0_0_12px_rgba(229,192,123,0.3)]"
+          className="mx-1 p-2 rounded-lg bg-cinema-gold text-cinema-bg hover:brightness-110 active:scale-95 transition-all shadow-glow-gold"
           title={isPlaying ? 'Pause (Space)' : 'Play (Space)'}
         >
           {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
@@ -54,7 +54,7 @@ export const PlaybackBar: React.FC = () => {
         <button
           onClick={stepForward}
           disabled={isAtEnd}
-          className="p-1.5 rounded text-white/30 hover:text-white/70 hover:bg-white/[0.06] disabled:opacity-20 transition-colors"
+          className="p-1.5 rounded text-cinema-faint hover:text-cinema-paper hover:bg-white/[0.06] disabled:opacity-20 transition-colors"
           title="Step Forward (K)"
         >
           <SkipForward className="w-3.5 h-3.5" />
@@ -62,7 +62,7 @@ export const PlaybackBar: React.FC = () => {
         {!isAtEnd && (
           <button
             onClick={skipToEnd}
-            className="ml-1 flex items-center gap-1 px-2.5 py-1 rounded text-[12px] text-white/60 hover:text-white/90 hover:bg-white/[0.08] transition-colors"
+            className="ml-1 flex items-center gap-1 px-2.5 py-1 rounded text-[12px] text-cinema-mist hover:text-cinema-paper hover:bg-white/[0.08] transition-colors"
             title="Skip to end"
           >
             <FastForward className="w-3.5 h-3.5" />
@@ -79,7 +79,7 @@ export const PlaybackBar: React.FC = () => {
           max={totalSteps - 1}
           value={currentStep}
           onChange={(e) => setCurrentStep(Number(e.target.value))}
-          className="w-full h-1.5 rounded-full bg-white/[0.08] accent-[#e5c07b] cursor-pointer focus:outline-none"
+          className="w-full h-1.5 rounded-full bg-white/[0.08] accent-cinema-gold cursor-pointer focus:outline-none"
           style={{
             background: `linear-gradient(to right, #e5c07b ${((currentStep / (totalSteps - 1)) * 100).toFixed(1)}%, rgba(255,255,255,0.08) 0%)`,
           }}
@@ -94,11 +94,11 @@ export const PlaybackBar: React.FC = () => {
             style={{ backgroundColor: persona.color }}
           />
         )}
-        <span className="font-mono text-[12px] text-[#A9AEC0] shrink-0 font-medium">
+        <span className="font-mono text-[12px] text-cinema-mist shrink-0 font-medium">
           {currentStep + 1}/{totalSteps}
         </span>
         {currentEvent && (
-          <span className="font-inter text-[13px] text-[#D5D8E3] truncate">
+          <span className="text-[13px] text-cinema-mist truncate">
             {currentEvent.message}
           </span>
         )}
@@ -107,7 +107,7 @@ export const PlaybackBar: React.FC = () => {
       {/* Speed toggle */}
       <button
         onClick={cycleSpeed}
-        className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/[0.12] text-[12px] font-mono text-[#e5c07b] hover:bg-white/[0.08] transition-colors"
+        className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/[0.12] text-[12px] font-mono text-cinema-gold hover:bg-white/[0.08] transition-colors"
         title="Cycle playback speed"
       >
         <Gauge className="w-3.5 h-3.5" />

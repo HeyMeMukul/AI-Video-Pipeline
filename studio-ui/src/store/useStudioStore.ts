@@ -25,8 +25,6 @@ interface StudioState {
   activeView: StudioView;
   selectedAgent: AgentId | null;
   selectedSceneId: number;
-  selectedPacketId: string | null;
-  inspectorOpen: boolean;
   consoleOpen: boolean;
   commandPaletteOpen: boolean;
   consoleFilters: {
@@ -37,15 +35,18 @@ interface StudioState {
 
   // Project Info
   project: ProjectModel;
-  elapsedSeconds: number;
-  gpuQuotaHours: number;
+
+  // Live backend: project library + engine status
+  projects: ProjectListItem[];
+  projectsLoading: boolean;
+  activeProjectName: string | null;
+  systemStatus: SystemStatusInfo | null;
+  statusLoading: boolean;
 
   // Actions
   setActiveView: (view: StudioView) => void;
   setSelectedAgent: (agent: AgentId | null) => void;
   setSelectedSceneId: (sceneId: number) => void;
-  setSelectedPacketId: (packetId: string | null) => void;
-  setInspectorOpen: (open: boolean) => void;
   setConsoleOpen: (open: boolean) => void;
   setCommandPaletteOpen: (open: boolean) => void;
   setConsoleFilter: (key: 'agent' | 'severity' | 'search', value: string) => void;
@@ -57,8 +58,37 @@ interface StudioState {
   togglePlay: () => void;
   setPlaybackSpeed: (speed: number) => void;
   addEvent: (event: StudioEvent) => void;
-  startProduction: (idea: string, styles: string[], ratio: '16:9' | '2.39:1' | '9:16') => void;
+  startProduction: (idea: string, styles: string[], ratio: '16:9' | '2.39:1' | '9:16', tone?: string, avoid?: string[]) => void;
   resetProduction: () => void;
+
+  // Live backend actions
+  fetchProjects: () => Promise<void>;
+  loadProject: (name: string) => Promise<void>;
+  fetchSystemStatus: () => Promise<void>;
+  runStage: (stage: string) => Promise<void>;
+}
+
+export interface ProjectListItem {
+  project_id: string;
+  project_name: string;
+  duration: number;
+  platform: string;
+  aspect_ratio: string;
+  style: string;
+  tone: string;
+  scene_count: number;
+  has_final_reel: boolean;
+  final_reel_path: string;
+  updated_at: string;
+}
+
+export interface SystemStatusInfo {
+  kaggle: string;
+  gpuModel: string;
+  tier: string;
+  rea: string;
+  ffmpeg: string;
+  tts: string;
 }
 
 // Initial default scenes
@@ -242,8 +272,6 @@ export const useStudioStore = create<StudioState>((set, get) => ({
   activeView: 'floor', // Land directly on Studio Floor showcase
   selectedAgent: null,  // Inspector hidden by default
   selectedSceneId: 1,
-  selectedPacketId: null,
-  inspectorOpen: false,
   consoleOpen: false,
   commandPaletteOpen: false,
   consoleFilters: {
@@ -260,14 +288,17 @@ export const useStudioStore = create<StudioState>((set, get) => ({
     finalReelUrl: '/api/media/your_project/output/final_reel.mp4',
     timelineUrl: '/api/media/your_project/output/your_project.timeline',
   },
-  elapsedSeconds: 0,
-  gpuQuotaHours: 28.5,
+
+  // Live backend library (filled by fetchProjects on boot)
+  projects: [],
+  projectsLoading: false,
+  activeProjectName: INITIAL_MOCK_PROJECT.projectName,
+  systemStatus: null,
+  statusLoading: false,
 
   setActiveView: (view) => set({ activeView: view }),
-  setSelectedAgent: (agent) => set({ selectedAgent: agent, inspectorOpen: agent !== null }),
+  setSelectedAgent: (agent) => set({ selectedAgent: agent }),
   setSelectedSceneId: (sceneId) => set({ selectedSceneId: sceneId }),
-  setSelectedPacketId: (packetId) => set({ selectedPacketId: packetId, inspectorOpen: packetId !== null }),
-  setInspectorOpen: (open) => set({ inspectorOpen: open }),
   setConsoleOpen: (open) => set({ consoleOpen: open }),
   setCommandPaletteOpen: (open) => set({ commandPaletteOpen: open }),
   setConsoleFilter: (key, value) =>
@@ -311,7 +342,7 @@ export const useStudioStore = create<StudioState>((set, get) => ({
       };
     }),
 
-  startProduction: (idea, styles, ratio) => {
+  startProduction: (idea, styles, ratio, tone = 'dramatic, emotional, cinematic', avoid = []) => {
     const safeName = (idea.slice(0, 24).toLowerCase().replace(/[^a-z0-9]+/g, '_') || 'film_project');
     const newProject: ProjectModel = {
       ...get().project,
@@ -319,6 +350,7 @@ export const useStudioStore = create<StudioState>((set, get) => ({
       story: idea || get().project.story,
       styleDna: styles.length ? styles : get().project.styleDna,
       aspectRatio: ratio || get().project.aspectRatio,
+      tone,
     };
 
     const kickoffEvent: StudioEvent = {
@@ -339,6 +371,7 @@ export const useStudioStore = create<StudioState>((set, get) => ({
       currentStep: 0,
       isPlaying: true,
       activeView: 'floor',
+      activeProjectName: safeName,
     });
 
     // Create project and trigger autonomous pipeline on the live backend
@@ -349,11 +382,15 @@ export const useStudioStore = create<StudioState>((set, get) => ({
         name: safeName,
         story: idea || get().project.story,
         style: styles.join(', '),
+        tone,
+        avoid,
+        platform: ratio === '9:16' ? 'instagram_reel' : 'cinematic',
       }),
     })
       .then((r) => r.json())
       .then(() => {
         fetch(`/api/projects/${safeName}/run_all`, { method: 'POST' });
+        get().fetchProjects();
       })
       .catch((err) => console.warn('[CineStorm Live] Execution note:', err));
   },
@@ -364,7 +401,232 @@ export const useStudioStore = create<StudioState>((set, get) => ({
       isPlaying: false,
     });
   },
+
+  // ── Live backend: project library ──────────────────────────
+  fetchProjects: async () => {
+    set({ projectsLoading: true });
+    try {
+      const res = await fetch('/api/projects');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      set({ projects: Array.isArray(data.projects) ? data.projects : [], projectsLoading: false });
+    } catch (err) {
+      console.warn('[CineStorm] Project library unreachable:', err);
+      set({ projectsLoading: false });
+    }
+  },
+
+  loadProject: async (name: string) => {
+    try {
+      const res = await fetch(`/api/project/${encodeURIComponent(name)}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const mapped = mapBackendProject(data);
+      const loadedEvent: StudioEvent = {
+        id: `loaded-${Date.now()}`,
+        ts: Date.now() / 1000,
+        project_id: mapped.projectId,
+        type: 'agent.status',
+        agent: 'director',
+        payload: { status: 'done' },
+        message: `Loaded "${mapped.projectName}" from the studio vault — ${mapped.scenes.length} scenes, live media linked.`,
+        severity: 'info',
+      };
+      set({
+        project: mapped,
+        events: [loadedEvent],
+        currentStep: 0,
+        isPlaying: false,
+        activeProjectName: mapped.projectName,
+      });
+    } catch (err) {
+      console.warn('[CineStorm] Load project failed:', err);
+    }
+  },
+
+  // ── Live backend: engine status ────────────────────────────
+  fetchSystemStatus: async () => {
+    set({ statusLoading: true });
+    try {
+      const res = await fetch('/api/system/status');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      set({
+        systemStatus: {
+          kaggle: String(data?.kaggle_cloud_gpu?.status ?? 'Unknown'),
+          gpuModel: String(data?.kaggle_cloud_gpu?.gpu_model ?? ''),
+          tier: String(data?.kaggle_cloud_gpu?.tier ?? ''),
+          rea: String(data?.rea_engine ?? 'Unknown'),
+          ffmpeg: String(data?.ffmpeg ?? ''),
+          tts: String(data?.audio_tts ?? ''),
+        },
+        statusLoading: false,
+      });
+    } catch (err) {
+      console.warn('[CineStorm] System status unreachable:', err);
+      set({ statusLoading: false });
+    }
+  },
+
+  // ── Live backend: dispatch one agent stage ─────────────────
+  runStage: async (stage: string) => {
+    const name = get().activeProjectName || get().project.projectName;
+    if (!name) return;
+    const evt: StudioEvent = {
+      id: `dispatch-${Date.now()}`,
+      ts: Date.now() / 1000,
+      project_id: name,
+      type: 'agent.status',
+      agent: 'director',
+      payload: { status: 'working' },
+      message: `Dispatched stage "${stage}" on "${name}" — watch the floor for live telemetry.`,
+      severity: 'info',
+    };
+    get().addEvent(evt);
+    try {
+      await fetch(`/api/project/${encodeURIComponent(name)}/run-stage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ stage }),
+      });
+    } catch (err) {
+      console.warn('[CineStorm] Stage dispatch failed:', err);
+    }
+  },
 }));
+
+/** Lenient parse: backend persists some blocks as JSON strings (or Python-repr). */
+function parseLenient<T>(raw: unknown, fallback: T): T {
+  if (raw == null) return fallback;
+  if (typeof raw !== 'string') return raw as T;
+  const text = raw.trim();
+  if (!text) return fallback;
+  try {
+    return JSON.parse(text) as T;
+  } catch {
+    try {
+      // Tolerate Python-repr single quotes when no double quotes present
+      if (!text.includes('"')) return JSON.parse(text.replace(/'/g, '"')) as T;
+    } catch { /* fall through */ }
+    return fallback;
+  }
+}
+
+function mediaUrl(projectName: string, folder: string, absPath: string): string | undefined {
+  if (!absPath) return undefined;
+  const base = absPath.split('/').pop();
+  if (!base) return undefined;
+  return `/api/media/${projectName}/${folder}/${base}`;
+}
+
+/** Map raw backend project.json shape onto the frontend ProjectModel. Guards everywhere. */
+function mapBackendProject(data: any): ProjectModel {
+  const name: string = String(data?.project_name ?? 'untitled');
+  const rawRatio: string = String(data?.aspect_ratio ?? '16:9');
+  const aspectRatio = (['16:9', '2.39:1', '9:16'] as const).includes(rawRatio as any)
+    ? (rawRatio as ProjectModel['aspectRatio'])
+    : '16:9';
+
+  const notes = parseLenient<Record<string, any>>(data?.director_notes, {});
+  const sceneList: any[] = Array.isArray(data?.scenes) ? data.scenes : [];
+  const scenes: SceneModel[] = sceneList.map((s: any, i: number) => {
+    const score = typeof s?.qc_score === 'number' ? s.qc_score : 0;
+    const passed = s?.qc_passed === true;
+    const cam = s?.camera ?? {};
+    const vec = cam?.camera_vector ?? {};
+    const num = (v: unknown, d: number) => (typeof v === 'number' && Number.isFinite(v) ? v : d);
+    return {
+      sceneId: typeof s?.scene_id === 'number' ? s.scene_id : i + 1,
+      durationSeconds: typeof s?.duration_seconds === 'number' ? s.duration_seconds : 6,
+      svale: {
+        subject: Array.isArray(s?.character_ids) && s.character_ids.length ? String(s.character_ids[0]) : 'Ensemble cast',
+        verb: String(cam?.camera_movement ?? 'holds frame'),
+        atmosphere: String(s?.emotion ?? ''),
+        location: String(s?.location_id ?? ''),
+        emotion: String(s?.emotion ?? ''),
+      },
+      storyBeat: String(s?.story_beat ?? ''),
+      dialogue: String(s?.dialogue ?? ''),
+      voiceEmotion: String(s?.voice_emotion ?? ''),
+      audioCues: String(s?.audio_cues ?? ''),
+      locationId: String(s?.location_id ?? ''),
+      characterIds: Array.isArray(s?.character_ids) ? s.character_ids.map(String) : [],
+      camera: {
+        tx: num(vec.x, 0), ty: num(vec.y, 0), tz: num(vec.z, 0),
+        pitch: num(vec.pitch, 0), yaw: num(vec.yaw, 0), roll: num(vec.roll, 0),
+        lens: String(cam?.lens ?? '35mm cinema prime'),
+        movement: String(cam?.camera_movement ?? 'static lock-off'),
+        motionScore: num(s?.motion_score, 0.4),
+      },
+      videoPrompt: String(s?.video_prompt ?? ''),
+      promptLayers: [],
+      keyframeUrl: mediaUrl(name, 'references', String(s?.reference_image_path ?? '')),
+      clipUrl: mediaUrl(name, 'clips', String(s?.clip_path ?? '')),
+      qc: {
+        anatomicalStability: score, cameraStability: score, opticalClarity: score,
+        promptConformity: score, characterConsistency: score,
+        overallScore: score, passed,
+        issues: Array.isArray(s?.qc_issues) ? s.qc_issues.map(String) : [],
+        flaggedTimestamps: [],
+      },
+      status: passed ? 'qc_pass' : s?.clip_path ? 'rendered' : s?.video_prompt ? 'prompted' : 'planned',
+    } as SceneModel;
+  });
+
+  const charDict = parseLenient<Record<string, any>>(data?.characters, {});
+  const characters: CharacterModel[] = Object.entries(charDict).map(([key, c]: [string, any]) => ({
+    id: String(c?.character_id ?? key),
+    name: String(c?.name ?? key),
+    type: String(c?.type ?? 'Principal'),
+    body: String(c?.body ?? ''),
+    face: String(c?.face ?? ''),
+    clothing: String(c?.clothing_or_accessories ?? c?.clothing ?? ''),
+    visualKeywords: Array.isArray(c?.visual_keywords) ? c.visual_keywords.map(String) : [],
+    negativeConstraints: Array.isArray(c?.negative_constraints) ? c.negative_constraints.map(String) : [],
+    scenes: [] as number[],
+    consistencyLock: true,
+  }));
+
+  const locDict = parseLenient<Record<string, any>>(data?.locations, {});
+  const environments: EnvironmentModel[] = Object.entries(locDict).map(([key, l]: [string, any]) => ({
+    id: String(l?.location_id ?? key),
+    name: String(l?.name ?? key),
+    spatial: String(l?.prompt_block ?? ''),
+    materials: String(l?.color_palette ?? ''),
+    lighting: String(l?.lighting ?? ''),
+    weather: String(l?.weather ?? l?.time_of_day ?? ''),
+    kelvinWarm: 3200,
+    kelvinCool: 6000,
+    scenes: [] as number[],
+  }));
+
+  const styleText = String(data?.style ?? 'cinematic');
+  const finalReel = mediaUrl(name, 'output', String(data?.final_reel_path ?? ''));
+
+  return {
+    projectId: String(data?.project_id ?? name),
+    projectName: name,
+    story: String(data?.story ?? ''),
+    duration: typeof data?.target_duration_seconds === 'number' ? data.target_duration_seconds : 30,
+    aspectRatio,
+    platform: String(data?.platform ?? 'cinematic'),
+    styleDna: styleText.split(',').map((s: string) => s.trim()).filter(Boolean).slice(0, 6),
+    tone: String(data?.tone ?? ''),
+    directorVision: {
+      visualStyle: String(notes?.visual_style ?? styleText),
+      cameraStyle: String(notes?.camera_style ?? ''),
+      styleLock: String(notes?.style_lock ?? styleText),
+      pacingPoints: Array.isArray(notes?.pacing_points) ? notes.pacing_points : [4, 6, 8, 8, 6],
+      kelvinRegister: { warm: 3200, cool: 6000 },
+      avoidConstraints: Array.isArray(notes?.avoid) ? notes.avoid.map(String) : [],
+    },
+    scenes,
+    characters,
+    environments,
+    finalReelUrl: finalReel,
+    timelineUrl: `/api/media/${name}/output/${name}.timeline`,
+  };
+}
 
 export interface ActiveHandoff {
   id: string;

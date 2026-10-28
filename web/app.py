@@ -80,6 +80,7 @@ class CreateProjectRequest(BaseModel):
     platform: str = "cinematic"
     style: str = "Cinematic Realism with natural atmospheric lighting"
     tone: str = "dramatic, emotional, cinematic"
+    avoid: List[str] = []
 
 
 class RunStageRequest(BaseModel):
@@ -153,6 +154,16 @@ async def create_project(req: CreateProjectRequest):
         tone=req.tone,
     )
 
+    # Pre-seed pitch avoid-constraints so the Director inherits them
+    if req.avoid:
+        from core.project import DirectorNotes
+        state.director_notes = DirectorNotes(
+            visual_style=req.style,
+            style_lock=req.style,
+            avoid=[str(a) for a in req.avoid if str(a).strip()],
+        )
+        state.save()
+
     await manager.broadcast({
         "type": "project_created",
         "project_name": project_name,
@@ -170,7 +181,14 @@ def system_status():
     try:
         res = subprocess.run(["kaggle", "kernels", "status", "cyb3rfy/ai-film-video-renderer"], capture_output=True, text=True, timeout=5)
         if res.returncode == 0:
-            kaggle_status = res.stdout.strip()
+            # Kaggle CLI prints upgrade warnings to stdout — keep only the status line
+            lines = [ln.strip() for ln in (res.stdout or "").splitlines()
+                     if ln.strip() and not ln.strip().lower().startswith("warning")]
+            status_line = lines[-1] if lines else ""
+            if '"' in status_line:
+                kaggle_status = status_line.split('"')[1]
+            elif status_line:
+                kaggle_status = status_line[-48:]
     except Exception:
         pass
 

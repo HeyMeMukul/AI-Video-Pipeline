@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStudioStore, useDerivedStudioState } from '../../store/useStudioStore';
 import { StudioEvent } from '../../types/events';
-import { ExternalLink, Film, User, Camera, Layers, Palette } from 'lucide-react';
+import { ExternalLink, Film, User, Camera, Layers, Palette, ShieldCheck, Clapperboard } from 'lucide-react';
 
 interface ShelfCard {
   id: string;
@@ -57,13 +57,26 @@ export const ArtifactShelf: React.FC = () => {
       } else if (kind === 'prompt') {
         cards.push({
           id: evt.id, kind, icon: <Layers className="w-3.5 h-3.5" />,
-          label: 'Prompt Layers', sub: '9-layer DiT synthesis',
+          label: 'Prompt Layers', sub: `${project.scenes.length}-scene synthesis`,
           color: '#2ac3de', view: 'prompt',
         });
-      } else if (kind === 'timeline') {
+      } else if (kind === 'clip') {
+        cards.push({
+          id: evt.id, kind, icon: <Clapperboard className="w-3.5 h-3.5" />,
+          label: 'Fresh Clips', sub: `${(evt.payload?.clips as unknown[] | undefined)?.length ?? project.scenes.length} clips rendered`,
+          color: '#ff9e64', view: 'render',
+        });
+      } else if (kind === 'qc_report') {
+        cards.push({
+          id: evt.id, kind, icon: <ShieldCheck className="w-3.5 h-3.5" />,
+          label: 'QC Verdict', sub: 'Auditor report filed',
+          color: '#e0af68', view: 'render',
+        });
+      } else if (kind === 'timeline' || kind === 'final_reel') {
+        const total = project.scenes.reduce((sum, s) => sum + (s.durationSeconds || 0), 0);
         cards.push({
           id: evt.id, kind, icon: <Film className="w-3.5 h-3.5" />,
-          label: 'Master Reel', sub: '26s H.264 + .timeline',
+          label: 'Master Reel', sub: total > 0 ? `${total}s · H.264 + timeline` : 'Conform ready',
           color: '#73daca', view: 'render',
         });
       }
@@ -73,9 +86,9 @@ export const ArtifactShelf: React.FC = () => {
   if (cards.length === 0) return null;
 
   return (
-    <div className="shrink-0 border-t border-white/[0.08] bg-[#0a0c13]/90 px-4 py-2.5">
+    <div className="shrink-0 border-t border-white/[0.08] bg-cinema-input/90 px-4 py-2.5">
       <div className="flex items-center gap-1.5 mb-2">
-        <span className="text-[12px] text-white/50 uppercase tracking-widest font-semibold">Live artifacts</span>
+        <span className="kicker">Live artifacts</span>
       </div>
       <div className="flex items-center gap-2.5 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none' }}>
         <AnimatePresence>
@@ -91,7 +104,7 @@ export const ArtifactShelf: React.FC = () => {
                 onClick={() => setActiveView(card.view)}
                 className={`shrink-0 flex items-center gap-3 px-3.5 h-[72px] rounded-xl border transition-all hover:brightness-110 active:scale-95 ${
                   isNewest
-                    ? 'shadow-[0_0_14px_rgba(229,192,123,0.35)]'
+                    ? 'shadow-glow-gold'
                     : 'shadow-sm'
                 }`}
                 style={{
@@ -105,10 +118,10 @@ export const ArtifactShelf: React.FC = () => {
                   {card.icon}
                 </div>
                 <div className="text-left min-w-0 pr-1">
-                  <div className="text-[14px] font-semibold text-[#F2F0EA] tracking-wide leading-snug truncate">
+                  <div className="text-[14px] font-semibold text-cinema-paper tracking-wide leading-snug truncate">
                     {card.label}
                   </div>
-                  <div className="text-[12px] text-[#A9AEC0] font-normal leading-snug mt-0.5 truncate">
+                  <div className="text-[12px] text-cinema-mist font-normal leading-snug mt-0.5 truncate">
                     {card.sub}
                   </div>
                 </div>

@@ -6,32 +6,126 @@
   color-scheme: dark;
 }
 
-body {
-  margin: 0;
-  background-color: #08090d;
-  color: #e2e8f0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  overflow: hidden;
-  user-select: none;
+@layer base {
+  body {
+    @apply bg-cinema-bg text-cinema-paper font-sans antialiased;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  ::selection {
+    background: rgba(229, 192, 123, 0.25);
+    color: #f2f0ea;
+  }
+
+  /* Visible keyboard focus everywhere — quality floor */
+  :focus-visible {
+    outline: 2px solid #e5c07b;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
-/* Custom scrollbar for cinema theme */
+@layer components {
+  /* ── Surfaces: one card recipe, one raised recipe ── */
+  .surface-card {
+    @apply bg-cinema-surface border border-white/[0.07] rounded-xl;
+  }
+  .surface-raised {
+    @apply bg-cinema-raised border border-white/[0.08] rounded-xl shadow-lift;
+  }
+  .surface-input {
+    @apply bg-cinema-input border border-white/[0.08] rounded-lg text-cinema-paper
+      placeholder:text-cinema-faint/70 focus:border-cinema-gold focus:outline-none
+      transition-colors;
+  }
+
+  /* ── Typography: marquee display / workhorse UI / technical mono ── */
+  .view-title {
+    @apply font-playfair text-[28px] leading-tight font-bold text-cinema-paper;
+  }
+  .view-sub {
+    @apply text-[13.5px] leading-relaxed text-cinema-mist;
+  }
+  /* Sentence-case mono kicker — encodes info, never decorates */
+  .kicker {
+    @apply font-mono text-[11px] font-medium tracking-[0.14em] text-cinema-gold;
+  }
+  .timecode {
+    @apply font-mono tabular-nums text-cinema-mist;
+  }
+
+  /* ── Controls ── */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-cinema-gold
+      text-cinema-bg font-semibold shadow-glow-gold
+      hover:brightness-110 active:scale-[0.98] transition-all duration-150
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/10
+      bg-white/[0.03] text-cinema-mist font-medium
+      hover:text-cinema-paper hover:border-white/20 hover:bg-white/[0.06]
+      active:scale-[0.98] transition-all duration-150
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[12px] font-medium
+      border border-white/10 bg-white/[0.03] text-cinema-mist;
+  }
+  .chip-active {
+    @apply border-cinema-gold/60 bg-cinema-gold/10 text-cinema-gold;
+  }
+
+  /* ── View entrance: one orchestrated moment per view ── */
+  .view-enter {
+    animation: fadeSlideUp 0.35s ease-out both;
+  }
+  .view-enter > * {
+    animation: fadeSlideUp 0.4s ease-out both;
+  }
+  .view-enter > *:nth-child(2) { animation-delay: 0.05s; }
+  .view-enter > *:nth-child(3) { animation-delay: 0.1s; }
+  .view-enter > *:nth-child(4) { animation-delay: 0.15s; }
+  .view-enter > *:nth-child(n+5) { animation-delay: 0.2s; }
+
+  /* ── Range slider (tone, scrub) ── */
+  input[type='range'].slider-gold {
+    @apply w-full h-1.5 rounded-full bg-white/10 appearance-none cursor-pointer accent-cinema-gold;
+  }
+  input[type='range'].slider-gold::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @apply w-3.5 h-3.5 rounded-full bg-cinema-gold shadow-glow-gold cursor-pointer;
+  }
+  input[type='range'].slider-gold::-moz-range-thumb {
+    @apply w-3.5 h-3.5 rounded-full bg-cinema-gold border-0 cursor-pointer;
+  }
+}
+
+/* Custom scrollbar — cinema theme */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #08090d;
+  background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #1a1e2c;
-  border-radius: 3px;
+  background: #232839;
+  border-radius: 4px;
+  border: 2px solid #08090d;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #e5c07b;
+  background: #caa050;
 }
 
 /* Film grain subtle overlay */

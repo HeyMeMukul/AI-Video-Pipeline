@@ -3,17 +3,15 @@ import { useStudioStore } from '../../store/useStudioStore';
 import { SceneModel } from '../../types/pipeline';
 import {
   Film,
-  Camera,
   Layers,
-  CheckCircle,
   Clock,
   User,
-  MapPin,
-  Sparkles,
   Volume2,
 } from 'lucide-react';
 
-const SceneFilmFrame: React.FC<{ sceneId: number }> = ({ sceneId }) => {
+import { SectionHeader } from '../ui/primitives';
+
+const SceneFilmFrame: React.FC<{ sceneId: number; frameUrl?: string }> = ({ sceneId, frameUrl }) => {
   const palettes = [
     ['#0D1B2A','#1B4332'],
     ['#1A1A2E','#16213E'],
@@ -21,6 +19,13 @@ const SceneFilmFrame: React.FC<{ sceneId: number }> = ({ sceneId }) => {
     ['#2C1810','#4A2C2A'],
   ];
   const pal = palettes[(sceneId - 1) % palettes.length];
+  if (frameUrl) {
+    return (
+      <span className="block overflow-hidden rounded-lg border border-white/[0.08]">
+        <img src={frameUrl} alt={`Storyboard frame for scene ${sceneId}`} className="w-full block aspect-[32/13.5] object-cover" loading="lazy" />
+      </span>
+    );
+  }
   return (
     <svg viewBox="0 0 320 135" className="w-full" style={{ display: 'block' }}>
       <defs>
@@ -58,28 +63,23 @@ export const SceneBoardView: React.FC = () => {
     setActiveTabPerScene((prev) => ({ ...prev, [sceneId]: tab }));
   };
 
-  return (
-    <div className="flex-1 overflow-y-auto bg-[#08090d] p-8 text-gray-200">
-      <div className="max-w-7xl mx-auto space-y-6 animate-fadeIn">
-        
-        {/* Header */}
-        <div className="flex items-center justify-between border-b border-cinema-border pb-4">
-          <div>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cinema-cinematographer/10 border border-cinema-cinematographer/30 text-cinema-cinematographer">
-              <Film className="w-3.5 h-3.5" />
-              <span className="text-[12px] font-semibold tracking-[0.08em] uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>Scene Board</span>
-            </div>
-            <h1 className="text-3xl font-bold text-white mt-1" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-              Scene Board (SVALE Storyboard)
-            </h1>
-            <p className="text-[14px] text-[#A9AEC0]" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Structured cinematic shots conforming Subject · Verb · Atmosphere · Location · Emotion.
-            </p>
-          </div>
+  const totalRuntime = project.scenes.reduce((sum, s) => sum + (s.durationSeconds || 0), 0);
 
-          <div className="text-right text-[13px] text-[#A9AEC0]" style={{ fontFamily: 'Inter, sans-serif' }}>
-            <div>Total Runtime: <span className="text-[#e5c07b] font-bold">26 Seconds</span></div>
-            <div>Aspect Ratio: <span className="text-white font-mono">{project.aspectRatio}</span></div>
+  return (
+    <div className="flex-1 overflow-y-auto bg-cinema-bg p-8">
+      <div className="max-w-7xl mx-auto space-y-6 view-enter">
+
+        {/* Header */}
+        <div className="flex items-start justify-between gap-4 border-b border-white/[0.06] pb-4">
+          <SectionHeader
+            kicker={`Scene board · ${project.scenes.length} scenes · SVALE structure`}
+            title="Shot Conformance"
+            sub="Structured cinematic shots conforming Subject, Verb, Atmosphere, Location, Emotion."
+          />
+
+          <div className="text-right timecode text-[12px] shrink-0 pt-1">
+            <div>Total runtime · <span className="text-cinema-gold font-bold">{totalRuntime}s</span></div>
+            <div>Aspect · <span className="text-cinema-paper">{project.aspectRatio}</span></div>
           </div>
         </div>
 
@@ -93,7 +93,7 @@ export const SceneBoardView: React.FC = () => {
               <div
                 key={scene.sceneId}
                 onClick={() => setSelectedSceneId(scene.sceneId)}
-                className={`rounded-2xl border transition-all duration-200 p-5 space-y-4 flex flex-col justify-between cursor-pointer ${
+                className={`rounded-xl border transition-all duration-200 p-5 space-y-4 flex flex-col justify-between cursor-pointer ${
                   isSelected
                     ? 'bg-cinema-surface border-cinema-gold/70 shadow-xl shadow-cinema-gold/5'
                     : 'bg-cinema-surface/70 border-cinema-border hover:border-white/20'
@@ -106,18 +106,18 @@ export const SceneBoardView: React.FC = () => {
                       <span className="w-7 h-7 rounded-lg bg-cinema-gold/20 border border-cinema-gold/40 text-cinema-gold font-mono font-bold text-xs flex items-center justify-center">
                         S{scene.sceneId}
                       </span>
-                      <span className="text-sm font-semibold text-white">
+                      <span className="text-sm font-semibold text-cinema-paper">
                         Scene {scene.sceneId}
                       </span>
                     </div>
 
                     <div className="flex items-center space-x-2">
-                      <span className="flex items-center space-x-1 px-2 py-0.5 rounded bg-black/40 border border-white/5 text-[12px]" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      <span className="flex items-center space-x-1 px-2 py-0.5 rounded bg-black/40 border border-white/5 text-[12px]">
                         <Clock className="w-3 h-3 text-cinema-gold" />
                         <span>{scene.durationSeconds}s</span>
                       </span>
 
-                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono font-bold uppercase">
+                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono font-bold">
                         {scene.status.replace('_', ' ')}
                       </span>
                     </div>
@@ -125,19 +125,19 @@ export const SceneBoardView: React.FC = () => {
 
                   {/* SVALE Colored Chips */}
                   <div className="flex flex-wrap gap-1.5 pt-1">
-                    <span className="px-2 py-0.5 rounded text-[12px] bg-blue-950/60 text-blue-300 border border-blue-500/30" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    <span className="px-2 py-0.5 rounded text-[12px] bg-blue-950/60 text-blue-300 border border-blue-500/30">
                       Subject: {scene.svale.subject}
                     </span>
-                    <span className="px-2 py-0.5 rounded text-[12px] bg-purple-950/60 text-purple-300 border border-purple-500/30" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    <span className="px-2 py-0.5 rounded text-[12px] bg-purple-950/60 text-purple-300 border border-purple-500/30">
                       Verb: {scene.svale.verb}
                     </span>
-                    <span className="px-2 py-0.5 rounded text-[12px] bg-teal-950/60 text-teal-300 border border-teal-500/30" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    <span className="px-2 py-0.5 rounded text-[12px] bg-teal-950/60 text-teal-300 border border-teal-500/30">
                       Atmosphere: {scene.svale.atmosphere}
                     </span>
-                    <span className="px-2 py-0.5 rounded text-[12px] bg-amber-950/60 text-amber-300 border border-amber-500/30" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    <span className="px-2 py-0.5 rounded text-[12px] bg-amber-950/60 text-amber-300 border border-amber-500/30">
                       Location: {scene.svale.location}
                     </span>
-                    <span className="px-2 py-0.5 rounded text-[12px] bg-rose-950/60 text-rose-300 border border-rose-500/30" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    <span className="px-2 py-0.5 rounded text-[12px] bg-rose-950/60 text-rose-300 border border-rose-500/30">
                       Emotion: {scene.svale.emotion}
                     </span>
                   </div>
@@ -154,9 +154,9 @@ export const SceneBoardView: React.FC = () => {
                         className={`px-2.5 py-1 rounded-t font-medium transition-colors text-[13px] ${
                           currentTab === t
                             ? 'text-cinema-gold border-b-2 border-cinema-gold bg-white/5'
-                            : 'text-gray-500 hover:text-gray-300'
+                            : 'text-cinema-faint hover:text-cinema-mist'
                         }`}
-                        style={{ fontFamily: 'Inter, sans-serif' }}
+                       
                       >
                         {t.charAt(0).toUpperCase() + t.slice(1)}
                       </button>
@@ -166,16 +166,16 @@ export const SceneBoardView: React.FC = () => {
                   {/* Tab Contents */}
                   {currentTab === 'overview' && (
                     <div className="space-y-2">
-                      <SceneFilmFrame sceneId={scene.sceneId} />
-                      <p className="text-[14px] text-[#D5D8E3] leading-relaxed" style={{ fontFamily: 'Inter, sans-serif' }}>
+                      <SceneFilmFrame sceneId={scene.sceneId} frameUrl={scene.keyframeUrl} />
+                      <p className="text-[14px] text-cinema-mist leading-relaxed">
                         "{scene.storyBeat}"
                       </p>
                       {scene.dialogue && (
                         <div className="p-2 rounded bg-black/40 border border-cinema-gold/20 flex items-start space-x-2">
                           <Volume2 className="w-3.5 h-3.5 text-cinema-gold shrink-0 mt-0.5" />
                           <div>
-                            <span className="text-[12px] text-cinema-gold font-semibold" style={{ fontFamily: 'Inter, sans-serif' }}>Dialogue ({scene.voiceEmotion}):</span>
-                            <span className="text-[13px] text-gray-300 ml-1" style={{ fontFamily: 'Inter, sans-serif' }}>"{scene.dialogue}"</span>
+                            <span className="text-[12px] text-cinema-gold font-semibold">Dialogue ({scene.voiceEmotion}):</span>
+                            <span className="text-[13px] text-cinema-mist ml-1">"{scene.dialogue}"</span>
                           </div>
                         </div>
                       )}
@@ -183,18 +183,18 @@ export const SceneBoardView: React.FC = () => {
                   )}
 
                   {currentTab === 'camera' && (
-                    <div className="space-y-2 text-[13px] text-gray-300" style={{ fontFamily: 'Inter, sans-serif' }}>
+                    <div className="space-y-2 text-[13px] text-cinema-mist">
                       <div className="grid grid-cols-2 gap-2">
                         <div className="p-2 rounded bg-black/40 border border-white/5">
-                          <span className="text-[12px] text-[#A9AEC0] font-semibold block" style={{ fontFamily: 'Inter, sans-serif' }}>Lens &amp; Optics</span>
+                          <span className="text-[12px] text-cinema-mist font-semibold block">Lens &amp; Optics</span>
                           <span className="text-cinema-cinematographer font-mono text-[12px]">{scene.camera.lens}</span>
                         </div>
                         <div className="p-2 rounded bg-black/40 border border-white/5">
-                          <span className="text-[12px] text-[#A9AEC0] font-semibold block" style={{ fontFamily: 'Inter, sans-serif' }}>Movement path</span>
-                          <span className="text-gray-200">{scene.camera.movement}</span>
+                          <span className="text-[12px] text-cinema-mist font-semibold block">Movement path</span>
+                          <span className="text-cinema-paper">{scene.camera.movement}</span>
                         </div>
                       </div>
-                      <div className="p-2 rounded bg-black/40 border border-white/5 text-[12px] font-mono text-gray-400">
+                      <div className="p-2 rounded bg-black/40 border border-white/5 text-[12px] font-mono text-cinema-faint">
                         Vector Matrix: [{scene.camera.tx}, {scene.camera.ty}, {scene.camera.tz}] · Pitch {scene.camera.pitch}° · Yaw {scene.camera.yaw}°
                       </div>
                     </div>
@@ -202,8 +202,8 @@ export const SceneBoardView: React.FC = () => {
 
                   {currentTab === 'prompt' && (
                     <div className="space-y-2">
-                      <div className="p-2 rounded bg-black/50 border border-white/5 font-mono text-[11px] text-gray-300 line-clamp-4 leading-relaxed">
-                        {scene.videoPrompt}
+                      <div className="p-2 rounded bg-black/50 border border-white/5 font-mono text-[11px] text-cinema-mist line-clamp-4 leading-relaxed">
+                        {scene.videoPrompt || 'Prompt not synthesized yet — run the Prompt Builder stage.'}
                       </div>
                       <button
                         onClick={(e) => {
@@ -214,7 +214,7 @@ export const SceneBoardView: React.FC = () => {
                         className="text-[10px] font-mono text-cinema-gold hover:underline flex items-center space-x-1"
                       >
                         <Layers className="w-3 h-3" />
-                        <span>Inspect in 9-Layer Prompt Lab →</span>
+                        <span>Inspect in Prompt Lab</span>
                       </button>
                     </div>
                   )}
@@ -223,19 +223,19 @@ export const SceneBoardView: React.FC = () => {
                     <div className="space-y-2 text-xs font-mono">
                       <div className="grid grid-cols-2 gap-2 text-[11px]">
                         <div className="p-2 rounded bg-black/40 border border-white/5 flex justify-between">
-                          <span className="text-gray-400">Anatomical:</span>
+                          <span className="text-cinema-faint">Anatomical:</span>
                           <span className="text-emerald-400 font-bold">{scene.qc?.anatomicalStability || 95}%</span>
                         </div>
                         <div className="p-2 rounded bg-black/40 border border-white/5 flex justify-between">
-                          <span className="text-gray-400">Camera 6DoF:</span>
+                          <span className="text-cinema-faint">Camera 6DoF:</span>
                           <span className="text-emerald-400 font-bold">{scene.qc?.cameraStability || 94}%</span>
                         </div>
                         <div className="p-2 rounded bg-black/40 border border-white/5 flex justify-between">
-                          <span className="text-gray-400">Optical Clarity:</span>
+                          <span className="text-cinema-faint">Optical Clarity:</span>
                           <span className="text-emerald-400 font-bold">{scene.qc?.opticalClarity || 92}%</span>
                         </div>
                         <div className="p-2 rounded bg-black/40 border border-white/5 flex justify-between">
-                          <span className="text-gray-400">Conformity:</span>
+                          <span className="text-cinema-faint">Conformity:</span>
                           <span className="text-emerald-400 font-bold">{scene.qc?.promptConformity || 94}%</span>
                         </div>
                       </div>
@@ -248,15 +248,15 @@ export const SceneBoardView: React.FC = () => {
                 </div>
 
                 {/* Card Footer: Clip Chain / Characters */}
-                <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-cinema-faint">
                   <div className="flex items-center space-x-1">
                     <User className="w-3 h-3 text-cinema-character" />
                     <span>{scene.characterIds.join(', ')}</span>
                   </div>
 
-                  <div className="flex items-center space-x-1 text-cinema-editor">
+                  <div className="flex items-center gap-1 text-cinema-editor">
                     <Film className="w-3 h-3" />
-                    <span>Clip Chain 100%</span>
+                    <span>{scene.clipUrl ? 'Clip rendered' : 'Awaiting render'}</span>
                   </div>
                 </div>
               </div>

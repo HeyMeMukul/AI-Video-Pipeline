@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { AgentId } from '../../types/events';
 import { AGENT_PERSONAS } from '../../mock/personas';
 import { useStudioStore, useDerivedStudioState } from '../../store/useStudioStore';
-import { Check, X, RotateCw } from 'lucide-react';
+import { Check, X, RotateCw, ArrowRight } from 'lucide-react';
 
 const ORDERED_AGENTS: AgentId[] = [
   'director', 'screenplay', 'character', 'world',
@@ -16,7 +16,7 @@ export const ProductionTable: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
 
-  const { agentStatuses, activeHandoff, speechBubbles } = useDerivedStudioState();
+  const { agentStatuses, activeHandoff, speechBubbles, retryCount } = useDerivedStudioState();
   const selectedAgent = useStudioStore((s) => s.selectedAgent);
   const setSelectedAgent = useStudioStore((s) => s.setSelectedAgent);
   const project = useStudioStore((s) => s.project);
@@ -172,17 +172,18 @@ export const ProductionTable: React.FC = () => {
     return { pathD, fromColor, isRetry: activeHandoff.isRetry, midX, midY };
   }, [activeHandoff, agentToPos, cx, cy, tableRx, tableRy]);
 
-  // Current artifact name for Idea Core
+  // Core artifact reflects the live production, not fixed demo copy
+  const totalRuntime = project.scenes.reduce((sum, s) => sum + (s.durationSeconds || 0), 0);
   const getCoreArtifact = () => {
     if (currentStep < 3) return { name: 'Directorial Vision', metric: `${progress}% locked` };
-    if (currentStep < 6) return { name: 'Scene Architecture', metric: '4 SVALE beats' };
-    if (currentStep < 10) return { name: 'Character Anchors', metric: '3 heroes locked' };
-    if (currentStep < 14) return { name: 'World Geometries', metric: '3 stage sets' };
+    if (currentStep < 6) return { name: 'Scene Architecture', metric: `${project.scenes.length} SVALE beats` };
+    if (currentStep < 10) return { name: 'Character Anchors', metric: `${project.characters.length} heroes locked` };
+    if (currentStep < 14) return { name: 'World Geometries', metric: `${project.environments.length} stage sets` };
     if (currentStep < 18) return { name: 'Camera 6DoF', metric: 'Optics vectors' };
-    if (currentStep < 22) return { name: 'DiT Prompts', metric: '9-layer synthesis' };
-    if (currentStep < 28) return { name: 'GPU Cluster', metric: 'T4 rendering' };
+    if (currentStep < 22) return { name: 'DiT Prompts', metric: 'Layered synthesis' };
+    if (currentStep < 28) return { name: 'GPU Cluster', metric: 'Render farm' };
     if (currentStep < 36) return { name: 'Compliance QC', metric: 'Rubric audit' };
-    return { name: 'Master Reel', metric: '26s conformed' };
+    return { name: 'Master Reel', metric: totalRuntime > 0 ? `${totalRuntime}s conformed` : 'Conform ready' };
   };
   const coreArtifact = getCoreArtifact();
 
@@ -197,7 +198,7 @@ export const ProductionTable: React.FC = () => {
   const ideaDisplay = isPlaceholder ? 'Waiting for an idea…' : (rawStory.length > 60 ? rawStory.slice(0, 58) + '…' : rawStory);
 
   return (
-    <div ref={containerRef} className="relative w-full h-full overflow-hidden bg-[#08090d]">
+    <div ref={containerRef} className="relative w-full h-full overflow-hidden bg-cinema-bg">
       {/* Background radial ambiance */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -431,21 +432,11 @@ export const ProductionTable: React.FC = () => {
           }}
         >
           <div
+            className="bg-cinema-surface border border-cinema-gold/25 rounded-xl px-3.5 py-1.5 text-[12px] font-medium text-cinema-mist text-center shadow-lift overflow-hidden"
             style={{
-              background: '#131620',
-              border: '1px solid rgba(229,192,123,0.22)',
-              borderRadius: '12px',
-              padding: '5px 14px',
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '12px',
-              fontWeight: 500,
-              color: '#A9AEC0',
-              textAlign: 'center',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.6)',
               display: '-webkit-box',
               WebkitLineClamp: 2,
               WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
               lineHeight: 1.35,
             }}
           >
@@ -465,13 +456,8 @@ export const ProductionTable: React.FC = () => {
           }}
         >
           <span
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '16px',
-              fontWeight: 700,
-              color: '#E5C07B',
-              textShadow: '0 1px 8px rgba(0,0,0,0.9)',
-            }}
+            className="font-mono text-[16px] font-bold text-cinema-gold"
+            style={{ textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}
           >
             {progress}%
           </span>
@@ -487,36 +473,17 @@ export const ProductionTable: React.FC = () => {
           }}
         >
           <div
-            style={{
-              background: '#131620',
-              border: '1px solid rgba(229,192,123,0.30)',
-              borderRadius: '12px',
-              padding: '8px 18px',
-              textAlign: 'center',
-              whiteSpace: 'nowrap',
-              boxShadow: '0 4px 18px rgba(0,0,0,0.75)',
-            }}
+            className="bg-cinema-surface border border-cinema-gold/30 rounded-xl px-[18px] py-2 text-center whitespace-nowrap shadow-lift"
           >
             <div
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: '16px',
-                fontWeight: 600,
-                color: '#E5C07B',
-                textShadow: '0 1px 8px rgba(0,0,0,0.8)',
-                lineHeight: 1.2,
-              }}
+              className="font-playfair text-[16px] font-semibold text-cinema-gold"
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.8)', lineHeight: 1.2 }}
             >
               {coreArtifact.name}
             </div>
             <div
-              style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '13px',
-                color: '#A9AEC0',
-                marginTop: '3px',
-                lineHeight: 1.2,
-              }}
+              className="text-[13px] text-cinema-mist mt-[3px]"
+              style={{ lineHeight: 1.2 }}
             >
               {coreArtifact.metric}
             </div>
@@ -534,19 +501,9 @@ export const ProductionTable: React.FC = () => {
             }}
           >
             <div
-              style={{
-                background: '#2a1c00',
-                border: '1px solid #e0af68',
-                borderRadius: '9999px',
-                padding: '2px 10px',
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '12px',
-                fontWeight: 700,
-                color: '#e0af68',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.8)',
-              }}
+              className="bg-amber-950 border border-amber-500/60 rounded-full px-2.5 py-0.5 text-[12px] font-bold text-amber-300 shadow-lift"
             >
-              ×2
+              ×{Math.max(1, retryCount)} revision{retryCount > 1 ? 's' : ''}
             </div>
           </div>
         )}
@@ -583,13 +540,8 @@ export const ProductionTable: React.FC = () => {
               >
                 {/* Avatar Initials — fully visible in persona.color */}
                 <span
-                  style={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: '14px',
-                    fontWeight: 700,
-                    color: persona.color,
-                    letterSpacing: '0.02em',
-                  }}
+                  className="font-playfair text-[14px] font-bold"
+                  style={{ color: persona.color, letterSpacing: '0.02em' }}
                 >
                   {persona.avatarInitials || persona.avatar}
                 </span>
@@ -597,26 +549,23 @@ export const ProductionTable: React.FC = () => {
                 {/* Status Badges */}
                 {isDone && (
                   <div
-                    className="absolute -top-1 -right-1 w-5 h-5 rounded-full border flex items-center justify-center"
-                    style={{ background: '#131620', borderColor: '#e5c07b' }}
+                    className="absolute -top-1 -right-1 w-5 h-5 rounded-full border flex items-center justify-center bg-cinema-surface" style={{ borderColor: '#e5c07b' }}
                   >
-                    <Check className="w-3 h-3 text-[#e5c07b]" strokeWidth={3} />
+                    <Check className="w-3 h-3 text-cinema-gold" strokeWidth={3} />
                   </div>
                 )}
                 {isFailed && (
                   <div
-                    className="absolute -top-1 -right-1 w-5 h-5 rounded-full border flex items-center justify-center"
-                    style={{ background: '#131620', borderColor: '#f7768e' }}
+                    className="absolute -top-1 -right-1 w-5 h-5 rounded-full border flex items-center justify-center bg-cinema-surface" style={{ borderColor: '#f7768e' }}
                   >
-                    <X className="w-3 h-3 text-[#f7768e]" strokeWidth={3} />
+                    <X className="w-3 h-3 text-cinema-error" strokeWidth={3} />
                   </div>
                 )}
                 {isRetrying && (
                   <div
-                    className="absolute -top-1 -right-1 w-5 h-5 rounded-full border flex items-center justify-center animate-spin"
-                    style={{ background: '#131620', borderColor: '#e0af68' }}
+                    className="absolute -top-1 -right-1 w-5 h-5 rounded-full border flex items-center justify-center animate-spin bg-cinema-surface" style={{ borderColor: '#e0af68' }}
                   >
-                    <RotateCw className="w-3 h-3 text-[#e0af68]" strokeWidth={2.5} />
+                    <RotateCw className="w-3 h-3 text-amber-300" strokeWidth={2.5} />
                   </div>
                 )}
               </div>
@@ -640,32 +589,15 @@ export const ProductionTable: React.FC = () => {
             >
               {/* Seat Name: Playfair Display 16px, weight 600, #F2F0EA, no truncation */}
               <div
-                style={{
-                  fontFamily: "'Playfair Display', serif",
-                  fontSize: '16px',
-                  fontWeight: 600,
-                  color: '#F2F0EA',
-                  lineHeight: 1.2,
-                  textAlign,
-                  whiteSpace: 'nowrap',
-                  textShadow: '0 2px 8px rgba(0,0,0,0.95)',
-                }}
+                className="font-playfair text-[16px] font-semibold text-cinema-paper whitespace-nowrap"
+                style={{ lineHeight: 1.2, textAlign, textShadow: '0 2px 8px rgba(0,0,0,0.95)' }}
               >
                 {persona.name.split(' ')[0]}
               </div>
               {/* Seat Role: Inter 12px, #A9AEC0, no truncation */}
               <div
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontSize: '12px',
-                  fontWeight: 400,
-                  color: '#A9AEC0',
-                  lineHeight: 1.2,
-                  marginTop: '3px',
-                  textAlign,
-                  whiteSpace: 'nowrap',
-                  textShadow: '0 1px 4px rgba(0,0,0,0.95)',
-                }}
+                className="text-[12px] text-cinema-mist whitespace-nowrap mt-[3px]"
+                style={{ lineHeight: 1.2, textAlign, textShadow: '0 1px 4px rgba(0,0,0,0.95)' }}
               >
                 {persona.role}
               </div>
@@ -690,12 +622,10 @@ export const ProductionTable: React.FC = () => {
               className="w-full max-w-[620px] pointer-events-auto select-none"
             >
               <div
+                className="bg-cinema-raised rounded-xl px-[18px] py-3 shadow-overlay"
                 style={{
-                  background: '#1A1E2C', // Solid dark background, no transparency behind text
                   border: `1px solid ${liveCaptionPersona.color}`,
-                  borderRadius: '14px',
-                  padding: '12px 18px',
-                  boxShadow: `0 8px 32px rgba(0,0,0,0.85), 0 0 20px ${liveCaptionPersona.color}25`,
+                  boxShadow: `0 16px 48px rgba(0,0,0,0.65), 0 0 20px ${liveCaptionPersona.color}25`,
                 }}
               >
                 {/* Header: avatar + name + optional handoff chip */}
@@ -708,23 +638,15 @@ export const ProductionTable: React.FC = () => {
                     }}
                   >
                     <span
-                      style={{
-                        fontFamily: "'Playfair Display', serif",
-                        fontSize: '11px',
-                        fontWeight: 700,
-                        color: liveCaptionPersona.color,
-                      }}
+                      className="font-playfair text-[11px] font-bold"
+                      style={{ color: liveCaptionPersona.color }}
                     >
                       {liveCaptionPersona.avatarInitials || liveCaptionPersona.avatar}
                     </span>
                   </div>
                   <span
-                    style={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontSize: '15px',
-                      fontWeight: 600,
-                      color: liveCaptionPersona.color,
-                    }}
+                    className="font-playfair text-[15px] font-semibold"
+                    style={{ color: liveCaptionPersona.color }}
                   >
                     {liveCaptionPersona.name}
                   </span>
@@ -737,7 +659,7 @@ export const ProductionTable: React.FC = () => {
                         color: AGENT_PERSONAS[liveCaption.to].color,
                       }}
                     >
-                      <span className="text-[#A9AEC0]">→</span>
+                      <span className="text-cinema-mist flex items-center"><ArrowRight className="w-3 h-3" /></span>
                       <span className="font-medium">{AGENT_PERSONAS[liveCaption.to].name.split(' ')[0]}</span>
                     </div>
                   )}
@@ -745,16 +667,12 @@ export const ProductionTable: React.FC = () => {
 
                 {/* Message body: FULL message, Inter 15px, up to 3 lines */}
                 <p
+                  className="text-[15px] text-cinema-paper m-0 overflow-hidden"
                   style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '15px',
                     lineHeight: 1.45,
-                    color: '#F2F0EA',
-                    margin: 0,
                     display: '-webkit-box',
                     WebkitLineClamp: 3,
                     WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden',
                   }}
                 >
                   {liveCaption.text}

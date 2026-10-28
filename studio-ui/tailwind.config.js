@@ -8,10 +8,17 @@ export default {
     extend: {
       colors: {
         'cinema-bg': '#08090d',
+        'cinema-base': '#0c0e14',
         'cinema-surface': '#131620',
         'cinema-raised': '#1a1e2c',
+        'cinema-input': '#0a0c13',
         'cinema-border': 'rgba(255, 255, 255, 0.06)',
+        'cinema-line': 'rgba(255, 255, 255, 0.07)',
         'cinema-gold': '#e5c07b',
+        'cinema-gold-deep': '#caa050',
+        'cinema-paper': '#f2f0ea',
+        'cinema-mist': '#c6cbd8',
+        'cinema-faint': '#8b91a3',
         'cinema-error': '#f7768e',
         'cinema-director': '#e5c07b',
         'cinema-screenplay': '#7aa2f7',
@@ -52,6 +59,12 @@ export default {
         playfair: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
+      },
+      boxShadow: {
+        'lift': '0 8px 28px rgba(0, 0, 0, 0.5)',
+        'overlay': '0 16px 48px rgba(0, 0, 0, 0.65)',
+        'glow-gold': '0 0 16px rgba(229, 192, 123, 0.28)',
+        'glow-gold-strong': '0 0 28px rgba(229, 192, 123, 0.45)',
       },
       animation: {
         'pulse-gentle': 'pulseGently 3s ease-in-out infinite',

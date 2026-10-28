@@ -28,6 +28,16 @@ export const App: React.FC = () => {
   // Background WebSocket connection to FastAPI backend
   useWebSocketHub();
 
+  // Boot: load project library + engine status once
+  const fetchProjects = useStudioStore((s) => s.fetchProjects);
+  const fetchSystemStatus = useStudioStore((s) => s.fetchSystemStatus);
+  useEffect(() => {
+    fetchProjects();
+    fetchSystemStatus();
+    const id = setInterval(fetchSystemStatus, 30000);
+    return () => clearInterval(id);
+  }, [fetchProjects, fetchSystemStatus]);
+
   // Global Keyboard Navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -76,7 +86,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-[#08090d] text-gray-100 overflow-hidden font-sans">
+    <div className="flex flex-col h-screen w-screen bg-cinema-bg text-cinema-paper overflow-hidden font-sans">
       {/* Film grain overlay */}
       <div
         className="fixed inset-0 pointer-events-none z-50 opacity-[0.022]"

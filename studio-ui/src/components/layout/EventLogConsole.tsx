@@ -44,13 +44,13 @@ export const EventLogConsole: React.FC = () => {
         <div className="flex items-center space-x-3">
           <div className="flex items-center space-x-1.5 text-cinema-gold font-mono font-semibold">
             <Terminal className="w-3.5 h-3.5" />
-            <span>EVENT STREAM CONSOLE</span>
+            <span>Event stream</span>
           </div>
-          <span className="px-1.5 py-0.5 rounded bg-white/5 text-gray-400 font-mono text-[10px]">
+          <span className="px-1.5 py-0.5 rounded bg-white/5 text-cinema-faint font-mono text-[10px]">
             {filteredEvents.length} / {events.length} events
           </span>
-          <span className="text-gray-500 text-[11px]">|</span>
-          <span className="text-gray-400 font-mono text-[11px]">
+          <span className="text-cinema-faint/60 text-[11px]">|</span>
+          <span className="text-cinema-faint font-mono text-[11px]">
             Step {currentStep + 1} of {events.length}
           </span>
         </div>
@@ -59,11 +59,11 @@ export const EventLogConsole: React.FC = () => {
         <div className="flex items-center space-x-3">
           {/* Agent Filter */}
           <div className="flex items-center space-x-1">
-            <Filter className="w-3 h-3 text-gray-500" />
+            <Filter className="w-3 h-3 text-cinema-faint" />
             <select
               value={filters.agent}
               onChange={(e) => setConsoleFilter('agent', e.target.value)}
-              className="bg-cinema-bg border border-cinema-border text-gray-300 rounded px-2 py-0.5 text-xs focus:outline-none focus:border-cinema-gold"
+              className="surface-input rounded px-2 py-0.5 text-xs"
             >
               <option value="all">All Agents</option>
               {Object.entries(AGENT_PERSONAS).map(([id, p]) => (
@@ -78,7 +78,7 @@ export const EventLogConsole: React.FC = () => {
           <select
             value={filters.severity}
             onChange={(e) => setConsoleFilter('severity', e.target.value)}
-            className="bg-cinema-bg border border-cinema-border text-gray-300 rounded px-2 py-0.5 text-xs focus:outline-none focus:border-cinema-gold"
+            className="surface-input rounded px-2 py-0.5 text-xs"
           >
             <option value="all">All Event Types</option>
             <option value="handoff">Handoffs Only</option>
@@ -88,18 +88,18 @@ export const EventLogConsole: React.FC = () => {
 
           {/* Search */}
           <div className="relative">
-            <Search className="w-3 h-3 text-gray-500 absolute left-2 top-1.5" />
+            <Search className="w-3 h-3 text-cinema-faint absolute left-2 top-1.5" />
             <input
               type="text"
               placeholder="Search logs..."
               value={filters.search}
               onChange={(e) => setConsoleFilter('search', e.target.value)}
-              className="bg-cinema-bg border border-cinema-border text-gray-200 rounded pl-7 pr-2 py-0.5 text-xs focus:outline-none focus:border-cinema-gold w-36"
+              className="surface-input rounded pl-7 pr-2 py-0.5 text-xs w-36"
             />
             {filters.search && (
               <button
                 onClick={() => setConsoleFilter('search', '')}
-                className="absolute right-1.5 top-1.5 text-gray-400 hover:text-white"
+                className="absolute right-1.5 top-1.5 text-cinema-faint hover:text-cinema-paper"
               >
                 <XCircle className="w-3 h-3" />
               </button>
@@ -109,7 +109,7 @@ export const EventLogConsole: React.FC = () => {
           {/* Close button */}
           <button
             onClick={() => setConsoleOpen(false)}
-            className="text-gray-400 hover:text-white p-1 rounded hover:bg-white/5"
+            className="text-cinema-faint hover:text-cinema-paper p-1 rounded hover:bg-white/5"
             title="Minimize Console"
           >
             <ChevronDown className="w-4 h-4" />
@@ -134,19 +134,19 @@ export const EventLogConsole: React.FC = () => {
               }}
               className={`flex items-start space-x-2 px-2 py-1 rounded cursor-pointer transition-colors ${
                 isSelected
-                  ? 'bg-cinema-gold/15 border border-cinema-gold/30 text-white'
+                  ? 'bg-cinema-gold/15 border border-cinema-gold/30 text-cinema-paper'
                   : isPassed
-                  ? 'hover:bg-white/5 text-gray-300'
-                  : 'opacity-40 hover:opacity-80 text-gray-500'
+                  ? 'hover:bg-white/5 text-cinema-mist'
+                  : 'opacity-40 hover:opacity-80 text-cinema-faint'
               }`}
             >
-              <span className="text-gray-500 text-[10px] w-14 shrink-0 pt-0.5">
+              <span className="text-cinema-faint text-[10px] w-14 shrink-0 pt-0.5">
                 {new Date(evt.ts * 1000).toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' })}
               </span>
 
               {/* Agent Badge */}
               <span
-                className="px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase shrink-0 border"
+                className="px-1.5 py-0.5 rounded text-[10px] font-semibold shrink-0 border"
                 style={{
                   color: persona.color,
                   borderColor: `${persona.color}40`,
@@ -157,7 +157,7 @@ export const EventLogConsole: React.FC = () => {
               </span>
 
               {/* Event Type Tag */}
-              <span className="text-gray-400 text-[10px] uppercase shrink-0 pt-0.5">
+              <span className="text-cinema-faint text-[10px] shrink-0 pt-0.5">
                 [{evt.type}]
               </span>
 
@@ -172,7 +172,7 @@ export const EventLogConsole: React.FC = () => {
                   e.stopPropagation();
                   setCurrentStep(eventIndex);
                 }}
-                className="opacity-0 group-hover:opacity-100 hover:text-cinema-gold text-gray-500 shrink-0"
+                className="opacity-0 group-hover:opacity-100 hover:text-cinema-gold text-cinema-faint shrink-0"
                 title="Jump to this step in timeline"
               >
                 <ArrowRightCircle className="w-3.5 h-3.5" />

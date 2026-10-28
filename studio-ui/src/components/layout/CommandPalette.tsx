@@ -146,7 +146,7 @@ export const CommandPalette: React.FC = () => {
       category: 'Playback',
       title: 'Rewind to Beginning',
       subtitle: 'Reset timeline to step 0',
-      icon: <RotateCcw className="w-4 h-4 text-gray-400" />,
+      icon: <RotateCcw className="w-4 h-4 text-cinema-faint" />,
       action: () => resetProduction(),
     },
     // System
@@ -211,11 +211,11 @@ export const CommandPalette: React.FC = () => {
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
-            className="w-full bg-transparent text-gray-100 placeholder-gray-500 text-sm focus:outline-none"
+            className="w-full bg-transparent text-cinema-paper placeholder:text-cinema-faint text-sm focus:outline-none"
           />
           <button
             onClick={() => setIsOpen(false)}
-            className="text-gray-500 hover:text-white p-1 rounded hover:bg-white/5"
+            className="text-cinema-faint hover:text-cinema-paper p-1 rounded hover:bg-white/5"
           >
             <X className="w-4 h-4" />
           </button>
@@ -224,7 +224,7 @@ export const CommandPalette: React.FC = () => {
         {/* Command List */}
         <div className="max-h-80 overflow-y-auto p-2 space-y-1">
           {filtered.length === 0 ? (
-            <div className="px-4 py-8 text-center text-gray-500 text-xs">
+            <div className="px-4 py-8 text-center text-cinema-faint text-xs">
               No matching commands or agents found.
             </div>
           ) : (
@@ -234,22 +234,22 @@ export const CommandPalette: React.FC = () => {
                 onClick={() => handleSelect(cmd)}
                 className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-colors ${
                   idx === selectedIndex
-                    ? 'bg-cinema-gold/15 text-white'
-                    : 'text-gray-300 hover:bg-white/5'
+                    ? 'bg-cinema-gold/15 text-cinema-paper'
+                    : 'text-cinema-mist hover:bg-white/5'
                 }`}
               >
                 <div className="flex items-center space-x-3">
                   <div className="shrink-0">{cmd.icon}</div>
                   <div>
-                    <div className="text-xs font-medium text-gray-200">{cmd.title}</div>
+                    <div className="text-xs font-medium text-cinema-paper">{cmd.title}</div>
                     {cmd.subtitle && (
-                      <div className="text-[10px] text-gray-500">{cmd.subtitle}</div>
+                      <div className="text-[10px] text-cinema-faint">{cmd.subtitle}</div>
                     )}
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-white/5 text-gray-400">
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/5 text-cinema-faint">
                     {cmd.category}
                   </span>
                   {cmd.shortcut && (
@@ -264,7 +264,7 @@ export const CommandPalette: React.FC = () => {
         </div>
 
         {/* Footer */}
-        <div className="px-4 py-2 border-t border-cinema-border bg-cinema-raised/30 flex items-center justify-between text-[10px] text-gray-500">
+        <div className="px-4 py-2 border-t border-cinema-border bg-cinema-raised/30 flex items-center justify-between text-[10px] text-cinema-faint">
           <span>Navigate with ↑ ↓, press Enter to execute</span>
           <span>Esc to exit</span>
         </div>
