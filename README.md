@@ -4,7 +4,7 @@
 
 ### *CineStorm AI — Autonomous Multi-Agent Virtual Film Studio*
 
-**Turn a one-line story idea into a cinematic vertical reel — directed, shot, voiced & edited by 11 AI agents.**
+**Turn a one-line story idea into a cinematic vertical reel — directed, shot & assembled by AI agents.**
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)](web/app.py)
@@ -12,7 +12,7 @@
 [![FFmpeg](https://img.shields.io/badge/FFmpeg-Editor-00704A?style=for-the-badge&logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-[Features](#-features) • [Architecture](#️-architecture) • [Quick Start](#-quick-start) • [CLI](#️-cli-reference) • [Agents](#-the-11-agents) • [Web Studio](#-web-studio) • [Config](#-configuration)
+[Features](#-features) • [Architecture](#️-architecture) • [Quick Start](#-quick-start) • [Web Studio](#-web-studio) • [CLI](#️-cli-reference) • [Agents](#-the-11-agents) • [Config](#-configuration)
 
 </div>
 
@@ -22,13 +22,13 @@
 
 | | What you get |
 |---|---|
-| 🎬 **11-agent film crew** | Director → Story → Character & Environment Bibles → References → Cinematography → Prompts → Video → QC → Audio → Editor |
+| 🎬 **11-agent film crew** | Director → Story → Character & Environment Bibles → References → Cinematography → Prompts → Video → QC → Editor (no separate audio/caption pass — dialogue and ambience are baked into each clip) |
 | 🔒 **Consistency engine** | Locked Character Bible (7-layer) + Environment Bible (Kelvin lighting, palette, haze) + verbatim prompt reuse — no morphing faces |
-| 💸 **100% free path** | Kaggle Tesla T4 (LTX-Video) for video · Edge-TTS for voiceover · Gemini Flash / HuggingFace for LLM — zero paid keys required |
+| 💸 **100% free path** | Kaggle Tesla T4 for video · Gemini Flash / HuggingFace for LLM — zero paid keys required |
 | 🔌 **Smart LLM router** | Auto-detects `OmniRoute → OpenRouter → Gemini → NVIDIA NIM → DeepSeek → Qwen → OpenAI → HuggingFace` and picks best model per agent tier |
 | 🎥 **Multi-provider video** | `kaggle → kling → krea → huggingface → veo → fal → replicate` fallback chain + per-scene model routing |
-| 📱 **Platform presets** | Instagram Reel, YouTube Shorts, TikTok (`1080×1920`) + Cinematic (`1920×1080`) with EBU R128 loudness |
-| 🌐 **Two frontends** | FastAPI + WebSocket telemetry backend (`web/`) **and** React + Tailwind studio floor (`studio-ui/`) |
+| 📱 **Platform presets** | Instagram Reel, YouTube Shorts, TikTok (`1080×1920`) + Cinematic (`1920×1080`) |
+| 🖥️ **Live studio floor** | React war-table with real-time WebSocket telemetry, production vault, per-stage dispatch — boots empty, runs only what you start |
 | 🔬 **REA integration** | `agy rea` — reverse-engineer video tools into reusable intelligence profiles |
 | 🧪 **Mock-tested** | `pytest` suite runs the full pipeline with zero API keys |
 
@@ -45,13 +45,14 @@ flowchart TD
     P --> EB[🌆 Environment Bible<br/>locked locations]
     P --> RI[🖼️ Reference Images<br/>FLUX Schnell]
     P --> CI[🎥 Cinematography<br/>lenses · 9:16 safe zones]
-    P --> PB[✍️ Prompt Builder<br/>8-section diffusion prompts]
+    P --> PB[✍️ Prompt Builder<br/>diffusion prompts with baked-in dialogue + ambience]
     P --> VG[🎬 Video Generator<br/>Kaggle / Kling / Veo / fal]
     P --> QC[🔍 QC Supervisor<br/>100-pt rubric + retry]
-    P --> AU[🎵 Audio Engine<br/>Edge-TTS · music · loudness]
-    P --> ED[✂️ Master Editor<br/>FFmpeg 1080x1920 @30fps]
+    P --> ED[✂️ Master Editor<br/>joins clips via FFmpeg]
     ED --> OUT[📦 final_reel.mp4]
 ```
+
+> No separate audio or caption stage by design: each clip is generated with its spoken line and soundscape baked in, and the Editor joins finished clips. This avoids the mismatch drift of post-dubbed voiceover and burned-in subtitles.
 
 ### The 5 Rules of Consistency
 
@@ -68,7 +69,7 @@ flowchart TD
 ### 1. Prerequisites
 
 - **Python 3.10+** · **ffmpeg** (`sudo apt install ffmpeg`) · **git**
-- Optional: Node 18+ (only for `studio-ui/`)
+- Optional: Node 18+ (only for `studio-ui/` dev mode)
 
 ### 2. Install
 
@@ -82,29 +83,64 @@ pip install -r requirements.txt
 cp .env.example .env   # ← fill in only the keys you have; free path works without
 ```
 
-> 💡 **Zero-cost setup:** set just `GOOGLE_API_KEY` (Gemini free tier) + `HF_TOKEN` (optional) + Kaggle creds for video. Voiceover falls back to free Edge-TTS automatically.
+> 💡 **Zero-cost setup:** set just `GOOGLE_API_KEY` (Gemini free tier) + `HF_TOKEN` (optional) + Kaggle creds for video.
 
-### 3. Make your first reel (interactive)
+### 3. Open the studio (recommended)
 
 ```bash
-python3 scripts/agy.py create
-# 💡 story idea → ⚙️ settings → 🧠 enhanced screenplay → 🚀 full pipeline runs
+python3 scripts/agy.py serve --port 8000
+# → http://localhost:8000
 ```
 
-### 4. Or manual mode
+The studio boots to a **clean empty floor** — nothing runs until you act. Either **pitch a new film** (story → style → framing → avoid-tags → Roll Camera) or **open the vault** to load an existing production. Tone and avoid-tags travel with the brief into the Director.
+
+### 4. Or run headless via CLI
 
 ```bash
-# Initialize a project
+# Interactive producer: rough idea → enhanced screenplay → auto-run
+python3 scripts/agy.py create
+
+# Manual mode
 python3 scripts/agy.py init --name "my_story" \
   --story "A lonely robot wakes up in an abandoned neon city." \
   --duration 30 --platform instagram_reel
 
-# Run the full 11-agent pipeline
 python3 scripts/agy.py run --project projects/my_story/project.json
 
 # Watch your reel
 ffplay projects/my_story/output/final_reel.mp4
 ```
+
+---
+
+## 🖥️ Web Studio
+
+One backend, one floor:
+
+```bash
+# Backend (FastAPI + WebSocket telemetry + serves the built UI)
+python3 scripts/agy.py serve --host 0.0.0.0 --port 8000
+# → http://localhost:8000   ·   ws://localhost:8000/ws
+
+# Frontend dev mode (React + Tailwind + Zustand + Framer Motion)
+cd studio-ui && npm install && npm run dev
+# → http://localhost:5173 (proxies /api + /ws to the backend)
+```
+
+**The 8 rooms:**
+
+| # | Room | What it does |
+|---|---|---|
+| 1 | Pitch Room | Brief the departments — story, visual DNA, framing, avoid-tags, dramatic intensity |
+| 2 | Studio Floor | Live war-table: agent seats, handoff arcs, artifact shelf, floor chat, transport |
+| 3 | Idea Journey | Data-driven lineage — execution graph, audit trail, per-scene narrative/optics/QC |
+| 4 | Dossiers | Locked Character / Environment bibles + Director vision lock |
+| 5 | Scene Board | SVALE shot cards with overview / camera / prompt / QC tabs |
+| 6 | Prompt Lab | Layer-by-layer prompt assembly with copy + camera visualizer |
+| 7 | Render Deck | Batch status, 100-pt auditor rubric, generation viewport, one-click re-render dispatch |
+| 8 | Screening Room | Master reel player (mute, seek, fullscreen, filmstrip) + conform downloads |
+
+**Live wiring:** project vault (`GET /api/projects`), full project load (`GET /api/project/{name}`), engine status (`GET /api/system/status`), single-stage dispatch (`POST /api/project/{name}/run-stage`), full run (`POST …/run-all`), media streaming (`GET /api/media/…`), realtime events (`WS /ws`). Keyboard: `1–8` rooms · `Space` play · `J/K` step · `` ` `` console · `Ctrl/⌘-K` palette.
 
 ---
 
@@ -123,7 +159,7 @@ ffplay projects/my_story/output/final_reel.mp4
 | `rea` | Reverse-engineer a tool / list profiles | `agy.py rea --list-profiles` |
 | `serve` | Launch web studio backend | `agy.py serve --port 8000` |
 
-**Stages:** `director · story · character · environment · references · cinematography · prompts · video · qc · audio · editor`
+**Stages:** `director · story · character · environment · references · cinematography · prompts · video · qc · editor`
 
 **Flags:** `--skip-references` · `--skip-audio` · `--skip-editor`
 
@@ -139,28 +175,13 @@ ffplay projects/my_story/output/final_reel.mp4
 | 4 | 🌆 **Environment Bible** | `agents/environment_bible.py` | `prompts/environment_bible.md` | 5-pillar space + Kelvin lighting |
 | 5 | 🖼️ **Reference Images** | `agents/reference_image.py` | `prompts/reference_image.md` | Model sheets, location plates, keyframes |
 | 6 | 🎥 **Cinematography** | `agents/cinematography.py` | `prompts/cinematography.md` | 35/50mm primes, 9:16 safe zones, push-ins |
-| 7 | ✍️ **Prompt Builder** | `agents/prompt_builder.py` | `prompts/prompt_builder.md` | Canonical 8-section Veo-ready prompts |
+| 7 | ✍️ **Prompt Builder** | `agents/prompt_builder.py` | `prompts/prompt_builder.md` | Diffusion prompts with baked-in dialogue + ambience |
 | 8 | 🎬 **Video Generator** | `agents/video_generator.py` | — | `.mp4` clips via Kaggle/Kling/Krea/Veo/fal |
 | 9 | 🔍 **QC Supervisor** | `agents/qc.py` | `prompts/qc.md` | 100-pt score, auto-retry ≤3 |
-| 10 | 🎵 **Audio Engine** | `agents/audio.py` | `prompts/audio.md` | Voiceover + music + SFX, −14 LUFS |
-| 11 | ✂️ **Master Editor** | `agents/editor.py` | `prompts/editor.md` | FFmpeg `1080×1920@30fps` final reel |
+| 10 | 🎵 **Audio** *(library only)* | `agents/audio.py` | `prompts/audio.md` | Not in the Studio flow — sound is baked into clips |
+| 11 | ✂️ **Master Editor** | `agents/editor.py` | `prompts/editor.md` | FFmpeg-joined final reel |
 
 > 📚 Each agent's Hollywood + diffusion knowledge lives in `skills/<agent>/SKILL.md` — the pipeline reads it before every stage. Start with `MASTER_STARTER_PROMPT.md` for the full producer briefing.
-
----
-
-## 🌐 Web Studio
-
-Two frontends, one pipeline:
-
-```bash
-# Backend (FastAPI + WebSocket telemetry)
-python3 scripts/agy.py serve --host 0.0.0.0 --port 8000
-# → http://localhost:8000   ·   ws://localhost:8000/ws
-
-# Studio floor UI (React + Tailwind + Zustand + Framer Motion)
-cd studio-ui && npm install && npm run dev
-```
 
 ---
 
@@ -176,14 +197,14 @@ cd studio-ui && npm install && npm run dev
 | Tier | Agents | Default pick |
 |---|---|---|
 | `heavy` | director, character | best reasoning model available |
-| `medium` | story, environment, cinematography, audio | balanced |
+| `medium` | story, environment, cinematography | balanced |
 | `fast` | prompt_builder, qc, editor, video | cheap + fast |
 | `ultra_fast` | JSON transforms | smallest free model |
 
 Check live routing anytime: `python3 scripts/agy.py providers`
 
 **Video fallback chain:** `kaggle → kling → krea → huggingface → veo → fal → replicate`
-**Free TTS:** Edge-TTS (no key) · **Free image alt:** `black-forest-labs/FLUX.1-schnell`
+**Free image alt:** `black-forest-labs/FLUX.1-schnell`
 
 ---
 
@@ -197,15 +218,15 @@ AI-Video-Pipeline/
 ├── agents/                   ← 11 agent implementations
 ├── prompts/                  ← system prompt per agent
 ├── skills/                   ← Hollywood + AI knowledge base per agent
-├── web/                      ← FastAPI backend + WebSocket telemetry
-├── studio-ui/                ← React studio-floor frontend
+├── web/                      ← FastAPI backend + WebSocket telemetry + built UI
+├── studio-ui/                ← React floor (views/ · floor/ · layout/ · ui/ · store/)
 ├── config.yaml               ← all knobs & fallback chains
 ├── projects/<name>/          ← project.json · story.txt · scene_prompts/
-│                               references/ · clips/ · audio/ · output/final_reel.mp4
+│                               references/ · clips/ · output/final_reel.mp4
 └── tests/test_pipeline.py    ← mock-client integration tests
 ```
 
-**MVP scope:** 1–3 paragraph story → 15–30s reel · 9:16 · 2–4 clips × 6–8s · 1 character · 1–2 locations · music + voiceover (dialogue coming soon).
+**Scope:** 1–3 paragraph story → 15–30s reel · 9:16 or 16:9 · 2–4 clips × 6–8s · locked cast and sets · clips joined as rendered, no post dubbing or caption pass.
 
 ---
 
@@ -220,7 +241,6 @@ python -m pytest tests/test_pipeline.py -v   # no API keys needed (mock clients)
 ## 🗺️ Roadmap
 
 - [ ] Multi-character consistency graphs
-- [ ] Dialogue / lip-sync stage
 - [ ] Real-ESRGAN upscale pass (`output.upscale: true`)
 - [ ] One-click deploy for `web/` + `studio-ui/`
 - [ ] More REA profiles for trending video tools
@@ -229,11 +249,11 @@ python -m pytest tests/test_pipeline.py -v   # no API keys needed (mock clients)
 
 ## 🤝 Contributing
 
-PRs welcome! Keep agents small, prompts in `prompts/`, deep knowledge in `skills/<agent>/SKILL.md`, and add a mock test in `tests/`.
+PRs welcome! Keep agents small, prompts in `prompts/`, deep knowledge in `skills/<agent>/SKILL.md`, UI tokens in `studio-ui/tailwind.config.js` + `components/ui/`, and add a mock test in `tests/`.
 
 ## 📄 License
 
-MIT — see [LICENSE](LICENSE) *(adding soon if missing)*.
+MIT — see [LICENSE](LICENSE).
 
 ---
 
