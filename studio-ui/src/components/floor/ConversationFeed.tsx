@@ -234,13 +234,21 @@ export const ConversationFeed: React.FC = () => {
         </div>
       </div>
 
-      {/* Messages - consistent 12px spacing */}
+      {/* Messages */}
       <div
         ref={scrollRef}
         onScroll={handleScroll}
         className="flex-1 overflow-y-auto p-3.5 space-y-3"
         style={{ scrollbarWidth: 'thin', scrollbarColor: '#1a1e2c transparent' }}
       >
+        {visibleEvents.length === 0 && (
+          <div className="h-full min-h-[240px] flex flex-col items-center justify-center text-center gap-2 px-6">
+            <p className="font-playfair text-[15px] font-semibold text-cinema-paper">Quiet on the floor</p>
+            <p className="text-[13px] text-cinema-faint leading-relaxed">
+              No production is running. Pitch a film or open the vault to put the departments to work.
+            </p>
+          </div>
+        )}
         {(() => {
           let lastAct: string | null = null;
           return visibleEvents.map((event, idx) => {

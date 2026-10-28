@@ -17,7 +17,8 @@ export const PlaybackBar: React.FC = () => {
   const events = useStudioStore((s) => s.events);
 
   const totalSteps = events.length;
-  const currentEvent = events[currentStep];
+  const hasEvents = totalSteps > 0;
+  const currentEvent = hasEvents ? events[Math.min(currentStep, totalSteps - 1)] : undefined;
   const persona = currentEvent ? AGENT_PERSONAS[currentEvent.agent] : null;
 
   const cycleSpeed = () => {
@@ -26,8 +27,9 @@ export const PlaybackBar: React.FC = () => {
     setPlaybackSpeed(next);
   };
 
-  const skipToEnd = () => setCurrentStep(totalSteps - 1);
-  const isAtEnd = currentStep === totalSteps - 1;
+  const skipToEnd = () => { if (hasEvents) setCurrentStep(totalSteps - 1); };
+  const isAtEnd = !hasEvents || currentStep >= totalSteps - 1;
+  const scrubPct = hasEvents ? ((Math.min(currentStep, totalSteps - 1) / Math.max(1, totalSteps - 1)) * 100).toFixed(1) : '0';
 
   return (
     <div className="h-12 shrink-0 px-4 bg-cinema-input/95 border-t border-white/[0.06] flex items-center gap-4 backdrop-blur-xl">
@@ -76,13 +78,15 @@ export const PlaybackBar: React.FC = () => {
         <input
           type="range"
           min={0}
-          max={totalSteps - 1}
-          value={currentStep}
+          max={Math.max(0, totalSteps - 1)}
+          value={hasEvents ? currentStep : 0}
+          disabled={!hasEvents}
           onChange={(e) => setCurrentStep(Number(e.target.value))}
-          className="w-full h-1.5 rounded-full bg-white/[0.08] accent-cinema-gold cursor-pointer focus:outline-none"
+          className="w-full h-1.5 rounded-full bg-white/[0.08] accent-cinema-gold cursor-pointer focus:outline-none disabled:opacity-40"
           style={{
-            background: `linear-gradient(to right, #e5c07b ${((currentStep / (totalSteps - 1)) * 100).toFixed(1)}%, rgba(255,255,255,0.08) 0%)`,
+            background: `linear-gradient(to right, #e5c07b ${scrubPct}%, rgba(255,255,255,0.08) 0%)`,
           }}
+          aria-label="Scrub timeline"
         />
       </div>
 
@@ -95,11 +99,15 @@ export const PlaybackBar: React.FC = () => {
           />
         )}
         <span className="font-mono text-[12px] text-cinema-mist shrink-0 font-medium">
-          {currentStep + 1}/{totalSteps}
+          {hasEvents ? `${Math.min(currentStep, totalSteps - 1) + 1}/${totalSteps}` : '0/0'}
         </span>
-        {currentEvent && (
+        {currentEvent ? (
           <span className="text-[13px] text-cinema-mist truncate">
             {currentEvent.message}
+          </span>
+        ) : (
+          <span className="text-[13px] text-cinema-faint truncate">
+            Floor is quiet — pitch a film to begin
           </span>
         )}
       </div>

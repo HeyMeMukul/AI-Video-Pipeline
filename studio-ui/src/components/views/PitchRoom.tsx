@@ -52,7 +52,9 @@ export const PitchRoom: React.FC = () => {
   const startProduction = useStudioStore((s) => s.startProduction);
 
   const [story, setStory] = useState(project.story);
-  const [selectedStyles, setSelectedStyles] = useState<string[]>(project.styleDna || ['Cinematic Realism', 'Atmospheric Lighting']);
+  const [selectedStyles, setSelectedStyles] = useState<string[]>(
+    project.styleDna.length > 0 ? project.styleDna : ['Cinematic Realism', 'Atmospheric Lighting']
+  );
   const [customStyle, setCustomStyle] = useState('');
   const [aspectRatio, setAspectRatio] = useState<'16:9' | '2.39:1' | '9:16'>(project.aspectRatio || '16:9');
   const [avoidTags, setAvoidTags] = useState<string[]>(

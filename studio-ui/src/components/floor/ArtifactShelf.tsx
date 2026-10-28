@@ -102,11 +102,7 @@ export const ArtifactShelf: React.FC = () => {
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                 onClick={() => setActiveView(card.view)}
-                className={`shrink-0 flex items-center gap-3 px-3.5 h-[72px] rounded-xl border transition-all hover:brightness-110 active:scale-95 ${
-                  isNewest
-                    ? 'shadow-glow-gold'
-                    : 'shadow-sm'
-                }`}
+                className="shrink-0 flex items-center gap-2.5 px-3 h-14 rounded-xl border transition-all hover:brightness-110 active:scale-95"
                 style={{
                   backgroundColor: isNewest ? `${card.color}18` : `${card.color}0d`,
                   borderColor: isNewest ? card.color : `${card.color}40`,
@@ -114,14 +110,14 @@ export const ArtifactShelf: React.FC = () => {
                   color: card.color,
                 }}
               >
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${card.color}20` }}>
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: `${card.color}20` }}>
                   {card.icon}
                 </div>
                 <div className="text-left min-w-0 pr-1">
-                  <div className="text-[14px] font-semibold text-cinema-paper tracking-wide leading-snug truncate">
+                  <div className="text-[13px] font-semibold text-cinema-paper tracking-wide leading-snug truncate">
                     {card.label}
                   </div>
-                  <div className="text-[12px] text-cinema-mist font-normal leading-snug mt-0.5 truncate">
+                  <div className="text-[11.5px] text-cinema-mist font-normal leading-snug truncate">
                     {card.sub}
                   </div>
                 </div>

@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { StudioEvent, AgentId, AgentStatus, EventType } from '../types/events';
 import { SceneModel, CharacterModel, EnvironmentModel, DirectorVision, ProjectModel } from '../types/pipeline';
-import { MOCK_EVENT_TIMELINE, INITIAL_MOCK_PROJECT } from '../mock/mockEvents';
 
 export type StudioView =
   | 'pitch'
@@ -91,185 +90,38 @@ export interface SystemStatusInfo {
   tts: string;
 }
 
-// Initial default scenes
-const DEFAULT_SCENES: SceneModel[] = [
-  {
-    sceneId: 1,
-    durationSeconds: 7,
-    svale: { subject: 'The Navigator', verb: 'scans', atmosphere: 'Coastal twilight fog', location: 'Obsidian Shoreline', emotion: 'Quiet resolve' },
-    storyBeat: 'A lone traveler in a weathered canvas coat stands atop an obsidian coastal cliff gazing into swirling twilight sea mist.',
-    dialogue: 'EVERY HORIZON HOLDS A TRUTH WAITING TO BE UNVEILED.',
-    voiceEmotion: 'calm contemplative cadence',
-    audioCues: 'Deep ocean swell crashes, wet gravel rustle, soft coastal wind',
-    locationId: 'obsidian_shoreline',
-    characterIds: ['elena_vance'],
-    camera: { tx: 0, ty: -1.0, tz: 2.2, pitch: -8, yaw: 0, roll: 0, lens: '35mm anamorphic prime', movement: 'Low-angle push-in', motionScore: 0.42 },
-    videoPrompt: 'Low-angle slow cinematic push-in, solitary navigator in weathered canvas coat stands atop obsidian coastal cliff gazing into swirling twilight sea mist. Elena Vance speaks with contemplative calm: "EVERY HORIZON HOLDS A TRUTH WAITING TO BE UNVEILED." Sound design: Deep ocean swell crashes, wet gravel rustle, soft coastal wind. 35mm anamorphic prime lens, 3200K lantern glow opposing 6000K twilight sea mist. Avoid: morphing hands, camera jitter, watermark.',
-    promptLayers: [
-      { index: 1, name: 'Primary Action & Kinematics', text: 'Low-angle slow cinematic push-in, solitary navigator in weathered canvas coat stands atop obsidian cliff', agentId: 'screenplay', tokenCount: 16, attentionWeight: 'high' },
-      { index: 2, name: 'Character Dialogue & Vocal Emotion', text: 'Elena Vance speaks with contemplative calm: "EVERY HORIZON HOLDS A TRUTH WAITING TO BE UNVEILED."', agentId: 'prompt_alchemist', tokenCount: 16, attentionWeight: 'high' },
-      { index: 3, name: 'Sound Design & Foley', text: 'Sound design: Deep ocean swell crashes, wet gravel rustle, soft coastal wind', agentId: 'prompt_alchemist', tokenCount: 13, attentionWeight: 'medium' },
-      { index: 4, name: 'Character Anchor', text: 'Weathered linen and waxed canvas coat, wind-blown dark hair, determined gaze', agentId: 'character', tokenCount: 12, attentionWeight: 'medium' },
-      { index: 5, name: 'Setting & Props', text: 'Craggy basalt cliff edge overlooking crashing tide pools in heavy sea mist', agentId: 'world', tokenCount: 11, attentionWeight: 'medium' },
-      { index: 6, name: '6DoF Optics & Camera Matrix', text: '35mm anamorphic prime lens, locked low-angle push vector [0, -1.0, 2.2]', agentId: 'cinematographer', tokenCount: 11, attentionWeight: 'medium' },
-      { index: 7, name: 'Lighting & Kelvin Registers', text: '3200K warm lantern illumination opposing 6000K cool twilight ambient', agentId: 'world', tokenCount: 12, attentionWeight: 'low' },
-      { index: 8, name: 'Directorial Style Finish', text: 'Cinematic wide-gamut film look, subtle grain, deep shadow roll-off', agentId: 'director', tokenCount: 10, attentionWeight: 'low' },
-      { index: 9, name: 'Negative Constraints', text: 'Avoid: morphing limbs, camera jitter, extra fingers, text, watermark, logo', agentId: 'director', tokenCount: 11, attentionWeight: 'low' },
-    ],
-    qc: { anatomicalStability: 95, cameraStability: 94, opticalClarity: 92, promptConformity: 93, characterConsistency: 92, overallScore: 93, passed: true, issues: [], flaggedTimestamps: [] },
-    status: 'qc_pass',
+const EMPTY_PROJECT: ProjectModel = {
+  projectId: '',
+  projectName: '',
+  story: '',
+  duration: 30,
+  aspectRatio: '16:9',
+  platform: 'cinematic',
+  styleDna: [],
+  tone: '',
+  directorVision: {
+    visualStyle: '',
+    cameraStyle: '',
+    styleLock: '',
+    pacingPoints: [],
+    kelvinRegister: { warm: 3200, cool: 6000 },
+    avoidConstraints: [],
   },
-  {
-    sceneId: 2,
-    durationSeconds: 7,
-    svale: { subject: 'The Cartographer', verb: 'unearths', atmosphere: 'Wind-swept dunes', location: 'Sunken Tide Basin', emotion: 'Focused wonder' },
-    storyBeat: 'Kneeling in the wet sand, hands carefully brush away fine sediment to reveal an intricate brass astrolabe inscribed with stellar glyphs.',
-    dialogue: 'THE STARS HAVE NOT FORGOTTEN OUR PATH.',
-    voiceEmotion: 'hushed reverent whisper',
-    audioCues: 'Wet sand scraping, metallic brass gear click, wind gust',
-    locationId: 'tide_basin',
-    characterIds: ['marcus_reed'],
-    camera: { tx: 0, ty: -2.0, tz: 1.2, pitch: -45, yaw: 10, roll: 0, lens: '50mm cinema prime', movement: 'Smooth downward pedestal', motionScore: 0.38 },
-    videoPrompt: 'Smooth downward pedestal shot, cartographer kneeling in damp sand gently clears fine sediment from an antique brass astrolabe. Marcus Reed speaks with hushed reverence: "THE STARS HAVE NOT FORGOTTEN OUR PATH." Sound design: Wet sand scraping, metallic gear click, coastal breeze. 50mm cinema prime lens, warm 3400K sunset reflection opposing 6500K damp sand.',
-    promptLayers: [
-      { index: 1, name: 'Primary Action & Kinematics', text: 'Smooth downward pedestal shot, cartographer kneeling in damp sand gently clears fine sediment from brass relic', agentId: 'screenplay', tokenCount: 16, attentionWeight: 'high' },
-      { index: 2, name: 'Character Dialogue & Vocal Emotion', text: 'Marcus Reed speaks with hushed reverence: "THE STARS HAVE NOT FORGOTTEN OUR PATH."', agentId: 'prompt_alchemist', tokenCount: 14, attentionWeight: 'high' },
-      { index: 3, name: 'Sound Design & Foley', text: 'Sound design: Wet sand scraping, metallic brass gear click, coastal breeze', agentId: 'prompt_alchemist', tokenCount: 12, attentionWeight: 'medium' },
-      { index: 4, name: 'Character Anchor', text: 'Heavy wool vest, roll-up sleeves with leather braces, brass field loupe', agentId: 'character', tokenCount: 11, attentionWeight: 'medium' },
-      { index: 5, name: 'Setting & Props', text: 'Tide basin with ribbed black sand patterns, glistening saltwater pools', agentId: 'world', tokenCount: 10, attentionWeight: 'medium' },
-      { index: 6, name: '6DoF Optics & Camera Matrix', text: '50mm cinema prime, pedestal vector [0, -2.0, 1.2]', agentId: 'cinematographer', tokenCount: 10, attentionWeight: 'medium' },
-      { index: 7, name: 'Lighting & Kelvin Registers', text: '3400K golden specular highlights opposing 6500K cool shadows', agentId: 'world', tokenCount: 10, attentionWeight: 'low' },
-      { index: 8, name: 'Directorial Style Finish', text: 'Atmospheric naturalism, shallow depth of field, organic bokeh', agentId: 'director', tokenCount: 9, attentionWeight: 'low' },
-      { index: 9, name: 'Negative Constraints', text: 'Avoid: motion blur smear, shifting colors, facial distortion, jitter', agentId: 'director', tokenCount: 10, attentionWeight: 'low' },
-    ],
-    qc: { anatomicalStability: 94, cameraStability: 92, opticalClarity: 93, promptConformity: 94, characterConsistency: 91, overallScore: 93, passed: true, issues: [], flaggedTimestamps: [] },
-    status: 'qc_pass',
-  },
-  {
-    sceneId: 3,
-    durationSeconds: 6,
-    svale: { subject: 'Ancient Astrolabe', verb: 'awakens', atmosphere: 'Luminous golden radiance', location: 'Cliffside Sanctuary', emotion: 'Breathless revelation' },
-    storyBeat: 'Concentric brass rings within the astrolabe begin to rotate, projecting intersecting beams of golden volumetric light into the twilight air.',
-    dialogue: 'THE ALIGNMENT IS FINALLY COMPLETE.',
-    voiceEmotion: 'awe-struck revelation',
-    audioCues: 'Harmonic resonance chime, clockwork ticking, ambient swell',
-    locationId: 'cliffside_sanctuary',
-    characterIds: ['elena_vance'],
-    camera: { tx: 1.2, ty: 0, tz: 1.8, pitch: 0, yaw: 35, roll: 0, lens: '35mm cinema prime', movement: '180 orbital arc', motionScore: 0.44 },
-    videoPrompt: '180-degree orbital arc, ancient brass astrolabe held aloft as internal gears spin, casting warm geometric light rays across the stone sanctuary. Elena Vance speaks with breathless revelation: "THE ALIGNMENT IS FINALLY COMPLETE." Sound design: Resonant brass chime, gentle mechanical whir, coastal wind. 35mm lens, 3000K warm volumetric rays opposing 6000K stone interior.',
-    promptLayers: [
-      { index: 1, name: 'Primary Action & Kinematics', text: '180-degree orbital arc, antique brass astrolabe held aloft as internal gears spin casting warm geometric rays', agentId: 'screenplay', tokenCount: 17, attentionWeight: 'high' },
-      { index: 2, name: 'Character Dialogue & Vocal Emotion', text: 'Elena Vance speaks with breathless revelation: "THE ALIGNMENT IS FINALLY COMPLETE."', agentId: 'prompt_alchemist', tokenCount: 14, attentionWeight: 'high' },
-      { index: 3, name: 'Sound Design & Foley', text: 'Sound design: Resonant brass chime, gentle mechanical whir, coastal wind', agentId: 'prompt_alchemist', tokenCount: 12, attentionWeight: 'medium' },
-      { index: 4, name: 'Character Anchor', text: 'Weathered travel mantle, illuminated facial profile, hands cradling brass ring', agentId: 'character', tokenCount: 11, attentionWeight: 'medium' },
-      { index: 5, name: 'Setting & Props', text: 'Ancient stone sanctuary with arched openings framing coastal horizon', agentId: 'world', tokenCount: 10, attentionWeight: 'medium' },
-      { index: 6, name: '6DoF Optics & Camera Matrix', text: '35mm cinema prime, orbital track vector [1.2, 0, 1.8]', agentId: 'cinematographer', tokenCount: 10, attentionWeight: 'medium' },
-      { index: 7, name: 'Lighting & Kelvin Registers', text: '3000K motivated warm golden shafts opposing 6000K cool slate architecture', agentId: 'world', tokenCount: 11, attentionWeight: 'low' },
-      { index: 8, name: 'Directorial Style Finish', text: 'Cinematic chiaroscuro, atmospheric volumetric haze, pristine color timing', agentId: 'director', tokenCount: 9, attentionWeight: 'low' },
-      { index: 9, name: 'Negative Constraints', text: 'Avoid: anatomically incorrect fingers, shifting wrist joints, morphing limbs', agentId: 'director', tokenCount: 10, attentionWeight: 'low' },
-    ],
-    qc: { anatomicalStability: 96, cameraStability: 95, opticalClarity: 94, promptConformity: 96, characterConsistency: 94, overallScore: 95, passed: true, issues: [], flaggedTimestamps: [] },
-    status: 'qc_pass',
-  },
-  {
-    sceneId: 4,
-    durationSeconds: 6,
-    svale: { subject: 'The Expedition', verb: 'journeys', atmosphere: 'Golden dawn horizon', location: 'The Open Frontier', emotion: 'Triumphant hope' },
-    storyBeat: 'Golden sunlight crests the horizon as the travelers set forth along the ridge, the illuminated beacon guiding their voyage into the new world.',
-    dialogue: 'A NEW CHAPTER BEGINS BEYOND THE SEA.',
-    voiceEmotion: 'uplifting cinematic crescendo',
-    audioCues: 'Rising orchestral strings, surf reverberation, morning birdsong',
-    locationId: 'obsidian_shoreline',
-    characterIds: ['elena_vance', 'marcus_reed'],
-    camera: { tx: 0, ty: 0, tz: -2.0, pitch: 0, yaw: 0, roll: 0, lens: '85mm cinema prime', movement: 'Slow crane elevation', motionScore: 0.35 },
-    videoPrompt: 'Slow crane elevation shot, travelers embark along golden cliffside trail as brilliant morning sun breaks across endless shimmering ocean. Expedition voices deliver in quiet unity: "A NEW CHAPTER BEGINS BEYOND THE SEA." Sound design: Gentle rising orchestral swell, ocean surf, distant morning birdsong. 85mm prime lens, anamorphic horizontal flare, 3200K radiant morning light.',
-    promptLayers: [
-      { index: 1, name: 'Primary Action & Kinematics', text: 'Slow crane elevation shot, travelers embark along golden cliffside trail as morning sun breaks across ocean', agentId: 'screenplay', tokenCount: 17, attentionWeight: 'high' },
-      { index: 2, name: 'Character Dialogue & Vocal Emotion', text: 'Expedition voices deliver in quiet unity: "A NEW CHAPTER BEGINS BEYOND THE SEA."', agentId: 'prompt_alchemist', tokenCount: 14, attentionWeight: 'high' },
-      { index: 3, name: 'Sound Design & Foley', text: 'Sound design: Gentle rising orchestral swell, ocean surf, distant morning birdsong', agentId: 'prompt_alchemist', tokenCount: 13, attentionWeight: 'medium' },
-      { index: 4, name: 'Character Anchor', text: 'Paired traveling silhouettes with walking staves against sunlit horizon', agentId: 'character', tokenCount: 10, attentionWeight: 'medium' },
-      { index: 5, name: 'Setting & Props', text: 'High grassy coastal ridge overlooking panoramic sparkling ocean at sunrise', agentId: 'world', tokenCount: 10, attentionWeight: 'medium' },
-      { index: 6, name: '6DoF Optics & Camera Matrix', text: '85mm cinema prime, crane vector [0, 0, -2.0]', agentId: 'cinematographer', tokenCount: 9, attentionWeight: 'medium' },
-      { index: 7, name: 'Lighting & Kelvin Registers', text: '3200K radiant morning warmth with lifted specular atmospheric haze', agentId: 'world', tokenCount: 10, attentionWeight: 'low' },
-      { index: 8, name: 'Directorial Style Finish', text: 'Grand cinematic tableau, wide latitude, gentle highlight diffusion', agentId: 'director', tokenCount: 9, attentionWeight: 'low' },
-      { index: 9, name: 'Negative Constraints', text: 'Avoid: distortion, muddy artifacts, flickering horizons', agentId: 'director', tokenCount: 8, attentionWeight: 'low' },
-    ],
-    qc: { anatomicalStability: 95, cameraStability: 95, opticalClarity: 93, promptConformity: 95, characterConsistency: 93, overallScore: 94, passed: true, issues: [], flaggedTimestamps: [] },
-    status: 'qc_pass',
-  },
-];
-
-const DEFAULT_CHARACTERS: CharacterModel[] = [
-  {
-    id: 'elena_vance',
-    name: 'Elena Vance',
-    type: 'The Navigator',
-    body: 'Athletic, deliberate posture with weathered explorer endurance.',
-    face: 'Focused thoughtful gaze, wind-swept dark hair tied back, sharp determined jawline.',
-    clothing: 'Waxed canvas dark coat, weathered linen undershirt, brass compass lanyard, durable leather trail boots.',
-    visualKeywords: ['canvas coat', 'brass compass', 'determined gaze', 'wind-swept hair'],
-    negativeConstraints: ['no modern tactical logos', 'no bright neon fabrics', 'no extra limbs'],
-    scenes: [1, 3, 4],
-    consistencyLock: true,
-  },
-  {
-    id: 'marcus_reed',
-    name: 'Dr. Marcus Reed',
-    type: 'The Cartographer',
-    body: 'Scholarly, steady frame with careful precision and observant mannerisms.',
-    face: 'Warm weathered features, short graying beard, observant eyes behind wire-rim loupes.',
-    clothing: 'Heavy wool field vest over charcoal tunic, leather arm bracers with chart compartments.',
-    visualKeywords: ['field vest', 'wire loupes', 'leather bracers', 'cartographer instruments'],
-    negativeConstraints: ['no fantasy armor', 'no futuristic tech gadgets', 'no morphing hands'],
-    scenes: [2, 4],
-    consistencyLock: true,
-  },
-];
-
-const DEFAULT_ENVIRONMENTS: EnvironmentModel[] = [
-  {
-    id: 'obsidian_shoreline',
-    name: 'Obsidian Shoreline',
-    spatial: 'Expansive basalt cliffs overlooking churning ocean surf and sea caves.',
-    materials: 'Black volcanic basalt, wet sea stone, weathered driftwood, maritime lichen.',
-    lighting: 'Soft directional lantern warmth breaking through dense twilight marine layer.',
-    weather: 'Swirling sea spray mist, crisp coastal breeze.',
-    kelvinWarm: 3200,
-    kelvinCool: 6000,
-    scenes: [1, 4],
-  },
-  {
-    id: 'tide_basin',
-    name: 'Sunken Tide Basin',
-    spatial: 'Receding tidal flats revealing sandbars, exposed reefs, and buried maritime relics.',
-    materials: 'Ribbed black volcanic sand, glistening saltwater pools, weathered brass patina.',
-    lighting: 'Low golden hour sunset grazing low across tidal sand ripples.',
-    weather: 'Gentle coastal breeze carrying ocean scent.',
-    kelvinWarm: 3400,
-    kelvinCool: 6500,
-    scenes: [2],
-  },
-  {
-    id: 'cliffside_sanctuary',
-    name: 'Cliffside Sanctuary',
-    spatial: 'Ancient arched stone pavilion built into the headland cliff overlooking the horizon.',
-    materials: 'Carved slate flagstones, weathered stone columns, ancient bronze fittings.',
-    lighting: 'Warm volumetric light beams projecting from the relic against deep shadow.',
-    weather: 'Protected interior with cool evening air circulating from arched ocean bays.',
-    kelvinWarm: 3000,
-    kelvinCool: 6000,
-    scenes: [3],
-  },
-];
+  scenes: [],
+  characters: [],
+  environments: [],
+  finalReelUrl: undefined,
+  timelineUrl: undefined,
+};
 
 export const useStudioStore = create<StudioState>((set, get) => ({
-  events: MOCK_EVENT_TIMELINE,
-  currentStep: 21,
+  events: [],
+  currentStep: 0,
   isPlaying: false,
   playbackSpeed: 1,
-  isConnected: true,
+  isConnected: false,
 
-  activeView: 'floor', // Land directly on Studio Floor showcase
+  activeView: 'pitch', // Clean start: pitch a film or open the vault
   selectedAgent: null,  // Inspector hidden by default
   selectedSceneId: 1,
   consoleOpen: false,
@@ -280,19 +132,12 @@ export const useStudioStore = create<StudioState>((set, get) => ({
     search: '',
   },
 
-  project: {
-    ...INITIAL_MOCK_PROJECT,
-    scenes: DEFAULT_SCENES,
-    characters: DEFAULT_CHARACTERS,
-    environments: DEFAULT_ENVIRONMENTS,
-    finalReelUrl: '/api/media/your_project/output/final_reel.mp4',
-    timelineUrl: '/api/media/your_project/output/your_project.timeline',
-  },
+  project: EMPTY_PROJECT,
 
   // Live backend library (filled by fetchProjects on boot)
   projects: [],
   projectsLoading: false,
-  activeProjectName: INITIAL_MOCK_PROJECT.projectName,
+  activeProjectName: null,
   systemStatus: null,
   statusLoading: false,
 

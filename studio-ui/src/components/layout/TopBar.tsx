@@ -79,8 +79,8 @@ export const TopBar: React.FC = () => {
             aria-expanded={libOpen}
           >
             <FolderOpen className="w-3.5 h-3.5 text-cinema-faint shrink-0" />
-            <span className="text-sm font-medium text-cinema-paper max-w-[200px] truncate" title={project.projectName}>
-              {activeProjectName ?? project.projectName}
+            <span className="text-sm font-medium text-cinema-paper max-w-[200px] truncate" title={activeProjectName ?? 'No production loaded'}>
+              {activeProjectName ?? 'Select production'}
             </span>
             <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-cinema-gold/10 text-cinema-gold border border-cinema-gold/25 shrink-0">
               {project.aspectRatio}
@@ -183,7 +183,7 @@ export const TopBar: React.FC = () => {
             title={statusTip}
           >
             <Activity className="w-3 h-3 shrink-0" />
-            <span className="truncate">{isConnected ? 'LIVE' : 'LINKING'}{systemStatus ? ` · ${systemStatus.kaggle}` : ''}</span>
+            <span>{isConnected ? 'LIVE' : 'LINKING'}</span>
           </div>
         )}
 

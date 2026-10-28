@@ -10,7 +10,7 @@ const ORDERED_AGENTS: AgentId[] = [
   'cinematographer', 'prompt_alchemist', 'gpu', 'auditor', 'editor',
 ];
 
-const AVATAR_R = 24; // 48px avatar circle diameter
+const AVATAR_R = 20; // 40px avatar circle diameter
 
 export const ProductionTable: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,10 +54,10 @@ export const ProductionTable: React.FC = () => {
 
   const tableRx = seatRx * 0.78;
   const tableRy = seatRy * 0.78;
-  const orbRadius = 56; // ~112-120px orb
+  const orbRadius = 48; // ~96px orb
 
   const total = ORDERED_AGENTS.length;
-  const progress = Math.min(100, Math.round(((currentStep + 1) / Math.max(1, totalEvents)) * 100));
+  const progress = totalEvents === 0 ? 0 : Math.min(100, Math.round(((currentStep + 1) / Math.max(1, totalEvents)) * 100));
 
   const activeAgentId = ORDERED_AGENTS.find(
     (id) => agentStatuses[id] === 'working' || agentStatuses[id] === 'thinking'
@@ -407,7 +407,7 @@ export const ProductionTable: React.FC = () => {
                 fill="#131620"
                 stroke={isSelected ? '#e5c07b' : persona.color}
                 strokeWidth={isSelected ? 2.5 : isActive ? 2.5 : 1.5}
-                opacity={isActive ? 1 : 0.6} // Idle seats: ring at 60% opacity
+                opacity={isActive ? 1 : 0.35} // Idle seats rest at 35% until they work
                 style={{
                   filter: isActive ? `drop-shadow(0 0 12px ${persona.color}a0)` : undefined,
                 }}
@@ -432,7 +432,7 @@ export const ProductionTable: React.FC = () => {
           }}
         >
           <div
-            className="bg-cinema-surface border border-cinema-gold/25 rounded-xl px-3.5 py-1.5 text-[12px] font-medium text-cinema-mist text-center shadow-lift overflow-hidden"
+            className="bg-cinema-surface border border-cinema-gold/25 rounded-xl px-3 py-1 text-[11.5px] font-medium text-cinema-mist text-center shadow-lift overflow-hidden"
             style={{
               display: '-webkit-box',
               WebkitLineClamp: 2,
@@ -476,13 +476,13 @@ export const ProductionTable: React.FC = () => {
             className="bg-cinema-surface border border-cinema-gold/30 rounded-xl px-[18px] py-2 text-center whitespace-nowrap shadow-lift"
           >
             <div
-              className="font-playfair text-[16px] font-semibold text-cinema-gold"
+              className="font-playfair text-[14px] font-semibold text-cinema-gold"
               style={{ textShadow: '0 1px 8px rgba(0,0,0,0.8)', lineHeight: 1.2 }}
             >
               {coreArtifact.name}
             </div>
             <div
-              className="text-[13px] text-cinema-mist mt-[3px]"
+              className="text-[12px] text-cinema-mist mt-[2px]"
               style={{ lineHeight: 1.2 }}
             >
               {coreArtifact.metric}
@@ -540,7 +540,7 @@ export const ProductionTable: React.FC = () => {
               >
                 {/* Avatar Initials — fully visible in persona.color */}
                 <span
-                  className="font-playfair text-[14px] font-bold"
+                  className="font-playfair text-[12.5px] font-bold"
                   style={{ color: persona.color, letterSpacing: '0.02em' }}
                 >
                   {persona.avatarInitials || persona.avatar}
@@ -577,6 +577,8 @@ export const ProductionTable: React.FC = () => {
         {seatPositions.map(({ agentId, x, y, angle }) => {
           const persona = AGENT_PERSONAS[agentId];
           const { style: placementStyle, textAlign } = getLabelStyle(x, y, angle);
+          const seatStatus = agentStatuses[agentId];
+          const seatIdle = seatStatus === 'idle';
 
           return (
             <div
@@ -585,18 +587,19 @@ export const ProductionTable: React.FC = () => {
               style={{
                 ...placementStyle,
                 zIndex: 26,
+                opacity: seatIdle ? 0.55 : 1,
               }}
             >
               {/* Seat Name: Playfair Display 16px, weight 600, #F2F0EA, no truncation */}
               <div
-                className="font-playfair text-[16px] font-semibold text-cinema-paper whitespace-nowrap"
+                className="font-playfair text-[13.5px] font-semibold text-cinema-paper whitespace-nowrap"
                 style={{ lineHeight: 1.2, textAlign, textShadow: '0 2px 8px rgba(0,0,0,0.95)' }}
               >
                 {persona.name.split(' ')[0]}
               </div>
               {/* Seat Role: Inter 12px, #A9AEC0, no truncation */}
               <div
-                className="text-[12px] text-cinema-mist whitespace-nowrap mt-[3px]"
+                className="text-[11px] text-cinema-mist whitespace-nowrap mt-[2px]"
                 style={{ lineHeight: 1.2, textAlign, textShadow: '0 1px 4px rgba(0,0,0,0.95)' }}
               >
                 {persona.role}
@@ -622,7 +625,7 @@ export const ProductionTable: React.FC = () => {
               className="w-full max-w-[620px] pointer-events-auto select-none"
             >
               <div
-                className="bg-cinema-raised rounded-xl px-[18px] py-3 shadow-overlay"
+                className="bg-cinema-raised rounded-xl px-4 py-2.5 shadow-overlay"
                 style={{
                   border: `1px solid ${liveCaptionPersona.color}`,
                   boxShadow: `0 16px 48px rgba(0,0,0,0.65), 0 0 20px ${liveCaptionPersona.color}25`,
@@ -645,7 +648,7 @@ export const ProductionTable: React.FC = () => {
                     </span>
                   </div>
                   <span
-                    className="font-playfair text-[15px] font-semibold"
+                    className="font-playfair text-[13.5px] font-semibold"
                     style={{ color: liveCaptionPersona.color }}
                   >
                     {liveCaptionPersona.name}
@@ -667,7 +670,7 @@ export const ProductionTable: React.FC = () => {
 
                 {/* Message body: FULL message, Inter 15px, up to 3 lines */}
                 <p
-                  className="text-[15px] text-cinema-paper m-0 overflow-hidden"
+                  className="text-[13.5px] text-cinema-paper m-0 overflow-hidden"
                   style={{
                     lineHeight: 1.45,
                     display: '-webkit-box',

@@ -151,13 +151,7 @@ export const ScreeningRoom: React.FC = () => {
               onEnded={() => setIsPlaying(false)}
               playsInline
             />
-            {activeScene.dialogue && (
-              <div className="absolute bottom-[8%] inset-x-0 flex justify-center pointer-events-none z-20 px-8">
-                <span className="px-4 py-1 text-[18px] md:text-[22px] font-extrabold text-center text-cinema-paper [text-shadow:0_2px_0_#000,0_-2px_0_#000,2px_0_0_#000,-2px_0_0_#000,0_0_12px_rgba(0,0,0,0.9)]">
-                  “{activeScene.dialogue}”
-                </span>
-              </div>
-            )}
+
             <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/70 border border-white/10 timecode text-[11px] text-cinema-gold z-20">
               {project.projectName} · 1080p
             </div>
