@@ -232,7 +232,6 @@ subprocess.run([
 ], check=True)
 
 import torch
-import scipy.io.wavfile
 from PIL import Image
 
 device = "cuda" if torch.cuda.is_available() else "cpu"

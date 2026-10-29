@@ -140,6 +140,10 @@ def get_project(name: str):
 @app.post("/api/project")
 async def create_project(req: CreateProjectRequest):
     """Create and initialize a new project."""
+    if not req.name.strip():
+        raise HTTPException(status_code=400, detail="Project name must not be empty.")
+    if not req.story.strip():
+        raise HTTPException(status_code=400, detail="Story must not be empty.")
     project_name = slugify(req.name)
     aspect_ratio = "16:9" if (req.platform in ["cinematic", "youtube"] or "16:9" in req.platform) else "9:16"
 
@@ -247,6 +251,19 @@ def stream_media(project_name: str, folder: str, filename: str):
 async def run_stage(name: str, req: Dict[str, str]):
     """Execute a single agent stage in background with telemetry broadcasting."""
     stage = req.get("stage", "")
+    valid_stages = {
+        "director", "story", "story_breakdown",
+        "character", "character_bible",
+        "environment", "environment_bible",
+        "references", "reference_images",
+        "cinematography", "prompts", "prompt_builder",
+        "video", "video_generation", "qc", "audio", "editor",
+    }
+    if stage.lower() not in valid_stages:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Unknown stage: '{stage}'. Valid: {sorted(valid_stages)}",
+        )
     pj_path = PROJECTS_DIR / name / "project.json"
     if not pj_path.exists():
         raise HTTPException(status_code=404, detail="Project not found")
