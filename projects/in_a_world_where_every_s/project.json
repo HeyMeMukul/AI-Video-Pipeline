@@ -1,0 +1,50 @@
+{
+  "project_id": "93fd3292",
+  "project_name": "in_a_world_where_every_s",
+  "created_at": "2026-10-29T03:39:18.943900+00:00",
+  "updated_at": "2026-10-29T03:39:18.944508+00:00",
+  "story": "In a world where every star had disappeared from the sky, a tiny robot named Leo found one last glowing star buried beneath the ruins of an abandoned city.\n\nThe star was dying.\n\nAn ancient message appeared on Leo's screen:\n\n\"Return me to the sky, and the world will live again.\"\n\nLeo began climbing the tallest tower, protecting the fragile light from the freezing wind and falling debris.\n\nJust as he reached the top, his battery dropped to 1%.\n\nWith his final remaining energy, Leo threw the star into the sky.\n\nThe entire universe lit up.\n\nFlowers bloomed across the dead city. Rivers began flowing again. Birds returned.\n\nAnd as the first sunrise touched the world, Leo's eyes slowly went dark.\n\nBut high above, one tiny star began to blink.\n\nIt was shaped exactly like Leo's eyes.\n\nPerhaps, even in the end, he was still watching over the world.",
+  "target_duration_seconds": 30,
+  "platform": "cinematic",
+  "aspect_ratio": "16:9",
+  "style": "Cinematic Realism, Atmospheric Lighting",
+  "tone": "hyper-kinetic, intense, propulsive",
+  "director_notes": {
+    "visual_style": "Cinematic Realism, Atmospheric Lighting",
+    "camera_style": "",
+    "lighting": "",
+    "editing": "",
+    "music": "",
+    "style_lock": "Cinematic Realism, Atmospheric Lighting",
+    "avoid": [
+      "morphing hands",
+      "camera jitter",
+      "logo watermark",
+      "blurry limbs"
+    ]
+  },
+  "characters": {},
+  "locations": {},
+  "scenes": [],
+  "audio_plan": null,
+  "project_dir": "/home/cyb3rfy/AI-Video/projects/in_a_world_where_every_s",
+  "references_dir": "/home/cyb3rfy/AI-Video/projects/in_a_world_where_every_s/references",
+  "storyboards_dir": "/home/cyb3rfy/AI-Video/projects/in_a_world_where_every_s/storyboards",
+  "clips_dir": "/home/cyb3rfy/AI-Video/projects/in_a_world_where_every_s/clips",
+  "audio_dir": "/home/cyb3rfy/AI-Video/projects/in_a_world_where_every_s/audio",
+  "output_dir": "/home/cyb3rfy/AI-Video/projects/in_a_world_where_every_s/output",
+  "final_reel_path": "",
+  "agents": {
+    "director": false,
+    "story_breakdown": false,
+    "character_bible": false,
+    "environment_bible": false,
+    "reference_images": false,
+    "cinematography": false,
+    "prompt_builder": false,
+    "video_generation": false,
+    "qc": false,
+    "audio": false,
+    "editor": false
+  }
+}
