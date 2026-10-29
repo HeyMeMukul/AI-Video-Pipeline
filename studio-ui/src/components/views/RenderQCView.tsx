@@ -137,6 +137,7 @@ export const RenderQCView: React.FC = () => {
       setTimeout(() => setDispatching(false), 1500);
     }
   };
+  const pendingCount = project.scenes.filter((s) => !s.clipUrl).length;
 
   return (
     <div className="flex-1 overflow-y-auto bg-cinema-bg p-8">
@@ -269,14 +270,14 @@ export const RenderQCView: React.FC = () => {
 
             <div className="flex items-center justify-between pt-3 border-t border-white/5 text-[14px]">
               <span className="text-cinema-mist">Need adjustments?</span>
-              <button onClick={handleRedispatch} disabled={dispatching} className="btn-ghost px-3.5 py-2">
+              <button onClick={handleRedispatch} disabled={dispatching || pendingCount === 0} className="btn-ghost px-3.5 py-2">
                 <RotateCw className={cn('w-3.5 h-3.5 text-cinema-gold', dispatching && 'animate-spin')} />
-                <span>{dispatching ? 'Dispatching…' : `Re-render scene ${scene.sceneId}`}</span>
+                <span>{dispatching ? 'Dispatching…' : pendingCount === 0 ? 'All scenes rendered' : `Render ${pendingCount} pending scene${pendingCount > 1 ? 's' : ''}`}</span>
               </button>
             </div>
             <p className="flex items-center gap-1.5 text-[11.5px] text-cinema-faint">
               <Cpu className="w-3.5 h-3.5" />
-              Dispatches the video stage on the live backend and streams telemetry to the Floor.
+              Dispatches the full video stage — every scene without a clip renders, finished ones are skipped.
             </p>
           </div>
 
