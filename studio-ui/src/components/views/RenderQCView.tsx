@@ -122,6 +122,12 @@ export const RenderQCView: React.FC = () => {
   const statusTip = systemStatus
     ? `Render farm · ${systemStatus.kaggle} (${systemStatus.gpuModel})\nKnowledge · ${systemStatus.rea}\nMedia · ${systemStatus.ffmpeg}\nVoice · ${systemStatus.tts}`
     : 'Probing studio engine…';
+  const shortFarm = !systemStatus?.kaggle ? 'probing…'
+    : /ERROR/i.test(systemStatus.kaggle) ? 'error'
+    : /RUNNING/i.test(systemStatus.kaggle) ? 'rendering'
+    : /QUEU|PEND/i.test(systemStatus.kaggle) ? 'queued'
+    : /COMPLETE|SUCCESS/i.test(systemStatus.kaggle) ? 'idle'
+    : systemStatus.kaggle.length > 24 ? `${systemStatus.kaggle.slice(0, 24)}…` : systemStatus.kaggle;
 
   const handleRedispatch = async () => {
     setDispatching(true);
@@ -146,7 +152,7 @@ export const RenderQCView: React.FC = () => {
             <span className={cn('w-2 h-2 rounded-full', systemStatus ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400 animate-pulse')} />
             <span className="text-cinema-mist truncate">{systemStatus?.gpuModel || 'Render farm'}</span>
             <span className="text-cinema-faint shrink-0">·</span>
-            <span className="text-cinema-gold truncate">{systemStatus?.kaggle || 'probing…'}</span>
+            <span className="text-cinema-gold truncate">{shortFarm}</span>
           </div>
         </div>
 

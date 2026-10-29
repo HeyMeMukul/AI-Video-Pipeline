@@ -40,11 +40,14 @@ export const IdeaJourney: React.FC = () => {
 
   const activeScene = project.scenes.find((s) => s.sceneId === selectedSceneId) || project.scenes[0];
   const passedCount = project.scenes.filter((s) => s.qc?.passed).length;
-  const avgScore = Math.round(
-    project.scenes.reduce((sum, s) => sum + (s.qc?.overallScore ?? 0), 0) / project.scenes.length
+  const auditedScenes = project.scenes.filter(
+    (s) => s.qc?.passed || (s.qc?.issues?.length ?? 0) > 0
   );
+  const avgScore = auditedScenes.length > 0 ? Math.round(
+    auditedScenes.reduce((sum, s) => sum + (s.qc?.overallScore ?? 0), 0) / auditedScenes.length
+  ) : 0;
   const renderedCount = project.scenes.filter((s) => s.clipUrl).length;
-  const flaggedScenes = project.scenes.filter((s) => (s.qc?.issues?.length ?? 0) > 0 || s.qc?.passed === false);
+  const flaggedScenes = project.scenes.filter((s) => (s.qc?.issues?.length ?? 0) > 0);
 
   const done = (agents: string[]) => agents.some((a) => ['done', 'working', 'thinking', 'retrying'].includes(agentStatuses[a as keyof typeof agentStatuses]));
   const mark = (ok: boolean) => ok;
@@ -58,7 +61,7 @@ export const IdeaJourney: React.FC = () => {
     { id: 'optics', step: 'Camera vectors', agent: 'Cassian Ray', desc: `${project.scenes.length} 6DoF plans`, ok: done(['cinematographer']) },
     { id: 'prompts', step: 'Prompt synthesis', agent: 'Nova Drake', desc: 'Dialogue and Foley embedded', ok: done(['prompt_alchemist']) },
     { id: 'gpu', step: 'GPU generation', agent: 'Render farm', desc: `${renderedCount}/${project.scenes.length} clips rendered`, ok: done(['gpu']) },
-    { id: 'qc', step: 'Quality audit', agent: 'Vesper', desc: retryCount > 0 ? `Avg ${avgScore}/100 · ${retryCount} retries` : `Avg ${avgScore}/100`, ok: done(['auditor']) },
+    { id: 'qc', step: 'Quality audit', agent: 'Vesper', desc: auditedScenes.length > 0 ? (retryCount > 0 ? `Avg ${avgScore}/100 · ${retryCount} retries` : `Avg ${avgScore}/100`) : 'Awaiting first audit', ok: done(['auditor']) },
     { id: 'timeline', step: 'Master reel', agent: 'Julian Cole', desc: project.finalReelUrl ? 'Conform ready in Screening Room' : 'Awaiting conform', ok: project.finalReelUrl ? true : mark(done(['editor'])) },
   ];
 
@@ -72,7 +75,7 @@ export const IdeaJourney: React.FC = () => {
           sub="How the original premise evolved across the departments into rendered frames."
         />
 
-        {/* Audit trail — real interventions only */}
+        {/* Audit trail — real interventions only; silence before the first audit */}
         {flaggedScenes.length > 0 ? (
           <div className="surface-card p-5 space-y-3 border-amber-500/30">
             <p className="kicker flex items-center gap-1.5 !text-amber-300">
@@ -90,10 +93,15 @@ export const IdeaJourney: React.FC = () => {
               ))}
             </div>
           </div>
-        ) : (
+        ) : auditedScenes.length > 0 ? (
           <div className="surface-card px-5 py-3.5 flex items-center gap-2.5 text-[13.5px] text-cinema-mist">
             <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
-            Clean audit trail — every scene passed conform without intervention.
+            Clean audit trail — every reviewed scene passed conform without intervention.
+          </div>
+        ) : (
+          <div className="surface-card px-5 py-3.5 flex items-center gap-2.5 text-[13.5px] text-cinema-faint">
+            <AlertTriangle className="w-4 h-4 shrink-0" />
+            No audits yet — scenes haven't reached Auditor Vesper.
           </div>
         )}
 

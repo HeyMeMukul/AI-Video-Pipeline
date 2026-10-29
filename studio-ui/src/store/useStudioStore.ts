@@ -277,10 +277,37 @@ export const useStudioStore = create<StudioState>((set, get) => ({
         message: `Loaded "${mapped.projectName}" from the studio vault — ${mapped.scenes.length} scenes, live media linked.`,
         severity: 'info',
       };
+      // Replay completed backend stages as done-events so dots, seats,
+      // journey steps and progress reflect the vault truth, not an empty feed.
+      const backendToUi: Array<[string, AgentId, string]> = [
+        ['director', 'director', 'Director'],
+        ['story_breakdown', 'screenplay', 'Screenplay'],
+        ['character_bible', 'character', 'Character'],
+        ['environment_bible', 'world', 'World'],
+        ['cinematography', 'cinematographer', 'Cinematography'],
+        ['prompt_builder', 'prompt_alchemist', 'Prompts'],
+        ['video_generation', 'gpu', 'Render farm'],
+        ['qc', 'auditor', 'Audit'],
+        ['editor', 'editor', 'Edit'],
+      ];
+      const flags: Record<string, boolean> = data?.agents ?? {};
+      const doneEvents: StudioEvent[] = backendToUi
+        .filter(([key]) => flags[key] === true)
+        .map(([key, ui, label], i) => ({
+          id: `loaded-${key}-${Date.now()}`,
+          ts: Date.now() / 1000 + (i + 1) * 0.001,
+          project_id: mapped.projectId,
+          type: 'agent.status' as const,
+          agent: ui,
+          payload: { status: 'done' },
+          message: `${label} locked — recorded in this production.`,
+          severity: 'info' as const,
+        }));
+      const allEvents = [loadedEvent, ...doneEvents];
       set({
         project: mapped,
-        events: [loadedEvent],
-        currentStep: 0,
+        events: allEvents,
+        currentStep: allEvents.length - 1,
         isPlaying: false,
         activeProjectName: mapped.projectName,
       });
