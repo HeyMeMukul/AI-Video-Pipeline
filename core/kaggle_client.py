@@ -227,7 +227,8 @@ subprocess.run([sys.executable, "-m", "pip", "uninstall", "-y", "torchaudio"], c
 
 subprocess.run([
     sys.executable, "-m", "pip", "install", "-q",
-    "diffusers>=0.34.0", "transformers>=4.48.0", "accelerate", "sentencepiece", "protobuf", "imageio-ffmpeg", "scipy", "safetensors", "huggingface_hub"
+    "diffusers>=0.34.0", "transformers>=4.48.0", "accelerate", "sentencepiece", "protobuf", "imageio-ffmpeg", "scipy", "safetensors", "huggingface_hub",
+    "ftfy",
 ], check=True)
 
 import torch

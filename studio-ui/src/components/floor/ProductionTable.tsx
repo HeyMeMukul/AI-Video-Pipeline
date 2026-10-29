@@ -21,7 +21,6 @@ export const ProductionTable: React.FC = () => {
   const setSelectedAgent = useStudioStore((s) => s.setSelectedAgent);
   const project = useStudioStore((s) => s.project);
   const currentStep = useStudioStore((s) => s.currentStep);
-  const totalEvents = useStudioStore((s) => s.events.length);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -57,7 +56,10 @@ export const ProductionTable: React.FC = () => {
   const orbRadius = 48; // ~96px orb
 
   const total = ORDERED_AGENTS.length;
-  const progress = totalEvents === 0 ? 0 : Math.min(100, Math.round(((currentStep + 1) / Math.max(1, totalEvents)) * 100));
+  // Progress reflects departments finished, not feed length (a fresh
+  // load carries one event but zero completed work).
+  const doneCount = ORDERED_AGENTS.filter((id) => agentStatuses[id] === 'done').length;
+  const progress = Math.round((doneCount / Math.max(1, total)) * 100);
 
   const activeAgentId = ORDERED_AGENTS.find(
     (id) => agentStatuses[id] === 'working' || agentStatuses[id] === 'thinking'

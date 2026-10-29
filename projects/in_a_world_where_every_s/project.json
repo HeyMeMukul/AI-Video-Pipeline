@@ -2,7 +2,7 @@
   "project_id": "93fd3292",
   "project_name": "in_a_world_where_every_s",
   "created_at": "2026-10-29T03:39:18.943900+00:00",
-  "updated_at": "2026-10-29T03:39:18.944508+00:00",
+  "updated_at": "2026-10-29T03:46:40.120949+00:00",
   "story": "In a world where every star had disappeared from the sky, a tiny robot named Leo found one last glowing star buried beneath the ruins of an abandoned city.\n\nThe star was dying.\n\nAn ancient message appeared on Leo's screen:\n\n\"Return me to the sky, and the world will live again.\"\n\nLeo began climbing the tallest tower, protecting the fragile light from the freezing wind and falling debris.\n\nJust as he reached the top, his battery dropped to 1%.\n\nWith his final remaining energy, Leo threw the star into the sky.\n\nThe entire universe lit up.\n\nFlowers bloomed across the dead city. Rivers began flowing again. Birds returned.\n\nAnd as the first sunrise touched the world, Leo's eyes slowly went dark.\n\nBut high above, one tiny star began to blink.\n\nIt was shaped exactly like Leo's eyes.\n\nPerhaps, even in the end, he was still watching over the world.",
   "target_duration_seconds": 30,
   "platform": "cinematic",
@@ -10,22 +10,308 @@
   "style": "Cinematic Realism, Atmospheric Lighting",
   "tone": "hyper-kinetic, intense, propulsive",
   "director_notes": {
-    "visual_style": "Cinematic Realism, Atmospheric Lighting",
-    "camera_style": "",
-    "lighting": "",
-    "editing": "",
-    "music": "",
-    "style_lock": "Cinematic Realism, Atmospheric Lighting",
+    "visual_style": "Cinematic realism with a desaturated, muted palette dominated by deep blues and greys, punctuated by the warm, ethereal glow of the star. High contrast with deep, inky blacks and sharp, defined highlights. A subtle, almost imperceptible film grain akin to 35mm stock.",
+    "camera_style": "The camera acts as a 'Relentless Pursuer,' employing a slow, deliberate, yet constant push-in on Leo and the star. Eye-level framing primarily, with occasional low-angle shots emphasizing the scale of the tower. Use of 50mm and 85mm lenses to maintain focus on Leo and the star, with artful bokeh to isolate them from the desolate environment. No rapid pans or zooms.",
+    "lighting": "Motivated by the dying star's faint light and the harsh, cold ambient light of a perpetually twilight, ruined city. Side-lighting and back-lighting will sculpt Leo's form, creating a sense of isolation and vulnerability. Heavy volumetric dust motes and a chilling, pervasive mist will be present, obscuring distant details and enhancing the desolation. Color temperature will lean towards a cold 5000K, with the star emitting a stark, warm 3000K.",
+    "editing": "Propulsive and intense, with cuts ranging from 2-4 seconds during moments of action (climbing, debris falling) and lingering holds of 5-7 seconds during moments of emotional weight (Leo reaching the top, the star being thrown). Smooth, almost imperceptible 0.3s cross-dissolve transitions to maintain the hyper-kinetic feel without jarring the viewer.",
+    "music": "Tempo BPM: 130-140. Emotional Mood Pair: Desperate Urgency, Melancholy Hope. Primary Instruments: Pulsating synths, driving orchestral strings, sparse, echoing piano. Texture: Dense, layered, building intensity. Dynamic Arc: Starts with a low, anxious hum, builds to a powerful, soaring crescendo, and fades to a single, lingering resonant note.",
+    "style_lock": "Gritty post-apocalyptic realism, desaturated cool blues and greys with warm star highlights, 5000K cold ambient light with volumetric dust motes, 35mm film grain texture, hyper-detailed photorealism.",
     "avoid": [
-      "morphing hands",
-      "camera jitter",
-      "logo watermark",
-      "blurry limbs"
+      "fast chaotic motion blur",
+      "rapid camera whip pans or zooms",
+      "multiple characters interacting simultaneously",
+      "morphing objects or shifting clothing colors",
+      "burned-out highlights or muddy, undefined shadows",
+      "text overlays or watermarks within the video frame",
+      "extra limbs or distorted robot anatomy",
+      "sudden shifts in environment or weather",
+      "bright, saturated, cartoon-like colors",
+      "unwanted additional characters appearing in frame",
+      "blown-out unnatural digital highlights and pixel noise"
     ]
   },
-  "characters": {},
-  "locations": {},
-  "scenes": [],
+  "characters": {
+    "robot_leo": {
+      "character_id": "robot_leo",
+      "name": "Leo",
+      "type": "tiny weathered bipedal utility robot",
+      "body": "Stocky rounded torso with pale-yellow enameled plating over dark rusted cast-iron framework, short thick articulated legs with wide flat stabilizing feet, and delicate three-pronged magnetic manipulator hands",
+      "height": "toddler-sized (approximately 2.5 feet tall)",
+      "face": "Recessed square CRT monitor visor behind thick scratched curved glass, displaying two softly glowing warm amber-gold four-pointed star-shaped LED eyes, faint horizontal scanline texture, completely devoid of mouth or nose",
+      "clothing_or_accessories": "Permanent heavy cylindrical battery canister mounted on rear chassis with a faint red digital battery readout bar and coiled braided copper cables, a thin brass curved whip antenna angled over the left shoulder",
+      "personality": "deliberate and expressive",
+      "visual_keywords": [
+        "tiny utility robot Leo",
+        "four-pointed star amber LED eyes",
+        "chipped mustard yellow iron chassis",
+        "cylindrical battery backpack with conduits",
+        "hunched protective silhouette"
+      ],
+      "negative_constraints": [
+        "no human organic face or skin",
+        "no circular or standard round camera eyes",
+        "no sleek glossy showroom chrome or clean plastic",
+        "no tall elongated proportions or combat weapon limbs",
+        "no blue or green eye LEDs, strictly warm amber star shapes",
+        "no changing appearance of Leo",
+        "no extra limbs or floating anatomy",
+        "no distorted facial features"
+      ],
+      "prompt_block": "same tiny weathered bipedal utility robot named Leo, toddler-sized 2.5-foot stocky frame with rounded pale-yellow and rusted iron plating and delicate mechanical hands, recessed square glass monitor visor displaying two glowing warm amber-gold four-pointed star-shaped LED eyes, oversized cylindrical battery backpack with exposed copper cables and curved left-shoulder brass antenna, heavily chipped industrial mustard paint with oxidized rust edges and frost dusting, gentle hunched protective posture, photorealistic gritty tactile metal textures."
+    }
+  },
+  "locations": {
+    "overgrown_tower_rooftop": {
+      "location_id": "overgrown_tower_rooftop",
+      "name": "Overgrown Tower Spire at Dawn",
+      "time_of_day": "peaceful early golden dawn",
+      "weather": "crisp gentle morning mist and calm air",
+      "lighting": "Warm low-angle 3000K golden sunrise light breaking through soft 5000K morning haze with soft diffuse shadows",
+      "color_palette": "golden amber, soft moss green, slate blue grey",
+      "key_elements": [
+        "weathered concrete spire rooftop platform",
+        "vibrant freshly blooming wildflowers and thick moss layers",
+        "ancient rusted steel antenna draped in delicate climbing vines",
+        "cracked concrete surface tiles sprouted with green shoots"
+      ],
+      "style_keywords": [
+        "post-apocalyptic regrowth",
+        "serene golden hour dawn",
+        "warm 3000K light filter",
+        "subtle volumetric morning mist",
+        "cinematic photorealism"
+      ],
+      "prompt_block": "Overgrown brutalist tower rooftop platform, peaceful early golden dawn with soft crisp morning mist, warm low-angle 3000K golden sunrise light filtering through soft 5000K blue haze, lush freshly blooming wildflowers and thick vibrant green moss covering cracked concrete tiles, rusted ancient steel antenna draped in delicate vines, gentle floating morning dust motes in calm hopeful atmosphere."
+    },
+    "ruined_city_street": {
+      "location_id": "ruined_city_street",
+      "name": "Ruined City Street at Twilight",
+      "time_of_day": "perpetual icy twilight",
+      "weather": "freezing air and chilling pervasive mist",
+      "lighting": "Cool 5000K ambient side-lighting with deep harsh shadows, punctuated by a soft 3000K warm golden core glow from beneath frozen ground",
+      "color_palette": "desaturated slate blue, deep icy grey, warm ember gold",
+      "key_elements": [
+        "shattered monolithic concrete foundation blocks",
+        "cracked asphalt buried under layers of frozen blue dust",
+        "exposed rusted rebar protruding from crumbling debris",
+        "distorted metal chassis half-buried in frozen rubble"
+      ],
+      "style_keywords": [
+        "gritty post-apocalyptic realism",
+        "desaturated cool blues",
+        "5000K cold ambient light",
+        "volumetric frost mist",
+        "hyper-detailed photorealism"
+      ],
+      "prompt_block": "Ruined post-apocalyptic city street with shattered concrete monoliths, perpetual icy twilight with chilling pervasive mist, cold low-angle 5000K side-lighting casting deep harsh shadows with faint 3000K golden glow from beneath frozen ground, cracked asphalt buried under layers of frozen blue dust and twisted rusted rebar debris, dense volumetric dust motes suspended in freezing air with eerie silent atmosphere."
+    },
+    "tower_rooftop": {
+      "location_id": "tower_rooftop",
+      "name": "Tower Spire Rooftop Summit",
+      "time_of_day": "dark tempest twilight",
+      "weather": "swirling dark storm clouds and gale-force chilling wind",
+      "lighting": "Cold 5000K ambient rim-lighting from tempest sky combined with intense upward-radiating 3000K warm golden radiance",
+      "color_palette": "stormy navy blue, charcoal grey, intense luminous gold",
+      "key_elements": [
+        "high-altitude concrete spire summit platform",
+        "skeletal rusted communications tower array",
+        "weather-worn industrial lightning rods",
+        "cracked stone perimeter ledge overlooking ruined cityscape"
+      ],
+      "style_keywords": [
+        "dramatic post-apocalyptic spire",
+        "high contrast 5000K and 3000K lighting",
+        "volumetric storm mist",
+        "cinematic climax setting",
+        "photorealistic textures"
+      ],
+      "prompt_block": "High-altitude brutalist spire platform rooftop, dark turbulent storm sky with swirling clouds and gale-force wind, cold 5000K back-lighting along edge with intense warm 3000K golden radiance illuminating center, rusted industrial communications tower arrays, weathered lightning rods, cracked concrete edge overlooking vast mist-shrouded ruined cityscape, dense swirling storm mist and dramatic volumetric atmosphere."
+    },
+    "tower_staircase": {
+      "location_id": "tower_staircase",
+      "name": "Crumbling Tower Staircase",
+      "time_of_day": "stormy freezing twilight",
+      "weather": "howling freezing wind drafts and airborne particulates",
+      "lighting": "Stark 5000K cold top-down skylight filtering through exposed concrete gaps, high contrast back-lighting with deep inky shadows",
+      "color_palette": "muted steel grey, desaturated indigo, pale bone white",
+      "key_elements": [
+        "brutalist concrete staircase with missing structural steps",
+        "exposed industrial steel reinforcement grid",
+        "broken exterior structural concrete walls open to the sky",
+        "tangled weathered cables dangling from concrete ceiling beams"
+      ],
+      "style_keywords": [
+        "brutalist post-apocalyptic architecture",
+        "cold 5000K directional light",
+        "high contrast inky shadows",
+        "volumetric windborne dust",
+        "cinematic realism"
+      ],
+      "prompt_block": "Crumbling brutalist concrete tower staircase open to the elements, stormy dark twilight with howling freezing drafts, stark 5000K cold top-down ambient light cutting through wall gaps with deep inky shadows, sheer drop-offs with missing concrete steps, exposed rusted steel rebar and dangling industrial cables, dense swirling volumetric dust particles and windborne debris suspended in atmospheric freezing air."
+    }
+  },
+  "scenes": [
+    {
+      "scene_id": 1,
+      "duration_seconds": 7,
+      "story_beat": "Robot Leo (Subject) unearths a softly pulsating golden star (Verb) beneath frozen blue dust and cold ruined concrete debris (Atmosphere & Location) with quiet, reverent wonder (Emotion).",
+      "emotion": "mysterious",
+      "location_id": "ruined_city_street",
+      "character_ids": [
+        "robot_leo"
+      ],
+      "camera": {
+        "scene_id": 1,
+        "shot_type": "medium close-up",
+        "camera_angle": "eye-level",
+        "camera_movement": "slow push-in",
+        "lens": "50mm standard prime lens",
+        "lighting": "Motivated by the dying star's faint light and the harsh, cold ambient light of a perpetually twilight, ruined city. Side-lighting and back-lighting will sculpt Leo's form, creating a sense of isolation and vulnerability. Heavy volumetric dust motes and a chilling, pervasive mist will be present, obscuring distant details and enhancing the desolation. Color temperature will lean towards a cold 5000K, with the star emitting a stark, warm 3000K.",
+        "composition": "Robot Leo's hands and the glowing star are the primary focus, occupying the center of the frame. The ruined concrete and frozen dust are visible in soft focus in the foreground and background.",
+        "focus": "Sharp focus on the pulsating star and Leo's weathered metallic hands, background elements are softly diffused.",
+        "motion_intensity": "low",
+        "motion_score": 0.45,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.35,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium close-up, slow push-in. Robot Leo (Subject) unearths a softly pulsating golden star (Verb) beneath frozen blue dust and cold ruined concrete debris (Atmosphere & Location) with quiet, reverent wonder (Emotion). Leo (tiny weathered bipedal utility robot) wearing Permanent heavy cylindrical battery canister mounted on rear. Setting: Ruined City Street at Twilight. Lighting: Motivated by the dying star's faint light and the harsh, cold ambient light of a perpetually twilight, ruined city. Side-lighting and back-lighting will sculpt Leo's form, creating a sense of isolation and vulnerability. Heavy volumetric dust motes and a chilling, pervasive mist will be present, obscuring distant details and enhancing the desolation. Color temperature will lean towards a cold 5000K, with the star emitting a stark, warm 3000K. 50mm standard prime lens, shallow depth of field, 16:9 widescreen cinematic composition, Gritty post-apocalyptic realism, desaturated cool blues and greys with warm star highlights, 5000K cold ambient light with volumetric dust motes, 35mm film grain texture, hyper-detailed photorealism.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 2,
+      "duration_seconds": 8,
+      "story_beat": "Robot Leo (Subject) ascends a crumbling concrete staircase (Verb) through howling freezing winds and floating volumetric dust particles (Atmosphere & Location) with grim, desperate determination (Emotion).",
+      "emotion": "tense",
+      "location_id": "tower_staircase",
+      "character_ids": [
+        "robot_leo"
+      ],
+      "camera": {
+        "scene_id": 2,
+        "shot_type": "medium shot",
+        "camera_angle": "low angle",
+        "camera_movement": "slow push-in",
+        "lens": "35mm cinema prime lens",
+        "lighting": "Stark 5000K cold top-down skylight filtering through exposed concrete gaps, high contrast back-lighting with deep inky shadows. Motivated by the dying star's faint light and the harsh, cold ambient light of a perpetually twilight, ruined city. Side-lighting and back-lighting will sculpt Leo's form, creating a sense of isolation and vulnerability. Heavy volumetric dust motes and a chilling, pervasive mist will be present, obscuring distant details and enhancing the desolation. Color temperature will lean towards a cold 5000K, with the star emitting a stark, warm 3000K.",
+        "composition": "Robot Leo ascends the staircase, framed from a low angle to emphasize the imposing, crumbling structure. The howling winds and dust particles are visible, creating a sense of struggle.",
+        "focus": "Sharp focus on Robot Leo's determined posture and movement, the crumbling concrete of the stairs is in sharp focus, dust motes are softly visible.",
+        "motion_intensity": "medium",
+        "motion_score": 0.6,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.35,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium shot, slow push-in. Robot Leo (Subject) ascends a crumbling concrete staircase (Verb) through howling freezing winds and floating volumetric dust particles (Atmosphere & Location) with grim, desperate determination (Emotion). Leo (tiny weathered bipedal utility robot) wearing Permanent heavy cylindrical battery canister mounted on rear. Setting: Crumbling Tower Staircase. Lighting: Stark 5000K cold top-down skylight filtering through exposed concrete gaps, high contrast back-lighting with deep inky shadows. Motivated by the dying star's faint light and the harsh, cold ambient light of a perpetually twilight, ruined city. Side-lighting and back-lighting will sculpt Leo's form, creating a sense of isolation and vulnerability. Heavy volumetric dust motes and a chilling, pervasive mist will be present, obscuring distant details and enhancing the desolation. Color temperature will lean towards a cold 5000K, with the star emitting a stark, warm 3000K. 35mm cinema prime lens, shallow depth of field, 16:9 widescreen cinematic composition, Gritty post-apocalyptic realism, desaturated cool blues and greys with warm star highlights, 5000K cold ambient light with volumetric dust motes, 35mm film grain texture, hyper-detailed photorealism.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 3,
+      "duration_seconds": 7,
+      "story_beat": "Robot Leo (Subject) thrusts the glowing star skyward (Verb) against dark swirling storm clouds atop the towering spire (Atmosphere & Location) with intense, triumphant sacrifice (Emotion).",
+      "emotion": "triumphant",
+      "location_id": "tower_rooftop",
+      "character_ids": [
+        "robot_leo"
+      ],
+      "camera": {
+        "scene_id": 3,
+        "shot_type": "medium close-up",
+        "camera_angle": "low angle",
+        "camera_movement": "slow pull-back",
+        "lens": "85mm portrait prime lens",
+        "lighting": "Cold 5000K ambient rim-lighting from tempest sky combined with intense upward-radiating 3000K warm golden radiance. Motivated by the dying star's faint light and the harsh, cold ambient light of a perpetually twilight, ruined city. Side-lighting and back-lighting will sculpt Leo's form, creating a sense of isolation and vulnerability. Heavy volumetric dust motes and a chilling, pervasive mist will be present, obscuring distant details and enhancing the desolation. Color temperature will lean towards a cold 5000K, with the star emitting a stark, warm 3000K.",
+        "composition": "Robot Leo thrusts the star skyward, with the dark swirling storm clouds filling the upper frame. The upward radiance of the star is prominent.",
+        "focus": "Sharp focus on the star and Robot Leo's raised arms, the storm clouds are softly diffused, creating a dramatic backdrop.",
+        "motion_intensity": "low",
+        "motion_score": 0.45,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -0.35,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium close-up, slow pull-back. Robot Leo (Subject) thrusts the glowing star skyward (Verb) against dark swirling storm clouds atop the towering spire (Atmosphere & Location) with intense, triumphant sacrifice (Emotion). Leo (tiny weathered bipedal utility robot) wearing Permanent heavy cylindrical battery canister mounted on rear. Setting: Tower Spire Rooftop Summit. Lighting: Cold 5000K ambient rim-lighting from tempest sky combined with intense upward-radiating 3000K warm golden radiance. Motivated by the dying star's faint light and the harsh, cold ambient light of a perpetually twilight, ruined city. Side-lighting and back-lighting will sculpt Leo's form, creating a sense of isolation and vulnerability. Heavy volumetric dust motes and a chilling, pervasive mist will be present, obscuring distant details and enhancing the desolation. Color temperature will lean towards a cold 5000K, with the star emitting a stark, warm 3000K. 85mm portrait prime lens, shallow depth of field, 16:9 widescreen cinematic composition, Gritty post-apocalyptic realism, desaturated cool blues and greys with warm star highlights, 5000K cold ambient light with volumetric dust motes, 35mm film grain texture, hyper-detailed photorealism.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    },
+    {
+      "scene_id": 4,
+      "duration_seconds": 8,
+      "story_beat": "Robot Leo (Subject) slumps peacefully motionless (Verb) as golden sunrise light touches freshly blooming flowers around him (Atmosphere & Location) with quiet, eternal hope (Emotion).",
+      "emotion": "hopeful",
+      "location_id": "overgrown_tower_rooftop",
+      "character_ids": [
+        "robot_leo"
+      ],
+      "camera": {
+        "scene_id": 4,
+        "shot_type": "medium shot",
+        "camera_angle": "eye-level",
+        "camera_movement": "static",
+        "lens": "35mm cinema prime lens",
+        "lighting": "Warm low-angle 3000K golden sunrise light breaking through soft 5000K morning haze with soft diffuse shadows. Motivated by the dying star's faint light and the harsh, cold ambient light of a perpetually twilight, ruined city. Side-lighting and back-lighting will sculpt Leo's form, creating a sense of isolation and vulnerability. Heavy volumetric dust motes and a chilling, pervasive mist will be present, obscuring distant details and enhancing the desolation. Color temperature will lean towards a cold 5000K, with the star emitting a stark, warm 3000K.",
+        "composition": "Robot Leo is motionless, surrounded by blooming flowers. The golden sunrise light bathes the scene, creating a sense of peace and renewal.",
+        "focus": "Sharp focus on Robot Leo and the blooming flowers, the background haze is softly diffused.",
+        "motion_intensity": "low",
+        "motion_score": 0.3,
+        "camera_vector": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": 0.0
+        }
+      },
+      "dialogue": "",
+      "voice_emotion": "",
+      "audio_cues": "",
+      "video_prompt": "medium shot, static. Robot Leo (Subject) slumps peacefully motionless (Verb) as golden sunrise light touches freshly blooming flowers around him (Atmosphere & Location) with quiet, eternal hope (Emotion). Leo (tiny weathered bipedal utility robot) wearing Permanent heavy cylindrical battery canister mounted on rear. Setting: Overgrown Tower Spire at Dawn. Lighting: Warm low-angle 3000K golden sunrise light breaking through soft 5000K morning haze with soft diffuse shadows. Motivated by the dying star's faint light and the harsh, cold ambient light of a perpetually twilight, ruined city. Side-lighting and back-lighting will sculpt Leo's form, creating a sense of isolation and vulnerability. Heavy volumetric dust motes and a chilling, pervasive mist will be present, obscuring distant details and enhancing the desolation. Color temperature will lean towards a cold 5000K, with the star emitting a stark, warm 3000K. 35mm cinema prime lens, shallow depth of field, 16:9 widescreen cinematic composition, Gritty post-apocalyptic realism, desaturated cool blues and greys with warm star highlights, 5000K cold ambient light with volumetric dust motes, 35mm film grain texture, hyper-detailed photorealism.",
+      "reference_image_path": "",
+      "clip_path": "",
+      "qc_passed": null,
+      "qc_score": null,
+      "qc_issues": [],
+      "regeneration_count": 0
+    }
+  ],
   "audio_plan": null,
   "project_dir": "/home/cyb3rfy/AI-Video/projects/in_a_world_where_every_s",
   "references_dir": "/home/cyb3rfy/AI-Video/projects/in_a_world_where_every_s/references",
@@ -35,13 +321,13 @@
   "output_dir": "/home/cyb3rfy/AI-Video/projects/in_a_world_where_every_s/output",
   "final_reel_path": "",
   "agents": {
-    "director": false,
-    "story_breakdown": false,
-    "character_bible": false,
-    "environment_bible": false,
+    "director": true,
+    "story_breakdown": true,
+    "character_bible": true,
+    "environment_bible": true,
     "reference_images": false,
-    "cinematography": false,
-    "prompt_builder": false,
+    "cinematography": true,
+    "prompt_builder": true,
     "video_generation": false,
     "qc": false,
     "audio": false,
