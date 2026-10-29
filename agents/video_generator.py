@@ -189,7 +189,13 @@ class VideoGeneratorAgent:
         return None
 
     def _build_keyframe_prompt(self, state: ProjectState, scene: Scene) -> str:
-        """Constructs an ultra-crisp master plate prompt for SDXL-Lightning on GPU."""
+        """Constructs an ultra-crisp master plate prompt for SDXL-Lightning on GPU.
+
+        SDXL's CLIP encoders only read the first ~77 tokens, so the prompt
+        is budgeted to ~55 words with subject, style and composition first —
+        lighting and finish details that used to be silently truncated now
+        survive. (The video stage uses Wan's T5 encoder and is unaffected.)
+        """
         char_desc = ""
         for cid in scene.character_ids:
             char = state.get_character(cid)
@@ -216,5 +222,10 @@ class VideoGeneratorAgent:
             "pristine keyframe plate, high fidelity, sharp focus, cinema grade finish"
         ])
 
-        return ". ".join(p.strip().rstrip(".") for p in prompt_elements if p) + "."
+        full = ". ".join(p.strip().rstrip(".") for p in prompt_elements if p) + "."
+        # CLIP budget: ~55 words so nothing important is truncated away
+        words = full.split()
+        if len(words) > 55:
+            full = " ".join(words[:55]).rstrip(".") + "."
+        return full
 
