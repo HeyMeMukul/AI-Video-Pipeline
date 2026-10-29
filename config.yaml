@@ -91,8 +91,8 @@ video:
 # Image Generation (reference frames)
 # ─────────────────────────────────────────────
 image:
-  provider: fal                       # fal | replicate | imagen | stability | dalle | huggingface
-  model: fal-ai/flux/schnell          # FLUX Schnell — fast, cheap, professional quality
+  provider: gemini                      # gemini | fal | replicate | imagen | stability | dalle | huggingface
+  model: gemini-2.5-flash-image         # Gemini native image gen — free tier, photoreal plates
   style: "cinematic, photorealistic"
 
   # Free alternative

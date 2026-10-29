@@ -334,10 +334,12 @@ if len(plate_paths) == len(scenes) and scenes:
             from diffusers import WanVACEPipeline, AutoencoderKLWan
         from diffusers.schedulers.scheduling_unipc_multistep import UniPCMultistepScheduler
 
-        print("Loading Wan VACE 1.3B (I2V) + fp32 VAE...", flush=True)
+        print("Loading Wan VACE 1.3B (I2V, bf16 VAE for 14GB T4)...", flush=True)
         _vae = AutoencoderKLWan.from_pretrained(
-            "Wan-AI/Wan2.1-VACE-1.3B-diffusers", subfolder="vae", torch_dtype=torch.float32
+            "Wan-AI/Wan2.1-VACE-1.3B-diffusers", subfolder="vae", torch_dtype=torch.bfloat16
         )
+        if hasattr(_vae, "enable_tiling"):
+            _vae.enable_tiling()
         pipe = WanVACEPipeline.from_pretrained(
             "Wan-AI/Wan2.1-VACE-1.3B-diffusers", vae=_vae, torch_dtype=torch.bfloat16,
         )
@@ -345,8 +347,15 @@ if len(plate_paths) == len(scenes) and scenes:
         if torch.cuda.is_available():
             try:
                 pipe.enable_model_cpu_offload()
-            except Exception:
-                pipe.to(device)
+                print("VACE memory mode: chunked CPU offload", flush=True)
+            except Exception as off_err:
+                print(f"Chunked offload unavailable ({{off_err}}) — trying sequential offload...", flush=True)
+                try:
+                    pipe.enable_sequential_cpu_offload()
+                    print("VACE memory mode: sequential CPU offload (slower, leaner)", flush=True)
+                except Exception as seq_err:
+                    print(f"Sequential offload failed ({{seq_err}}) — full GPU placement (OOM risk)...", flush=True)
+                    pipe.to(device)
         video_engine = "vace"
         print("✅ Wan VACE 1.3B I2V pipeline loaded successfully!", flush=True)
     except Exception as vace_err:
@@ -569,37 +578,12 @@ if torch.cuda.is_available():
 print("Phase 2 complete! GPU VRAM cleared for Audio Engine.", flush=True)
 
 # ==============================================================================
-# PHASE 3: AudioLDM (Free AI Foley & Soundscapes on GPU)
+# PHASE 3: retired — no separate audio by design. Dialogue and ambience stay
+# baked into the clip prompts; reels conform silent. No TTS/dub pass.
 # ==============================================================================
-print("=== Phase 3: Generating AI Sound Design via AudioLDM ===", flush=True)
-try:
-    from diffusers import AudioLDMPipeline
-    audio_pipe = AudioLDMPipeline.from_pretrained(
-        "cvssp/audioldm-s-full-v2",
-        torch_dtype=torch.float16,
-    )
-    if torch.cuda.is_available():
-        audio_pipe.to(device)
+print("=== Phase 3: skipped (no separate audio by design) ===", flush=True)
 
-    for sc in scenes:
-        sc_id = sc["scene_id"]
-        sfx_prompt = sc.get("sfx_prompt") or f"Cinematic luxury commercial sound design, {{sc.get('prompt', '')[:80]}}, high fidelity"
-        duration_s = float(sc.get("duration", 5))
-        print(f"🔊 Generating AI Foley for Scene {{sc_id:02d}}: {{sfx_prompt[:100]}}...", flush=True)
-        with torch.inference_mode():
-            audio = audio_pipe(
-                prompt=sfx_prompt,
-                num_inference_steps=20,
-                audio_length_in_s=duration_s,
-            ).audios[0]
-        out_sfx = os.path.join(out_dir, f"scene_{{sc_id:02d}}_sfx.wav")
-        scipy.io.wavfile.write(out_sfx, rate=16000, data=audio)
-        print(f"✅ Scene {{sc_id:02d}} SFX saved to {{out_sfx}}", flush=True)
-
-except Exception as e:
-    print(f"AudioLDM sound generation notice: {{e}}", flush=True)
-
-print("=== All Video, Image Plates & Audio Foley Generated Successfully! ===", flush=True)
+print("=== All Video & Image Plates Generated Successfully! ===", flush=True)
 """
 
 

@@ -37,7 +37,7 @@ class ImageClient:
         self._client = self._init_client()
 
     def _init_client(self):
-        if self.provider == "imagen":
+        if self.provider in ("imagen", "gemini"):
             try:
                 from google import genai as google_genai  # type: ignore
                 api_key = (
@@ -84,6 +84,13 @@ class ImageClient:
                 return self._dalle_generate(prompt, output_path)
             except Exception as e:
                 print(f"[ImageClient] DALL-E failed ({e}), falling back to Pollinations AI...")
+
+        # 1b. Gemini native image generation (free tier — same GOOGLE_API_KEY)
+        if self.provider == "gemini" and self._client:
+            try:
+                return self._gemini_generate(prompt, output_path, aspect_ratio)
+            except Exception as e:
+                print(f"[ImageClient] Gemini image failed ({e}), falling back to Pollinations AI...")
 
         # 2. Free AI generation via Pollinations
         try:
@@ -147,6 +154,35 @@ class ImageClient:
         output_path.write_bytes(image_data)
         print(f"[ImageClient] Saved: {output_path}")
         return str(output_path)
+
+    # ─────────────────────────────────────────────────────────
+    # Gemini native image generation (free tier via GOOGLE_API_KEY)
+    # ─────────────────────────────────────────────────────────
+
+    def _gemini_generate(self, prompt: str, output_path: Path, aspect_ratio: str) -> str:
+        """Gemini 2.5 Flash Image — photoreal plates on the free tier."""
+        from google.genai import types as gtypes  # type: ignore
+
+        model = self.model if ("gemini" in self.model and "image" in self.model) else "gemini-2.5-flash-image"
+        ar = aspect_ratio if aspect_ratio in (
+            "1:1", "2:3", "3:2", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9",
+        ) else "9:16"
+
+        resp = self._client.models.generate_content(
+            model=model,
+            contents=[prompt],
+            config=gtypes.GenerateContentConfig(
+                response_modalities=["IMAGE"],
+                image_config=gtypes.ImageConfig(aspect_ratio=ar),
+            ),
+        )
+        for part in resp.candidates[0].content.parts:
+            blob = getattr(part, "inline_data", None)
+            if blob and blob.data:
+                output_path.write_bytes(blob.data)
+                print(f"[ImageClient] Saved Gemini image: {output_path} ({len(blob.data)} bytes)")
+                return str(output_path)
+        raise RuntimeError("Gemini returned no image data (possibly safety-filtered).")
 
     # ─────────────────────────────────────────────────────────
     # DALL-E
